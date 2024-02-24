@@ -18,6 +18,8 @@
 		176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761522B8A8CE4001EC050 /* FeedTab.swift */; };
 		176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761542B8A8CEF001EC050 /* DiaryEntry.swift */; };
 		176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761562B8A8CFB001EC050 /* NewsComponent.swift */; };
+		1767615A2B8AA267001EC050 /* diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* diary.swift */; };
+		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		176761522B8A8CE4001EC050 /* FeedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTab.swift; sourceTree = "<group>"; };
 		176761542B8A8CEF001EC050 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
 		176761562B8A8CFB001EC050 /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
+		176761592B8AA267001EC050 /* diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diary.swift; sourceTree = "<group>"; };
+		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
+				176761582B8AA24B001EC050 /* util */,
 				1767614B2B8A8CB1001EC050 /* components */,
 				1767614A2B8A8CA9001EC050 /* views */,
 				176761242B8A8018001EC050 /* Assets.xcassets */,
@@ -142,6 +147,7 @@
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
 				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
 				176761522B8A8CE4001EC050 /* FeedTab.swift */,
+				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -153,6 +159,14 @@
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		176761582B8AA24B001EC050 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				176761592B8AA267001EC050 /* diary.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +303,9 @@
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
+				1767615A2B8AA267001EC050 /* diary.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
+				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
