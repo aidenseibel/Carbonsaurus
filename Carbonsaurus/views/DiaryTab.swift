@@ -13,7 +13,7 @@ struct DiaryTab: View {
             ZStack {
                 Color.blue.opacity(0.30)
                     .ignoresSafeArea()
-                ScrollView{
+                ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
                         Text("diary")
                             .bold()
