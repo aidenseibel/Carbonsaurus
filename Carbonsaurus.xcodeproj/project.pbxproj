@@ -14,6 +14,11 @@
 		176761322B8A8018001EC050 /* CarbonsaurusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761312B8A8018001EC050 /* CarbonsaurusTests.swift */; };
 		1767613C2B8A8018001EC050 /* CarbonsaurusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767613B2B8A8018001EC050 /* CarbonsaurusUITests.swift */; };
 		1767613E2B8A8018001EC050 /* CarbonsaurusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767613D2B8A8018001EC050 /* CarbonsaurusUITestsLaunchTests.swift */; };
+		1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767614C2B8A8CC6001EC050 /* ProfileTab.swift */; };
+		1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767614E2B8A8CD0001EC050 /* DiaryTab.swift */; };
+		176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761522B8A8CE4001EC050 /* FeedTab.swift */; };
+		176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761542B8A8CEF001EC050 /* DiaryEntry.swift */; };
+		176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761562B8A8CFB001EC050 /* NewsComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		176761372B8A8018001EC050 /* CarbonsaurusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonsaurusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1767613B2B8A8018001EC050 /* CarbonsaurusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusUITests.swift; sourceTree = "<group>"; };
 		1767613D2B8A8018001EC050 /* CarbonsaurusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1767614C2B8A8CC6001EC050 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
+		1767614E2B8A8CD0001EC050 /* DiaryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTab.swift; sourceTree = "<group>"; };
+		176761522B8A8CE4001EC050 /* FeedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTab.swift; sourceTree = "<group>"; };
+		176761542B8A8CEF001EC050 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		176761562B8A8CFB001EC050 /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,8 @@
 			children = (
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
 				176761222B8A8017001EC050 /* ContentView.swift */,
+				1767614B2B8A8CB1001EC050 /* components */,
+				1767614A2B8A8CA9001EC050 /* views */,
 				176761242B8A8018001EC050 /* Assets.xcassets */,
 				176761262B8A8018001EC050 /* Preview Content */,
 			);
@@ -125,6 +137,25 @@
 				1767613D2B8A8018001EC050 /* CarbonsaurusUITestsLaunchTests.swift */,
 			);
 			path = CarbonsaurusUITests;
+			sourceTree = "<group>";
+		};
+		1767614A2B8A8CA9001EC050 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
+				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
+				176761522B8A8CE4001EC050 /* FeedTab.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		1767614B2B8A8CB1001EC050 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				176761542B8A8CEF001EC050 /* DiaryEntry.swift */,
+				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +288,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */,
+				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
+				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
+				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
 				176761232B8A8017001EC050 /* ContentView.swift in Sources */,
+				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
