@@ -9,7 +9,23 @@ import SwiftUI
 
 struct DiaryTab: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            ZStack {
+                Color.blue.opacity(0.30)
+                    .ignoresSafeArea()
+                ScrollView{
+                    VStack(alignment: .leading){
+                        Text("diary")
+                            .bold()
+                            .font(.system(size: 42))
+                        ForEach(1..<5, id: \.self){_ in
+                            DiaryEntry()
+                        }
+                    }
+                }
+                .frame(width: UIScreen.main.bounds.width * 0.90)
+            }
+        }
     }
 }
 

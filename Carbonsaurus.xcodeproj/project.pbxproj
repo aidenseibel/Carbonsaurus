@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761202B8A8017001EC050 /* CarbonsaurusApp.swift */; };
-		176761232B8A8017001EC050 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761222B8A8017001EC050 /* ContentView.swift */; };
 		176761252B8A8018001EC050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761242B8A8018001EC050 /* Assets.xcassets */; };
 		176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761272B8A8018001EC050 /* Preview Assets.xcassets */; };
 		176761322B8A8018001EC050 /* CarbonsaurusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761312B8A8018001EC050 /* CarbonsaurusTests.swift */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		1767611D2B8A8017001EC050 /* Carbonsaurus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbonsaurus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176761202B8A8017001EC050 /* CarbonsaurusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusApp.swift; sourceTree = "<group>"; };
-		176761222B8A8017001EC050 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		176761242B8A8018001EC050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		176761272B8A8018001EC050 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1767612D2B8A8018001EC050 /* CarbonsaurusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarbonsaurusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
-				176761222B8A8017001EC050 /* ContentView.swift */,
 				1767614B2B8A8CB1001EC050 /* components */,
 				1767614A2B8A8CA9001EC050 /* views */,
 				176761242B8A8018001EC050 /* Assets.xcassets */,
@@ -292,7 +289,6 @@
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
-				176761232B8A8017001EC050 /* ContentView.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 			);
@@ -458,6 +454,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
+				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -465,6 +462,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +485,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
+				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -493,6 +493,8 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

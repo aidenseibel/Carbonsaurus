@@ -11,7 +11,20 @@ import SwiftUI
 struct CarbonsaurusApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView{
+                ProfileTab()
+                    .tabItem {
+                        Label("profile", systemImage: "tree.circle.fill")
+                    }
+                DiaryTab()
+                    .tabItem {
+                        Label("diary", systemImage: "sun.and.horizon.fill")
+                    }
+                FeedTab()
+                    .tabItem {
+                        Label("feed", systemImage: "globe.europe.africa.fill")
+                    }
+            }
         }
     }
 }
