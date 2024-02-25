@@ -93,6 +93,8 @@ struct FeedTab: View {
 
                                     }
                                     .padding(5)
+                                    .padding(.bottom, 100)
+                                    
                                     .onAppear{
                                         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                                             toggleDino.toggle()
