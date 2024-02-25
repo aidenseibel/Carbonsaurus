@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170982892B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */; };
+		1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709828A2B8BA56000E01550 /* CarbonFootprintBreakdown.swift */; };
 		172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2D2B8B83240050895B /* ViewModel.swift */; };
 		172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */; };
+		172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE332B8B9A0E0050895B /* StatsView.swift */; };
 		176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761202B8A8017001EC050 /* CarbonsaurusApp.swift */; };
 		176761252B8A8018001EC050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761242B8A8018001EC050 /* Assets.xcassets */; };
 		176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761272B8A8018001EC050 /* Preview Assets.xcassets */; };
@@ -87,8 +90,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintBreakdownSubView.swift; sourceTree = "<group>"; };
+		1709828A2B8BA56000E01550 /* CarbonFootprintBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintBreakdown.swift; sourceTree = "<group>"; };
 		172DAE2D2B8B83240050895B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAvatarView.swift; sourceTree = "<group>"; };
+		172DAE332B8B9A0E0050895B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		1767611D2B8A8017001EC050 /* Carbonsaurus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbonsaurus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176761202B8A8017001EC050 /* CarbonsaurusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusApp.swift; sourceTree = "<group>"; };
 		176761242B8A8018001EC050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 				176761672B8B1FDA001EC050 /* Diary */,
 				C492E6A12B8AA76500969486 /* Feed */,
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
+				172DAE332B8B9A0E0050895B /* StatsView.swift */,
 				172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */,
 				176761652B8B15AF001EC050 /* Onboarding.swift */,
 			);
@@ -246,6 +253,7 @@
 			children = (
 				C4CFEF912B8B1495002AE026 /* MeteorView.swift */,
 				176761542B8A8CEF001EC050 /* DiaryEntry.swift */,
+				170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */,
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
 				C492E6BD2B8B0FC800969486 /* GifView.swift */,
@@ -271,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
+				1709828A2B8BA56000E01550 /* CarbonFootprintBreakdown.swift */,
 				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
 				176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */,
 			);
@@ -480,12 +489,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170982892B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift in Sources */,
 				176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */,
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
 				1767615A2B8AA267001EC050 /* diary.swift in Sources */,
+				1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
 				176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */,
 				1767616D2B8B5679001EC050 /* quiz.swift in Sources */,
@@ -500,6 +511,7 @@
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* user.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
+				172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */,
 				C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */,
 				C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */,
 			);
@@ -685,6 +697,7 @@
 				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CarbonSaurus;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -718,6 +731,7 @@
 				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = CarbonSaurus;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -7,19 +7,24 @@
 
 import SwiftUI
 
-struct QuizSubView: View {    
+struct QuizSubView: View {  
+    @EnvironmentObject var viewModel: ViewModel
+    @State private var timer: Timer?
+    @State var toggleDino: Bool = false
+
     var body: some View {
         HStack {
-            Image("blue_dino_great")
+            Image("\(viewModel.localuser.getDinoImageString())")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100)
+                .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
             VStack (alignment: .leading) {
                 Text("test your knowledge for dino points!")
                     .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text("answer this quiz question correctly to win!")
+                Text("answer quiz questions correctly to win!")
                     .font(.system(size: 14))
                     .bold()
             }.padding(10)
@@ -30,6 +35,15 @@ struct QuizSubView: View {
             .background(Color.white)
             .cornerRadius(10)
             .shadow(radius: 10)
+        .onAppear{
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                toggleDino.toggle()
+            }
+        }
+        .onDisappear{
+            timer?.invalidate()
+        }
+
     }
 
 }

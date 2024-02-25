@@ -88,6 +88,9 @@ struct QuizView: View {
                     
                     if hasAnswered{
                         Button {
+                            if isCorrect{
+                                viewModel.localuser.extraDinoPoints = viewModel.localuser.extraDinoPoints + 50
+                            }
                             viewModel.isTabBarShowing = true
                             presentationMode.wrappedValue.dismiss()
                         } label: {

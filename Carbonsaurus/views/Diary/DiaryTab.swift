@@ -45,6 +45,16 @@ struct DiaryTab: View {
                             .buttonStyle(.plain)
                         }
                         
+                        NavigationLink {
+                            CarbonFootprintBreakdown()
+                        } label: {
+                            CarbonFootprintBreakdownSubView()
+                                .padding(.bottom, 5)
+                        }
+                        .buttonStyle(.plain)
+
+
+
                         HStack{
                             ForEach(1...3, id: \.self){_ in
                                 Spacer()
@@ -56,9 +66,16 @@ struct DiaryTab: View {
                             }
                             Spacer()
                         }
+                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+                                                
                         Text("this week")
                             .bold()
                             .font(.system(size: 32))
+                        
+                        Text("\(viewModel.localuser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
+                            .bold()
+                            .font(.system(size: 16))
+                            .padding(.bottom, 4)
 
                         ForEach(viewModel.localuser.diaries.sorted { $0.date > $1.date }, id: \.self){diary in
                             NavigationLink {

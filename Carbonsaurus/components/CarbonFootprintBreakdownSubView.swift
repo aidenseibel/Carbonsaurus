@@ -1,38 +1,38 @@
 //
-//  DiaryEntry.swift
+//  CarbonFootprintBreakdown.swift
 //  Carbonsaurus
 //
-//  Created by Aiden Seibel on 2/24/24.
+//  Created by Aiden Seibel on 2/25/24.
 //
 
 import SwiftUI
 
-struct DiaryEntry: View {
+struct CarbonFootprintBreakdownSubView: View {
     @EnvironmentObject var viewModel: ViewModel
-    var diary: diary
     
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
     
     var body: some View {
-        HStack{
+        HStack(spacing: 1){
             VStack(alignment: .leading, spacing: 5){
-                Text("\(formatDate(date: diary.date))")
+                Text("view your carbon footprint breakdown")
+                    .multilineTextAlignment(.leading)
                     .bold()
-                Text("\(diary.dinoPoints())")
+                    .font(.title3)
+                Text("want to see how you compare?")
                     .bold()
-                    .font(.title)
-                Text("dino points")
-                    .bold()
+                    .font(.system(size: 14))
             }
             Spacer()
-            Image(viewModel.localuser.getDinoImageString())
+            Image("meteor_1")
                 .resizable()
-                .scaledToFit()
-                .frame(width: 100, height: 100)
+                .scaledToFill()
+                .frame(width: 70, height: 70)
                 .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
+
         }
-        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+        .padding(EdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 5))
         .frame(width: UIScreen.main.bounds.width * 0.90)
         .background(.white)
         .cornerRadius(10)
@@ -48,6 +48,5 @@ struct DiaryEntry: View {
 }
 
 #Preview {
-    DiaryEntry(diary: diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
-        .previewLayout(.sizeThatFits)
+    CarbonFootprintBreakdownSubView()
 }
