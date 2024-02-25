@@ -12,24 +12,31 @@ struct FeedTab: View {
     
     var body: some View {
         NavigationStack {
-            ZStack (alignment: .center) {
+            ZStack {
                 Color.orange.opacity(0.3).edgesIgnoringSafeArea(.all)
-                ScrollView (showsIndicators: false) {
-                    VStack (spacing: 10) {
-                        ForEach(articles, id: \.self) { article in
-                            NewsComponent(date: formatDate(date: article.publishedDate), title: article.title, imageURL: article.multimedia[0].url)
+
+                ScrollView {
+                    ZStack (alignment: .center) {
+                        Color.orange.opacity(0).edgesIgnoringSafeArea(.all)
+                            VStack (spacing: 10) {
+                                ForEach(articles, id: \.self) { article in
+                                    NewsComponent(date: formatDate(date: article.publishedDate), title: article.title, imageURL: article.multimedia[0].url)
+                                }
+                            }
+                        
+                    }.navigationTitle("feed")
+                    .navigationBarTitleDisplayMode(.large)
+                    .task {
+                        FeedService.shared.fetchTopStories { fetched in
+                            if let stories = fetched {
+                                articles = stories
+                            }
                         }
                     }
                 }
-            }.navigationTitle("feed")
-            .navigationBarTitleDisplayMode(.large)
-            .task {
-                FeedService.shared.fetchTopStories { fetched in
-                    if let stories = fetched {
-                        articles = stories
-                    }
-                }
             }
+            
+
         }
     }
 }
