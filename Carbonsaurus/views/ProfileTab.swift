@@ -26,7 +26,7 @@ struct ProfileTab: View {
                                 Circle()
                                     .frame(width: UIScreen.main.bounds.width * 0.70)
                                     .foregroundColor(.white)
-                                Image("blue_dino_happy")
+                                Image(localuser.getDinoImageString())
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)

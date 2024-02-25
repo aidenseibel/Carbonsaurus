@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CarbonsaurusApp: App {
     init() {
-        localuser = user(username: "aseibel", diaries: exampleDiaries, avatar: avatar.red, avatarStatus: .great)
+        localuser = user(username: "default account", diaries: exampleDiaries, avatar: avatar.orange, avatarStatus: .great)
     }
     
     var localuser: user

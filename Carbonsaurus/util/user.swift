@@ -9,10 +9,11 @@ import Foundation
 import SwiftUI
 
 enum avatar: Codable{
-    case red
-    case blue
-    case purple
+    case light_green
     case green
+    case blue
+    case orange
+    case pink
 }
 
 enum avatarStatus: Codable{
@@ -108,16 +109,85 @@ class user: Identifiable, Codable, ObservableObject{
     func getDinoStatusDescription() -> String{
         switch getDinoStatus(){
         case .sad:
-            return "oh no! it's been a hard week. you got this! check out your stats"
+            return "oh no! it's been a hard week. you got this! check out your stats:"
         case .worried:
-            return "stick in there! remember your goals, you got this. check out your stats"
+            return "stick in there! remember your goals, you got this. check out your stats:"
         case .neutral:
-            return "you're trying so hard! don't worry, we know it's difficult. check out your stats"
+            return "you're trying so hard! don't worry, we know it's difficult. check out your stats:"
         case .happy:
-            return "congrats! you’ve done such a good job lately. check out your stats!"
+            return "congrats! you’ve done such a good job lately. check out your stats:"
         case .great:
-            return "oh yeah! now that's what i'm talking about. keep it up and check out your stats"
+            return "oh yeah! now that's what i'm talking about. keep it up and check out your stats:"
         }
-
+    }
+    
+    func getDinoImageString() -> String {
+        switch avatar {
+        case .light_green:
+            switch getDinoStatus() {
+            case .great:
+                return "light_green_dino_great"
+            case .happy:
+                return "light_green_dino_happy"
+            case .neutral:
+                return "light_green_dino_neutral"
+            case .worried:
+                return "light_green_dino_worried"
+            case .sad:
+                return "light_green_dino_sad"
+            }
+        case .green:
+            switch getDinoStatus() {
+            case .great:
+                return "green_dino_great"
+            case .happy:
+                return "green_dino_happy"
+            case .neutral:
+                return "green_dino_neutral"
+            case .worried:
+                return "green_dino_worried"
+            case .sad:
+                return "green_dino_sad"
+            }
+        case .blue:
+            switch getDinoStatus() {
+            case .great:
+                return "blue_dino_great"
+            case .happy:
+                return "blue_dino_happy"
+            case .neutral:
+                return "blue_dino_neutral"
+            case .worried:
+                return "blue_dino_worried"
+            case .sad:
+                return "blue_dino_sad"
+            }
+        case .orange:
+            switch getDinoStatus() {
+            case .great:
+                return "orange_dino_great"
+            case .happy:
+                return "orange_dino_happy"
+            case .neutral:
+                return "orange_dino_neutral"
+            case .worried:
+                return "orange_dino_worried"
+            case .sad:
+                return "orange_dino_sad"
+            }
+        case .pink:
+            switch getDinoStatus() {
+            case .great:
+                return "pink_dino_great"
+            case .happy:
+                return "pink_dino_happy"
+            case .neutral:
+                return "pink_dino_neutral"
+            case .worried:
+                return "pink_dino_worried"
+            case .sad:
+                return "pink_dino_sad"
+            }
+        }
     }
 }

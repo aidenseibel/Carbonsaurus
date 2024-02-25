@@ -21,6 +21,7 @@
 		1767615A2B8AA267001EC050 /* diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* diary.swift */; };
 		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
 		176761622B8ADBBB001EC050 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* user.swift */; };
+		176761662B8B15AF001EC050 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761652B8B15AF001EC050 /* Onboarding.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -67,6 +68,7 @@
 		176761592B8AA267001EC050 /* diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diary.swift; sourceTree = "<group>"; };
 		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
 		176761612B8ADBBB001EC050 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		176761652B8B15AF001EC050 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
 				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
 				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
+				176761652B8B15AF001EC050 /* Onboarding.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
 				C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
+				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* user.swift in Sources */,
