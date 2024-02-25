@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DiaryEntry: View {
+    @EnvironmentObject var localuser: user
     var diary: diary
     
     var body: some View {
@@ -22,7 +23,7 @@ struct DiaryEntry: View {
                     .bold()
             }
             Spacer()
-            Image("blue_dino_happy")
+            Image(diary.getImage(userAvatar: localuser.getAvatar()))
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)

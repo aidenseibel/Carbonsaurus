@@ -33,7 +33,62 @@ struct diary: Identifiable, Codable, Hashable{
     func dinoPoints() -> Int{
         return 3000 - total() * 100
     }
+    
+    func getImage(userAvatar: String) -> String {
+        switch dinoPoints(){
+        case 0..<900:
+            return userAvatar + "_sad"
+        case 900..<1300:
+            return userAvatar + "_worried"
+        case 1300..<1700:
+            return userAvatar + "_neutral"
+        case 1700..<2200:
+            return userAvatar + "_happy"
+        default:
+            return userAvatar + "_great"
+        }
+    }
+    
+    func calculateCarbonFootprint(averages: [Int]) -> Int{
+        var carbonFootprint = 0
+        
+        //driving
+        carbonFootprint = carbonFootprint + averages[0]/1 * (driving/3) * 3360
+        
+        //phone
+        carbonFootprint = carbonFootprint + averages[1]/195 * (phone/3) * 189
+        
+        //appliances
+        carbonFootprint = carbonFootprint + averages[2]/1 * (appliances/3) * 2000
+        
+        //eating
+        carbonFootprint = carbonFootprint + averages[3]/1800 * (eat/3) * 4500
+        
+        //shower
+        carbonFootprint = carbonFootprint + averages[4]/10 * (shower/3) * 2000
 
+        return carbonFootprint
+    }
+    
+    func getDrivingCarbon(average: Int) -> Double{
+        return Double(average * (driving)) * 1120.0
+    }
+    
+    func getPhoneCarbon(average: Int) -> Double{
+        return Double(average * (phone)) / 3.0
+    }
+    
+    func getAppliancesCarbon(average: Int) -> Double{
+        return Double(average * appliances) * 660
+    }
+    
+    func getEatCarbon(average: Int) -> Double{
+            return Double(average * eat) * 0.83
+    }
+    
+    func getShowerCarbon(average: Int) -> Double{
+        return Double(average * shower) * 3.2
+    }
 }
 
 var exampleDiaries: [diary] = [

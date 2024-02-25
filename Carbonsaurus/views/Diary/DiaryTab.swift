@@ -21,6 +21,8 @@ struct DiaryTab: View {
                         Text("diary")
                             .bold()
                             .font(.system(size: 42))
+                        
+
                         if !hasDiaryToday{
                             NavigationLink {
                                 DiaryCreator()
@@ -43,8 +45,18 @@ struct DiaryTab: View {
                                 .cornerRadius(10)
                             }
                         }
+                        
+                        Text("this week")
+                            .bold()
+                            .font(.system(size: 3326))
+
                         ForEach(localuser.diaries, id: \.self){diary in
-                            DiaryEntry(diary: diary)
+                            NavigationLink {
+                                DiaryEntryLarge(diary: diary)
+                            } label: {
+                                DiaryEntry(diary: diary)
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
                 }

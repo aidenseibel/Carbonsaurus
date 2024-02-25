@@ -15,7 +15,6 @@ struct ProfileTab: View {
             ZStack {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
-                MeteorView()
                 ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
                         Text("profile")
@@ -30,7 +29,7 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
-
+                                
                             }
                             
                             VStack{
@@ -58,7 +57,7 @@ struct ProfileTab: View {
                                             .bold()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
-
+                                    
                                     HStack{
                                         Text("12 tons")
                                             .multilineTextAlignment(.leading)
@@ -66,8 +65,8 @@ struct ProfileTab: View {
                                         Spacer()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
-
-
+                                    
+                                    
                                 }
                                 
                                 GridRow{
@@ -86,7 +85,7 @@ struct ProfileTab: View {
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                 }
-
+                                
                                 GridRow{
                                     HStack{
                                         Spacer()
@@ -121,7 +120,7 @@ struct ProfileTab: View {
                                             .bold()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
-
+                                    
                                     HStack{
                                         Text("\(localuser.getDinoPoints())")
                                             .multilineTextAlignment(.leading)
@@ -129,8 +128,8 @@ struct ProfileTab: View {
                                         Spacer()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
-
-
+                                    
+                                    
                                 }
                                 
                                 GridRow{
@@ -149,7 +148,7 @@ struct ProfileTab: View {
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                 }
-
+                                
                                 GridRow{
                                     HStack{
                                         Spacer()
@@ -177,6 +176,7 @@ struct ProfileTab: View {
         }
     }
 }
+
 
 #Preview {
     ProfileTab()

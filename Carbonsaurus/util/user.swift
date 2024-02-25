@@ -30,15 +30,21 @@ class user: Identifiable, Codable, ObservableObject{
     var diaries: [diary]
     var avatar: avatar
     var avatarStatus: avatarStatus
-    
-    init(username: String, diaries: [diary], avatar: avatar, avatarStatus: avatarStatus) {
+    var average_driving, average_phone, average_appliances, average_eating, average_shower: Int
+        
+    init(username: String, diaries: [diary], avatar: avatar, avatarStatus: avatarStatus, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
         self.id = UUID()
         self.username = username
         self.diaries = diaries
         self.avatar = avatar
         self.avatarStatus = avatarStatus
+        self.average_driving = average_driving /*?? 1 // 3360*/
+        self.average_phone = average_phone /*?? 195 // 189*/
+        self.average_appliances = average_appliances /*??  1 // 2000*/
+        self.average_eating = average_eating /*?? 1800 // 4500*/
+        self.average_shower = average_shower /*?? 10 // 2000*/
     }
-    
+        
     func getDinoPoints() -> Int{
         var total = 0
         
@@ -72,6 +78,10 @@ class user: Identifiable, Codable, ObservableObject{
     
     func getCarbonRanking() -> Int {
         return Int(3000 - Double(getAverageDinoPointsThisWeek()) * 1.25)
+    }
+    
+    func getDailyAverages() -> [Int]{
+        return [average_driving, average_phone, average_appliances, average_eating, average_shower]
     }
     
     func getDinoStatus() -> avatarStatus{
@@ -118,6 +128,21 @@ class user: Identifiable, Codable, ObservableObject{
             return "congrats! you’ve done such a good job lately. check out your stats:"
         case .great:
             return "oh yeah! now that's what i'm talking about. keep it up and check out your stats:"
+        }
+    }
+    
+    func getAvatar() -> String{
+        switch avatar {
+        case .light_green:
+            return "light_green_dino"
+        case .green:
+            return "green_dino"
+        case .blue:
+            return "blue_dino"
+        case .orange:
+            return "orange_dino"
+        case .pink:
+            return "pink_dino"
         }
     }
     

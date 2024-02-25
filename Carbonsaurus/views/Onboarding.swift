@@ -58,10 +58,10 @@ struct Onboarding: View {
                         Group{
                             VStack(alignment: .leading, spacing: 50){
                                 VStack(alignment: .leading){
-                                    Text("How many miles do you drive on an average day?")
+                                    Text("How many hours do you drive on an average day?")
                                         .bold()
                                         .id(questionsID)
-                                    TextField("enter miles", text: $driving)
+                                    TextField("enter hours", text: $driving)
                                         .padding(10)
                                         .background(.white)
                                         .cornerRadius(10)

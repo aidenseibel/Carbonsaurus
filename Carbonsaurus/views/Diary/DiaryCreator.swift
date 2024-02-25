@@ -92,6 +92,7 @@ struct DiaryCreator: View {
                     
                     Button(action: {
                         localuser.diaries.append(diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
+                        print(localuser.diaries)
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack{

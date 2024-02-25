@@ -22,6 +22,10 @@
 		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
 		176761622B8ADBBB001EC050 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* user.swift */; };
 		176761662B8B15AF001EC050 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761652B8B15AF001EC050 /* Onboarding.swift */; };
+		176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */; };
+		1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616A2B8B5518001EC050 /* QuizSubView.swift */; };
+		1767616D2B8B5679001EC050 /* quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616C2B8B5679001EC050 /* quiz.swift */; };
+		1767616F2B8B5736001EC050 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616E2B8B5736001EC050 /* QuizView.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -69,6 +73,10 @@
 		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
 		176761612B8ADBBB001EC050 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		176761652B8B15AF001EC050 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryLarge.swift; sourceTree = "<group>"; };
+		1767616A2B8B5518001EC050 /* QuizSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSubView.swift; sourceTree = "<group>"; };
+		1767616C2B8B5679001EC050 /* quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quiz.swift; sourceTree = "<group>"; };
+		1767616E2B8B5736001EC050 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -168,10 +176,9 @@
 		1767614A2B8A8CA9001EC050 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				176761672B8B1FDA001EC050 /* Diary */,
 				C492E6A12B8AA76500969486 /* Feed */,
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
-				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
-				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
 				176761652B8B15AF001EC050 /* Onboarding.swift */,
 			);
 			path = views;
@@ -185,6 +192,7 @@
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
 				C492E6BD2B8B0FC800969486 /* GifView.swift */,
+				1767616A2B8B5518001EC050 /* QuizSubView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -193,10 +201,21 @@
 			isa = PBXGroup;
 			children = (
 				176761592B8AA267001EC050 /* diary.swift */,
+				1767616C2B8B5679001EC050 /* quiz.swift */,
 				C492E6A42B8AD74400969486 /* Util.swift */,
 				176761612B8ADBBB001EC050 /* user.swift */,
 			);
 			path = util;
+			sourceTree = "<group>";
+		};
+		176761672B8B1FDA001EC050 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
+				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
+				176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */,
+			);
+			path = Diary;
 			sourceTree = "<group>";
 		};
 		C492E6A12B8AA76500969486 /* Feed */ = {
@@ -204,6 +223,7 @@
 			children = (
 				176761522B8A8CE4001EC050 /* FeedTab.swift */,
 				C492E6A22B8AA77F00969486 /* FeedService.swift */,
+				1767616E2B8B5736001EC050 /* QuizView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -351,11 +371,15 @@
 				176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */,
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
+				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
 				1767615A2B8AA267001EC050 /* diary.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
+				176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */,
+				1767616D2B8B5679001EC050 /* quiz.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
 				C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */,
+				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
 				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
