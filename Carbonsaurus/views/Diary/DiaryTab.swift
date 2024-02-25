@@ -11,6 +11,9 @@ struct DiaryTab: View {
     @EnvironmentObject var localuser: user
     @State var hasDiaryToday: Bool = false
     
+    @State private var timer: Timer?
+    @State var toggleDino: Bool = false
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -23,9 +26,9 @@ struct DiaryTab: View {
                                 DiaryCreator()
                             } label: {
                                 HStack(spacing: 15){
-                                    Image(systemName: "exclamationmark.circle.fill")
+                                    Image("sun")
                                         .resizable()
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 50, height: 50)
                                     VStack(alignment: .leading){
                                         Text("time to check in")
                                             .font(.title2)
@@ -38,7 +41,9 @@ struct DiaryTab: View {
                                 .padding()
                                 .background(.white)
                                 .cornerRadius(10)
+                                .padding(.bottom, 10)
                             }
+                            .buttonStyle(.plain)
                         }
                         
                         HStack{
@@ -48,6 +53,7 @@ struct DiaryTab: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                             }
                             Spacer()
                         }
@@ -70,6 +76,14 @@ struct DiaryTab: View {
             .navigationTitle("diary")
             .navigationBarTitleDisplayMode(.large)
 
+        }
+        .onAppear{
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                toggleDino.toggle()
+            }
+        }
+        .onDisappear{
+            timer?.invalidate()
         }
     }
 }
