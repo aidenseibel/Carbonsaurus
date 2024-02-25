@@ -78,7 +78,7 @@ class FeedService {
     private let apiKey = "f1f3468c3181496c84dcbec0af0a1ee8"
     
     func fetchTopStories(completion: @escaping ([Article]?) -> Void) {
-        guard let url = URL(string: "https://newsapi.org/v2/everything?q=climate change OR global warming OR emission OR environment&from=2024-02-10&to=2024-02-24&pageSize=10&excludeDomains=yahoo.com&sortBy=popularity&apiKey=\(apiKey)") else {
+        guard let url = URL(string: "https://newsapi.org/v2/everything?q=climate change OR global warming OR emission OR environment&from=2024-02-10&to=2024-02-25&pageSize=10&excludeDomains=yahoo.com&sortBy=popularity&apiKey=\(apiKey)") else {
             print("Invalid URL")
             completion(nil)
             return

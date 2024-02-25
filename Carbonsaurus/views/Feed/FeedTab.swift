@@ -18,7 +18,7 @@ struct FeedTab: View {
                 ScrollView {
                     ZStack (alignment: .center) {
                         Color.orange.opacity(0).edgesIgnoringSafeArea(.all)
-                            VStack (spacing: 10) {
+                        VStack (alignment: .leading, spacing: 10) {
                                 if(isLoading) {
                                     SkeletonNewsComponent()
                                     SkeletonNewsComponent()
@@ -26,16 +26,71 @@ struct FeedTab: View {
                                     SkeletonNewsComponent()
                                     SkeletonNewsComponent()
                                 } else {
+                                    NavigationLink {
+                                        QuizView(quiz: exampleQuizzes.randomElement() ?? exampleQuizzes[0])
+                                    } label: {
+                                        QuizSubView()
+                                    }
+                                    .buttonStyle(.plain)
+
+                                    HStack{
+                                        Spacer()
+                                        Image("fern")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                        Spacer()
+                                        Image("volcano")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 70, height: 70)
+                                        Spacer()
+                                        Image("fern")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                        Spacer()
+
+                                    }
+                                    .padding(5)
+                                    
+                                    Text("climate news")
+                                        .bold()
+                                        .font(.system(size: 32))
+
                                     ForEach(articles, id: \.self) { article in
                                         Link(destination: URL(string: article.url)!, label: {
                                             NewsComponent(date: formatDate(date: article.publishedAt), title: article.title, imageURL: article.urlToImage)
                                         }).buttonStyle(.plain)
 
                                     }
+                                    
+                                    HStack{
+                                        Spacer()
+                                        Image("fern")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 30, height: 30)
+                                        Spacer()
+                                        Image("volcano")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 50, height: 50)
+                                        Spacer()
+                                        Image("fern")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 30, height: 30)
+                                        Spacer()
+
+                                    }
+                                    .padding(5)
+
                                 }
 
                             }
-                        
+                        .frame(width: UIScreen.main.bounds.width * 0.90)
+
                     }.navigationTitle("feed")
                     .navigationBarTitleDisplayMode(.large)
                     .task {

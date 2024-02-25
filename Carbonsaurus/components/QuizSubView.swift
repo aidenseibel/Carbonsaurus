@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-struct QuizSubView: View {
-    var quiz: quiz
-    
+struct QuizSubView: View {    
     var body: some View {
         HStack {
             Image("blue_dino_great")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 70, height: 100)
+                .frame(width: 100, height: 100)
             VStack (alignment: .leading) {
                 Text("test your knowledge for dino points!")
-                    .font(.system(size: 14))
+                    .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text(quiz.question)
-                    .font(.system(size: 12))
+                Text("answer this quiz question correctly to win!")
+                    .font(.system(size: 14))
+                    .bold()
             }.padding(10)
             Spacer()
         }
@@ -36,5 +35,5 @@ struct QuizSubView: View {
 }
 
 #Preview {
-    QuizSubView(quiz: quiz(question: "", answerIndex: 1, choices: []))
+    QuizSubView()
 }

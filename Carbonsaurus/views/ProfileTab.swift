@@ -17,9 +17,6 @@ struct ProfileTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
-                        Text("profile")
-                            .bold()
-                            .font(.system(size: 42))
                         VStack(alignment: .center, spacing: 30){
                             ZStack{
                                 Circle()
@@ -31,14 +28,28 @@ struct ProfileTab: View {
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
                                 
                             }
-                            
-                            VStack{
-                                Text("your dino is")
-                                    .font(.system(size: 20))
-                                    .bold()
-                                Text("\(localuser.dinoStatusToString())")
-                                    .font(.system(size: 42))
-                                    .bold()
+                            HStack{
+                                Spacer()
+                                Image("flower")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                Spacer()
+                                VStack{
+                                    Text("your dino is")
+                                        .font(.system(size: 20))
+                                        .bold()
+                                    Text("\(localuser.dinoStatusToString())")
+                                        .font(.system(size: 42))
+                                        .bold()
+                                }
+                                Spacer()
+                                Image("flower")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                Spacer()
+
                             }
                             
                             Text("\(localuser.getDinoStatusDescription())")
@@ -106,10 +117,24 @@ struct ProfileTab: View {
                             .background(.white)
                             .cornerRadius(10)
                             
-                            
-                            Text("overall stats")
-                                .bold()
-                                .font(.title2)
+
+                            HStack{
+                                Spacer()
+                                Image("tree")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                Spacer()
+                                Text("overall stats")
+                                    .bold()
+                                    .font(.title2)
+                                Spacer()
+                                Image("tree")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                Spacer()
+                            }
                             //MARK: STATS
                             Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10){
                                 GridRow{
@@ -173,6 +198,8 @@ struct ProfileTab: View {
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.90)
             }
+            .navigationTitle("profile")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
