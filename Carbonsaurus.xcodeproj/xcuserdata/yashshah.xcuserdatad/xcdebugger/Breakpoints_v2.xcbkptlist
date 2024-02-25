@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "5E98C6EA-C358-47D2-97A1-4C129DC4D541"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Carbonsaurus/views/Feed/FeedService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "FeedService"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - dcc42449ff4a89bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carbonsaurus.FeedService.__allocating_init() -&gt; Carbonsaurus.FeedService"
+                  moduleName = "Carbonsaurus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - c302159db9166abe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carbonsaurus.FeedService.deinit"
+                  moduleName = "Carbonsaurus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - 5b1dc6b7004f32c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carbonsaurus.FeedService.__deallocating_deinit"
+                  moduleName = "Carbonsaurus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - 22b151eb1a33ffb0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Carbonsaurus.FeedService.init() -&gt; Carbonsaurus.FeedService"
+                  moduleName = "Carbonsaurus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

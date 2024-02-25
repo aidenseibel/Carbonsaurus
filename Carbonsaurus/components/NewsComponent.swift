@@ -10,7 +10,7 @@ import SwiftUI
 struct NewsComponent: View {
     var date: String
     var title: String
-    var imageTitle: String?
+    var imageURL: String?
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
@@ -18,15 +18,21 @@ struct NewsComponent: View {
                     .font(.system(size: 16))
                     .bold()
                     .padding(.bottom, 5)
-                Text (title)
+                
+                Text(title)
                     .font(.system(size: 20))
                     .bold()
             }.padding(10)
             Spacer()
-            Image(imageTitle ?? "")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 100, height: 100)
+            AsyncImage(url: URL(string: imageURL!)) { image in image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100)
+                    .clipped()
+                    .cornerRadius(10)
+            } placeholder: {
+                Text("n/a")
+            }
         }
         .padding(10)
         .frame(width: UIScreen.main.bounds.width * 0.9)
@@ -37,5 +43,5 @@ struct NewsComponent: View {
 }
 
 #Preview {
-    NewsComponent(date: "feb 24 - today", title: "United States rejoins the Paris Climate Agreement", imageTitle: "blue_dino_happy")
+    NewsComponent(date: "feb 24 - today", title: "United States rejoins the Paris Climate Agreement", imageURL: "blue_dino_happy")
 }
