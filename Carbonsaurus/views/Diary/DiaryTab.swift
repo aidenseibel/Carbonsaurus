@@ -18,11 +18,6 @@ struct DiaryTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
-                        Text("diary")
-                            .bold()
-                            .font(.system(size: 42))
-                        
-
                         if !hasDiaryToday{
                             NavigationLink {
                                 DiaryCreator()
@@ -46,9 +41,19 @@ struct DiaryTab: View {
                             }
                         }
                         
+                        HStack{
+                            ForEach(1...3, id: \.self){_ in
+                                Spacer()
+                                Image("tree")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                            }
+                            Spacer()
+                        }
                         Text("this week")
                             .bold()
-                            .font(.system(size: 3326))
+                            .font(.system(size: 32))
 
                         ForEach(localuser.diaries, id: \.self){diary in
                             NavigationLink {
@@ -62,6 +67,9 @@ struct DiaryTab: View {
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.90)
             }
+            .navigationTitle("diary")
+            .navigationBarTitleDisplayMode(.large)
+
         }
     }
 }
