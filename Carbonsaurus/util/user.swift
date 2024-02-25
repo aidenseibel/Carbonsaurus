@@ -215,4 +215,75 @@ class user: Identifiable, Codable, ObservableObject{
             }
         }
     }
+    
+    func getHigherDinoImageString() -> String{
+        switch avatar {
+        case .light_green:
+            switch getDinoStatus() {
+            case .great:
+                return "light_green_dino_happy"
+            case .happy:
+                return "light_green_dino_great"
+            case .neutral:
+                return "light_green_dino_happy"
+            case .worried:
+                return "light_green_dino_neutral"
+            case .sad:
+                return "light_green_dino_worried"
+            }
+        case .green:
+            switch getDinoStatus() {
+            case .great:
+                return "green_dino_happy"
+            case .happy:
+                return "green_dino_great"
+            case .neutral:
+                return "green_dino_happy"
+            case .worried:
+                return "green_dino_neutral"
+            case .sad:
+                return "green_dino_worried"
+            }
+        case .blue:
+            switch getDinoStatus() {
+            case .great:
+                return "blue_dino_happy"
+            case .happy:
+                return "blue_dino_great"
+            case .neutral:
+                return "blue_dino_happy"
+            case .worried:
+                return "blue_dino_neutral"
+            case .sad:
+                return "blue_dino_worried"
+            }
+        case .orange:
+            switch getDinoStatus() {
+            case .great:
+                return "orange_dino_happy"
+            case .happy:
+                return "orange_dino_great"
+            case .neutral:
+                return "orange_dino_happy"
+            case .worried:
+                return "orange_dino_neutral"
+            case .sad:
+                return "orange_dino_worried"
+            }
+        case .pink:
+            switch getDinoStatus() {
+            case .great:
+                return "pink_dino_happy"
+            case .happy:
+                return "pink_dino_great"
+            case .neutral:
+                return "pink_dino_happy"
+            case .worried:
+                return "pink_dino_neutral"
+            case .sad:
+                return "pink_dino_worried"
+            }
+        }
+
+    }
 }

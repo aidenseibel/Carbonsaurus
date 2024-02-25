@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileTab: View {
     @EnvironmentObject var localuser: user
+    @State private var timer: Timer?
+    @State var toggleDino: Bool = false
     
     var body: some View {
         NavigationView{
@@ -22,10 +24,13 @@ struct ProfileTab: View {
                                 Circle()
                                     .frame(width: UIScreen.main.bounds.width * 0.70)
                                     .foregroundColor(.white)
-                                Image(localuser.getDinoImageString())
+                                Image(toggleDino ? localuser.getDinoImageString() : localuser.getHigherDinoImageString())
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
+                                    .onTapGesture {
+                                        toggleDino.toggle()
+                                    }
                                 
                             }
                             HStack{
@@ -34,6 +39,7 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                                 Spacer()
                                 VStack{
                                     Text("your dino is")
@@ -48,6 +54,7 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                                 Spacer()
 
                             }
@@ -200,6 +207,14 @@ struct ProfileTab: View {
             }
             .navigationTitle("profile")
             .navigationBarTitleDisplayMode(.large)
+        }
+        .onAppear{
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                toggleDino.toggle()
+            }
+        }
+        .onDisappear{
+            timer?.invalidate()
         }
     }
 }
