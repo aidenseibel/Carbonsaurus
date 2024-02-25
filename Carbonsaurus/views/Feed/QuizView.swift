@@ -23,22 +23,6 @@ struct QuizView: View {
             
             ScrollView(showsIndicators: false){
                 VStack(alignment: .leading, spacing: 20){
-                    if !hasAnswered{
-                        Text("for 50 dino points!")
-                            .font(.title)
-                            .bold()
-                    }else{
-                        if isCorrect{
-                            Text("correct!")
-                                .font(.title)
-                                .bold()
-                        }else{
-                            Text("next time!")
-                                .font(.title)
-                                .bold()
-
-                        }
-                    }
                     if hasAnswered && !isCorrect{
                         HStack{
                             Spacer()

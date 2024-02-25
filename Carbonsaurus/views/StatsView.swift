@@ -185,7 +185,7 @@ struct StatsView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("dismiss")
-                            .foregroundColor(.green.opacity(0.55))
+                            .foregroundColor(.yellow.opacity(0.70))
                             .buttonStyle(.plain)
                             .padding(20)
                             .bold()

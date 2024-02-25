@@ -45,10 +45,12 @@ struct FeedTab: View {
                                                 .foregroundColor(.black)
                                                 .padding(.top, 10)
                                                 .padding(.bottom, 5)
-
                                             Text("help directly fight global warming")
                                                 .padding(.bottom, 10)
-                                        }                                                .onTapGesture {
+                                                .bold()
+                                        }                                      
+                                        .shadow(radius: 10)
+                                        .onTapGesture {
                                             openURL(URL(string: "https://www.edf.org/climate/why-fighting-climate-change-so-urgent?utm_source=google&utm_campaign=edf_none_upd_dmt&utm_medium=cpc&utm_id=1561743801&gad_source=1&gclid=Cj0KCQiA5-uuBhDzARIsAAa21T92YJeqrara4wK_vnoAL5wx5jHKi2tcsSL96DOenmoElv9pYV-9ycMaAn7rEALw_wcB&gclsrc=aw.ds")!)
                                         }
                                         Spacer()
@@ -76,7 +78,7 @@ struct FeedTab: View {
                                         Spacer()
 
                                     }
-                                    .padding(5)
+                                    .padding(20)
 
 
                                     

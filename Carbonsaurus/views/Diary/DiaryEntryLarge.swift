@@ -51,7 +51,7 @@ struct DiaryEntryLarge: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
-                        .cornerRadius(10)
+                        .cornerRadius(20)
                     
                     Text("estimates")
                         .font(.title2)
@@ -69,7 +69,7 @@ struct DiaryEntryLarge: View {
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             
                             HStack{
-                                Text("\(viewModel.localuser.average_driving*diary.driving/3) (\(String(format: "%.1f", diary.getDrivingCarbon(average: viewModel.localuser.average_driving))) g)")
+                                Text("\(viewModel.localuser.average_driving*diary.driving/3) (\(String(format: "%.0f", diary.getDrivingCarbon(average: viewModel.localuser.average_driving))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -86,7 +86,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_phone*diary.phone/3) (\(String(format: "%.1f", diary.getPhoneCarbon(average: viewModel.localuser.average_phone))) g)")
+                                Text("\(viewModel.localuser.average_phone*diary.phone/3) (\(String(format: "%.0f", diary.getPhoneCarbon(average: viewModel.localuser.average_phone))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -103,7 +103,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_appliances*diary.appliances/3) (\(String(format: "%.1f", diary.getAppliancesCarbon(average: viewModel.localuser.average_appliances))) g)")
+                                Text("\(viewModel.localuser.average_appliances*diary.appliances/3) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localuser.average_appliances))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -120,7 +120,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_eating*diary.eat/3) (\(String(format: "%.1f", diary.getEatCarbon(average: viewModel.localuser.average_eating))) g)")
+                                Text("\(viewModel.localuser.average_eating*diary.eat/3) (\(String(format: "%.0f", diary.getEatCarbon(average: viewModel.localuser.average_eating))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -137,7 +137,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_shower*diary.shower/3) (\(String(format: "%.1f", diary.getShowerCarbon(average: viewModel.localuser.average_shower))) g)")
+                                Text("\(viewModel.localuser.average_shower*diary.shower/3) (\(String(format: "%.0f", diary.getShowerCarbon(average: viewModel.localuser.average_shower))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }

@@ -30,6 +30,7 @@ struct CarbonFootprintBreakdown: View {
                                 Text("how much carbon do you ")
                                     .font(.title)
                                     .bold()
+                                    .padding(.top, 50)
                                 Text("really")
                                     .font(.system(size: 42))
                                     .italic()
