@@ -43,6 +43,21 @@ struct DiaryTab: View {
                                 .padding(.bottom, 10)
                             }
                             .buttonStyle(.plain)
+                        } else {
+                            HStack(spacing: 15){
+                                Image("sun")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                VStack(alignment: .leading){
+                                    Text("you already completed your entry today. come back tomorrow!")
+                                        .bold()
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                            .background(.white)
+                            .cornerRadius(10)
+                            .padding(.bottom, 10)
                         }
                         
                         HStack{
@@ -54,8 +69,10 @@ struct DiaryTab: View {
                                     .frame(width: 70, height: 70)
                                     .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                             }
+
                             Spacer()
                         }
+
                         Text("this week")
                             .bold()
                             .font(.system(size: 32))
