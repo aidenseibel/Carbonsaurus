@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DiaryTab: View {
+    @EnvironmentObject var localuser: user
     @State var hasDiaryToday: Bool = false
     
     var body: some View {
@@ -42,8 +43,8 @@ struct DiaryTab: View {
                                 .cornerRadius(10)
                             }
                         }
-                        ForEach(1..<5, id: \.self){_ in
-                            DiaryEntry(diary: diary(date: Date.now, driving: 3, appliances: 3, eat: 3, shower: 3, total: 15))
+                        ForEach(localuser.diaries, id: \.self){diary in
+                            DiaryEntry(diary: diary)
                         }
                     }
                 }

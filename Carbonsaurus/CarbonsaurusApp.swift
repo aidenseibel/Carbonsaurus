@@ -9,6 +9,12 @@ import SwiftUI
 
 @main
 struct CarbonsaurusApp: App {
+    init() {
+        localuser = user(username: "aseibel", diaries: exampleDiaries, avatar: avatar.red, avatarStatus: .great)
+    }
+    
+    var localuser: user
+    
     var body: some Scene {
         WindowGroup {
             TabView{
@@ -25,6 +31,7 @@ struct CarbonsaurusApp: App {
                         Label("feed", systemImage: "globe.europe.africa.fill")
                     }
             }
+            .environmentObject(localuser)
         }
     }
 }

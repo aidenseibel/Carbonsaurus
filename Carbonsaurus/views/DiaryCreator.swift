@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiaryCreator: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var localuser: user
 
     @State var driving = 3
     @State var phone = 3
@@ -33,6 +34,7 @@ struct DiaryCreator: View {
                                 VStack(alignment: .leading, spacing: 30){
                                     VStack(alignment: .leading){
                                         Text("How much did you drive today compared to a normal day?")
+                                            .bold()
                                         Picker("driving", selection: $driving) {
                                             ForEach(options, id: \.self){option in
                                                 Text("\(option)")
@@ -43,6 +45,7 @@ struct DiaryCreator: View {
                                     
                                     VStack(alignment: .leading){
                                         Text("How much did you use your phone today compared to an average day?")
+                                            .bold()
                                         Picker("phone", selection: $phone) {
                                             ForEach(options, id: \.self){option in
                                                 Text("\(option)")
@@ -52,6 +55,7 @@ struct DiaryCreator: View {
                                     
                                     VStack(alignment: .leading){
                                         Text("How much did you use large appliances (washer, dryer, oven, etc) compared to a normal day?")
+                                            .bold()
                                         Picker("appliances", selection: $appliances) {
                                             ForEach(options, id: \.self){option in
                                                 Text("\(option)")
@@ -61,6 +65,7 @@ struct DiaryCreator: View {
                                     
                                     VStack(alignment: .leading){
                                         Text("How much did you eat today compared to a normal day?")
+                                            .bold()
                                         Picker("eat", selection: $eat) {
                                             ForEach(options, id: \.self){option in
                                                 Text("\(option)")
@@ -70,6 +75,7 @@ struct DiaryCreator: View {
                                     
                                     VStack(alignment: .leading){
                                         Text("How much more did you shower today compared to a normal day?")
+                                            .bold()
                                         Picker("shower", selection: $shower) {
                                             ForEach(options, id: \.self){option in
                                                 Text("\(option)")
@@ -85,6 +91,7 @@ struct DiaryCreator: View {
                     .frame(width: UIScreen.main.bounds.width * 0.90)
                     
                     Button(action: {
+                        localuser.diaries.append(diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack{

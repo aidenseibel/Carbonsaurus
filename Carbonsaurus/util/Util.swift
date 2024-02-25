@@ -39,3 +39,13 @@ public func timeAgoString(from date: Date) -> String {
         return "Just now"
     }
 }
+
+public func isLessThanAWeekAgo(date: Date) -> Bool {
+    let calendar = Calendar.current
+    let currentDate = Date()
+    if let difference = calendar.dateComponents([.day], from: date, to: currentDate).day {
+        return difference < 7
+    }
+    return false
+}
+

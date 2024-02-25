@@ -15,7 +15,7 @@ struct DiaryEntry: View {
             VStack(alignment: .leading, spacing: 5){
                 Text("\(formatDate(date: diary.date))")
                     .bold()
-                Text("\(diary.total * 100)")
+                Text("\(diary.dinoPoints())")
                     .bold()
                     .font(.title)
                 Text("dino points")
@@ -35,6 +35,6 @@ struct DiaryEntry: View {
 }
 
 #Preview {
-    DiaryEntry(diary: diary(date: Date.now, driving: 3, appliances: 3, eat: 3, shower: 3, total: 15))
+    DiaryEntry(diary: diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
         .previewLayout(.sizeThatFits)
 }

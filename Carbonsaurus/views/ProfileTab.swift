@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileTab: View {
+    @EnvironmentObject var localuser: user
+    
     var body: some View {
         NavigationView{
             ZStack {
@@ -27,24 +29,24 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
-
                             }
+                            
                             VStack{
                                 Text("your dino is")
                                     .font(.system(size: 20))
                                     .bold()
-                                Text("happy")
+                                Text("\(localuser.dinoStatusToString())")
                                     .font(.system(size: 42))
                                     .bold()
                             }
                             
-                            Text("congrats! you’ve done such a good job lately. check out your stats!")
+                            Text("\(localuser.getDinoStatusDescription())")
                                 .frame(width: UIScreen.main.bounds.width * 0.80)
                                 .multilineTextAlignment(.center)
                                 .bold()
                             
                             
-                            //MARK: STATS
+                            //MARK: WEEK STATS
                             Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10){
                                 GridRow{
                                     HStack{
@@ -69,13 +71,13 @@ struct ProfileTab: View {
                                 GridRow{
                                     HStack{
                                         Spacer()
-                                        Text("dino points this week")
+                                        Text("avg. dino points this week")
                                             .multilineTextAlignment(.trailing)
                                             .bold()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                     HStack{
-                                        Text("12 tons")
+                                        Text("\(localuser.getAverageDinoPointsThisWeek())")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
@@ -91,7 +93,70 @@ struct ProfileTab: View {
                                             .bold()
                                     }
                                     HStack{
-                                        Text("12 tons")
+                                        Text("\(localuser.getCarbonRanking())")
+                                            .multilineTextAlignment(.leading)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width * 0.40)
+                                }
+                            }
+                            .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
+                            .background(.white)
+                            .cornerRadius(10)
+                            
+                            
+                            Text("overall stats")
+                                .bold()
+                                .font(.title2)
+                            //MARK: STATS
+                            Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10){
+                                GridRow{
+                                    HStack{
+                                        Spacer()
+                                        Text("total dino points")
+                                            .multilineTextAlignment(.trailing)
+                                            .bold()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width * 0.40)
+
+                                    HStack{
+                                        Text("\(localuser.getDinoPoints())")
+                                            .multilineTextAlignment(.leading)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width * 0.40)
+
+
+                                }
+                                
+                                GridRow{
+                                    HStack{
+                                        Spacer()
+                                        Text("diaries")
+                                            .multilineTextAlignment(.trailing)
+                                            .bold()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width * 0.40)
+                                    HStack{
+                                        Text("\(localuser.diaries.count)")
+                                            .multilineTextAlignment(.leading)
+                                            .bold()
+                                        Spacer()
+                                    }
+                                    .frame(width: UIScreen.main.bounds.width * 0.40)
+                                }
+
+                                GridRow{
+                                    HStack{
+                                        Spacer()
+                                        Text("average dino points")
+                                            .multilineTextAlignment(.trailing)
+                                            .bold()
+                                    }
+                                    HStack{
+                                        Text("\(localuser.getDinoPoints() / localuser.diaries.count)")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
