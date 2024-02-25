@@ -85,6 +85,7 @@ struct FeedTab: View {
 
                                     }
                                     .padding(5)
+                                    .padding(.bottom, 100)
 
                                 }
 

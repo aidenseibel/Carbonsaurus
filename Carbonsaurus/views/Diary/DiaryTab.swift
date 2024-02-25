@@ -63,7 +63,7 @@ struct DiaryTab: View {
                             }
                             .buttonStyle(.plain)
                         }
-                    }
+                    }.padding(.bottom, 100)
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.90)
             }

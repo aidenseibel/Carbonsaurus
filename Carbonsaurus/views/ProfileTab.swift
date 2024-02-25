@@ -193,6 +193,7 @@ struct ProfileTab: View {
                             .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
                             .background(.white)
                             .cornerRadius(10)
+                            .padding(.bottom, 100)
                         }
                     }
                 }
