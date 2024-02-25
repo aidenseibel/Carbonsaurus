@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FeedTab: View {
     @EnvironmentObject var viewModel: ViewModel
+    @Environment(\.openURL) var openURL
     @State private var articles: [Article] = []
     @State private var isLoading: Bool = true
     
@@ -36,7 +37,23 @@ struct FeedTab: View {
                                         QuizSubView()
                                     }
                                     .buttonStyle(.plain)
+                                    HStack{
+                                        Spacer()
+                                        VStack {
+                                            Text("🐻‍❄️donate to the EDF!🐻‍❄️")
+                                                .bold()
+                                                .foregroundColor(.black)
+                                                .padding(.top, 10)
+                                                .padding(.bottom, 5)
 
+                                            Text("help directly fight global warming")
+                                                .padding(.bottom, 10)
+                                        }                                                .onTapGesture {
+                                            openURL(URL(string: "https://www.edf.org/climate/why-fighting-climate-change-so-urgent?utm_source=google&utm_campaign=edf_none_upd_dmt&utm_medium=cpc&utm_id=1561743801&gad_source=1&gclid=Cj0KCQiA5-uuBhDzARIsAAa21T92YJeqrara4wK_vnoAL5wx5jHKi2tcsSL96DOenmoElv9pYV-9ycMaAn7rEALw_wcB&gclsrc=aw.ds")!)
+                                        }
+                                        Spacer()
+                                    }.background(.white)
+                                        .cornerRadius(10)
                                     HStack{
                                         Spacer()
                                         Image("fern")
@@ -60,6 +77,8 @@ struct FeedTab: View {
 
                                     }
                                     .padding(5)
+
+
                                     
                                     Text("climate news")
                                         .bold()
