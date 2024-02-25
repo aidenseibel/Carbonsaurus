@@ -35,8 +35,12 @@ struct FeedTab: View {
                     }
                 }
             }
-            
-
+        }.refreshable {
+            FeedService.shared.fetchTopStories { fetched in
+                if let stories = fetched {
+                    articles = stories
+                }
+            }
         }
     }
 }
