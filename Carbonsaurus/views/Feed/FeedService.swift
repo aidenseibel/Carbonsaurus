@@ -99,7 +99,6 @@ class FeedService {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let response = try decoder.decode(FeedResponse.self, from: data)
-//                print("Fetched articles: \(response.results)")
                 completion(response.results)
             } catch let error {
                 print("Error decoding JSON: \(error)")

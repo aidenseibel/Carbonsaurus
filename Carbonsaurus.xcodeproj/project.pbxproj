@@ -23,6 +23,8 @@
 		176761622B8ADBBB001EC050 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* user.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
+		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
+		C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,7 @@
 		176761612B8ADBBB001EC050 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +167,7 @@
 			children = (
 				176761542B8A8CEF001EC050 /* DiaryEntry.swift */,
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
+				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -202,6 +207,9 @@
 			dependencies = (
 			);
 			name = Carbonsaurus;
+			packageProductDependencies = (
+				C492E6B62B8AF69D00969486 /* Shimmer */,
+			);
 			productName = Carbonsaurus;
 			productReference = 1767611D2B8A8017001EC050 /* Carbonsaurus.app */;
 			productType = "com.apple.product-type.application";
@@ -274,6 +282,9 @@
 				Base,
 			);
 			mainGroup = 176761142B8A8017001EC050;
+			packageReferences = (
+				C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+			);
 			productRefGroup = 1767611E2B8A8017001EC050 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -323,6 +334,7 @@
 				1767615A2B8AA267001EC050 /* diary.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
+				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* user.swift in Sources */,
@@ -656,6 +668,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C492E6B62B8AF69D00969486 /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 176761152B8A8017001EC050 /* Project object */;
 }
