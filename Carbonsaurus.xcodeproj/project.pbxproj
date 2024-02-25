@@ -20,6 +20,7 @@
 		176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761562B8A8CFB001EC050 /* NewsComponent.swift */; };
 		1767615A2B8AA267001EC050 /* diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* diary.swift */; };
 		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
+		176761622B8ADBBB001EC050 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* user.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		176761562B8A8CFB001EC050 /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
 		176761592B8AA267001EC050 /* diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = diary.swift; sourceTree = "<group>"; };
 		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
+		176761612B8ADBBB001EC050 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 			children = (
 				176761592B8AA267001EC050 /* diary.swift */,
 				C492E6A42B8AD74400969486 /* Util.swift */,
+				176761612B8ADBBB001EC050 /* user.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
+				176761622B8ADBBB001EC050 /* user.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
