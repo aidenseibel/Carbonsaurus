@@ -88,6 +88,7 @@ struct QuizView: View {
                     
                     if hasAnswered{
                         Button {
+                            viewModel.isTabBarShowing = true
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             HStack{
@@ -95,11 +96,11 @@ struct QuizView: View {
                                 Text("go back to feed")
                                     .bold()
                                     .foregroundColor(.pink.opacity(0.55))
+                                    .padding(20)
+                                    .background(.white)
+                                    .cornerRadius(10)
                                 Spacer()
                             }
-                            .padding(20)
-                            .background(.white)
-                            .cornerRadius(10)
                         }
                     }
                 }
@@ -108,6 +109,9 @@ struct QuizView: View {
             }
             .frame(width: UIScreen.main.bounds.width * 0.90)
             .navigationBarBackButtonHidden(true)
+            .onAppear{
+                viewModel.isTabBarShowing = false
+            }
         }
     }
     

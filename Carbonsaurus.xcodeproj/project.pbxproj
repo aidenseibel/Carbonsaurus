@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2D2B8B83240050895B /* ViewModel.swift */; };
+		172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */; };
 		176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761202B8A8017001EC050 /* CarbonsaurusApp.swift */; };
 		176761252B8A8018001EC050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761242B8A8018001EC050 /* Assets.xcassets */; };
 		176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761272B8A8018001EC050 /* Preview Assets.xcassets */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		172DAE2D2B8B83240050895B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAvatarView.swift; sourceTree = "<group>"; };
 		1767611D2B8A8017001EC050 /* Carbonsaurus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbonsaurus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176761202B8A8017001EC050 /* CarbonsaurusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusApp.swift; sourceTree = "<group>"; };
 		176761242B8A8018001EC050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				176761672B8B1FDA001EC050 /* Diary */,
 				C492E6A12B8AA76500969486 /* Feed */,
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
+				172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */,
 				176761652B8B15AF001EC050 /* Onboarding.swift */,
 			);
 			path = views;
@@ -385,6 +388,7 @@
 				1767616D2B8B5679001EC050 /* quiz.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
 				C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */,
+				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
 				172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */,

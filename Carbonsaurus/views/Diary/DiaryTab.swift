@@ -29,7 +29,7 @@ struct DiaryTab: View {
                                         .resizable()
                                         .frame(width: 50, height: 50)
                                     VStack(alignment: .leading){
-                                        Text("time to check in")
+                                        Text("time to check in!")
                                             .font(.title2)
                                             .bold()
                                         Text("complete your daily report!")
@@ -60,7 +60,7 @@ struct DiaryTab: View {
                             .bold()
                             .font(.system(size: 32))
 
-                        ForEach(viewModel.localuser.diaries, id: \.self){diary in
+                        ForEach(viewModel.localuser.diaries.sorted { $0.date > $1.date }, id: \.self){diary in
                             NavigationLink {
                                 DiaryEntryLarge(diary: diary)
                             } label: {

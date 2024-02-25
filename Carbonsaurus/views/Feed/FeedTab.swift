@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FeedTab: View {
+    @EnvironmentObject var viewModel: ViewModel
     @State private var articles: [Article] = []
     @State private var isLoading: Bool = true
     

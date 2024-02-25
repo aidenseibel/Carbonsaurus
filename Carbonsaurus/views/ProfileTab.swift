@@ -11,6 +11,7 @@ struct ProfileTab: View {
     @EnvironmentObject var viewModel: ViewModel
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
+    @State var openChangeAvatar: Bool = false
     
     var body: some View {
         NavigationView{
@@ -29,7 +30,7 @@ struct ProfileTab: View {
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
                                     .onTapGesture {
-                                        toggleDino.toggle()
+                                        openChangeAvatar = true
                                     }
                                 
                             }
@@ -77,14 +78,12 @@ struct ProfileTab: View {
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                     
                                     HStack{
-                                        Text("12 tons")
+                                        Text("\(viewModel.localuser.getCarbonFootprintThisWeek()/1000) kg")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
-                                    
-                                    
                                 }
                                 
                                 GridRow{
@@ -210,6 +209,11 @@ struct ProfileTab: View {
             }
             .navigationTitle("profile")
             .navigationBarTitleDisplayMode(.large)
+            .sheet(isPresented: $openChangeAvatar, onDismiss: {
+                openChangeAvatar = false
+            }, content: {
+                ChangeAvatarView()
+            })
         }
         .onAppear{
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in

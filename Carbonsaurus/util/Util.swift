@@ -55,3 +55,6 @@ public func isLessThanAWeekAgo(date: Date) -> Bool {
     return false
 }
 
+public func parseNumber(input: String) -> Double{
+    return Double(input) ?? 1.0
+}

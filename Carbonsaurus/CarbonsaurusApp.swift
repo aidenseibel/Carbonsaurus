@@ -15,9 +15,7 @@ struct CarbonsaurusApp: App {
     init() {
         UITabBar.appearance().isHidden = true
     }
-    
-    var isTabBarVisisble: Bool = true
-    
+        
     var body: some Scene {
         WindowGroup {
             if !viewModel.isLoggedIn{
@@ -32,9 +30,11 @@ struct CarbonsaurusApp: App {
                             FeedTab().tag(Tab.feed)
                         }.environmentObject(viewModel)
                     }
-                    VStack {
-                        Spacer()
-                        TabBar(selectedTab: $selectedTab)
+                    if viewModel.isTabBarShowing{
+                        VStack {
+                            Spacer()
+                            TabBar(selectedTab: $selectedTab)
+                        }
                     }
                 }
             }

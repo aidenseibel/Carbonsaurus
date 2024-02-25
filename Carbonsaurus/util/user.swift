@@ -69,6 +69,19 @@ class user: Identifiable, Codable, ObservableObject{
         return total / count
     }
     
+    func getCarbonFootprintThisWeek() -> Int{
+        var total = 0
+        
+        for diary in diaries {
+            if isLessThanAWeekAgo(date: diary.date){
+                total = total + diary.calculateCarbonFootprint(averages: getDailyAverages())
+            }
+        }
+        
+        return total
+    }
+    
+
     func getAverageDinoPoints() -> Int{
         if diaries.isEmpty{
             return 0
@@ -86,15 +99,15 @@ class user: Identifiable, Codable, ObservableObject{
     
     func getDinoStatus() -> avatarStatus{
         switch getAverageDinoPointsThisWeek(){
-        case 0..<900:
+        case 0..<1200:
             return .sad
-        case 900..<1300:
+        case 1200..<1400:
             return .worried
-        case 1300..<1700:
+        case 1400..<1600:
             return .neutral
-        case 1700..<2200:
+        case 1600..<1800:
             return .happy
-        case let value where value>2200:
+        case let value where value>1800:
             return .great
         default:
             return .neutral
