@@ -25,6 +25,11 @@
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
 		C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */; };
+		C492E6BC2B8B0F6B00969486 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6BB2B8B0F6B00969486 /* SDWebImageSwiftUI */; };
+		C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6BD2B8B0FC800969486 /* GifView.swift */; };
+		C492E6C02B8B120900969486 /* meteor-rock.gif in Resources */ = {isa = PBXBuildFile; fileRef = C492E6BF2B8B120900969486 /* meteor-rock.gif */; };
+		C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF912B8B1495002AE026 /* MeteorView.swift */; };
+		C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CFEF932B8B1902002AE026 /* explosion.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +70,10 @@
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
+		C492E6BD2B8B0FC800969486 /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
+		C492E6BF2B8B120900969486 /* meteor-rock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "meteor-rock.gif"; sourceTree = "<group>"; };
+		C4CFEF912B8B1495002AE026 /* MeteorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorView.swift; sourceTree = "<group>"; };
+		C4CFEF932B8B1902002AE026 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C492E6BC2B8B0F6B00969486 /* SDWebImageSwiftUI in Frameworks */,
 				C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +126,8 @@
 		1767611F2B8A8017001EC050 /* Carbonsaurus */ = {
 			isa = PBXGroup;
 			children = (
+				C4CFEF932B8B1902002AE026 /* explosion.mp3 */,
+				C492E6BF2B8B120900969486 /* meteor-rock.gif */,
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
 				176761582B8AA24B001EC050 /* util */,
 				1767614B2B8A8CB1001EC050 /* components */,
@@ -165,9 +177,11 @@
 		1767614B2B8A8CB1001EC050 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				C4CFEF912B8B1495002AE026 /* MeteorView.swift */,
 				176761542B8A8CEF001EC050 /* DiaryEntry.swift */,
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
+				C492E6BD2B8B0FC800969486 /* GifView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -209,6 +223,7 @@
 			name = Carbonsaurus;
 			packageProductDependencies = (
 				C492E6B62B8AF69D00969486 /* Shimmer */,
+				C492E6BB2B8B0F6B00969486 /* SDWebImageSwiftUI */,
 			);
 			productName = Carbonsaurus;
 			productReference = 1767611D2B8A8017001EC050 /* Carbonsaurus.app */;
@@ -284,6 +299,7 @@
 			mainGroup = 176761142B8A8017001EC050;
 			packageReferences = (
 				C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				C492E6BA2B8B0F6B00969486 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 1767611E2B8A8017001EC050 /* Products */;
 			projectDirPath = "";
@@ -301,6 +317,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */,
+				C492E6C02B8B120900969486 /* meteor-rock.gif in Resources */,
 				176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */,
 				176761252B8A8018001EC050 /* Assets.xcassets in Resources */,
 			);
@@ -334,11 +352,13 @@
 				1767615A2B8AA267001EC050 /* diary.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
+				C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* user.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
+				C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +698,14 @@
 				minimumVersion = 1.4.2;
 			};
 		};
+		C492E6BA2B8B0F6B00969486 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -685,6 +713,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		C492E6BB2B8B0F6B00969486 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C492E6BA2B8B0F6B00969486 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
