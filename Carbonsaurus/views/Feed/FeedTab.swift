@@ -14,13 +14,15 @@ struct FeedTab: View {
         NavigationStack {
             ZStack {
                 Color.orange.opacity(0.3).edgesIgnoringSafeArea(.all)
-
                 ScrollView {
                     ZStack (alignment: .center) {
                         Color.orange.opacity(0).edgesIgnoringSafeArea(.all)
                             VStack (spacing: 10) {
                                 ForEach(articles, id: \.self) { article in
-                                    NewsComponent(date: formatDate(date: article.publishedDate), title: article.title, imageURL: article.multimedia[0].url)
+                                    Link(destination: URL(string: article.url!)!, label: {
+                                        NewsComponent(date: formatDate(date: article.publishedDate), title: article.title, imageURL: article.multimedia[0].url)
+                                    }).buttonStyle(.plain)
+
                                 }
                             }
                         
