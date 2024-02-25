@@ -17,6 +17,12 @@ public func formatDate(date: Date) -> String {
     return (dateString + " - " + timeAgoString(from: date)).lowercased()
 }
 
+public func getFormattedURLDate(date: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    return dateFormatter.string(from: date)
+}
+
 public func timeAgoString(from date: Date) -> String {
 
     let calendar = Calendar.current

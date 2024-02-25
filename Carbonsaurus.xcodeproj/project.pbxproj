@@ -35,6 +35,7 @@
 		C492E6C02B8B120900969486 /* meteor-rock.gif in Resources */ = {isa = PBXBuildFile; fileRef = C492E6BF2B8B120900969486 /* meteor-rock.gif */; };
 		C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF912B8B1495002AE026 /* MeteorView.swift */; };
 		C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CFEF932B8B1902002AE026 /* explosion.mp3 */; };
+		C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF952B8B6226002AE026 /* TabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		C492E6BF2B8B120900969486 /* meteor-rock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "meteor-rock.gif"; sourceTree = "<group>"; };
 		C4CFEF912B8B1495002AE026 /* MeteorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorView.swift; sourceTree = "<group>"; };
 		C4CFEF932B8B1902002AE026 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		C4CFEF952B8B6226002AE026 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
 				C492E6BD2B8B0FC800969486 /* GifView.swift */,
 				1767616A2B8B5518001EC050 /* QuizSubView.swift */,
+				C4CFEF952B8B6226002AE026 /* TabBar.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				176761622B8ADBBB001EC050 /* user.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
 				C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */,
+				C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
