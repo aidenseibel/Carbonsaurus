@@ -24,14 +24,17 @@ struct NewsComponent: View {
                     .bold()
             }.padding(10)
             Spacer()
-            AsyncImage(url: URL(string: imageURL!)) { image in image
+            AsyncImage(url: URL(string: imageURL ?? "")) { image in image
                     .resizable()
                     .scaledToFill()
                     .frame(width: 100, height: 100)
                     .clipped()
                     .cornerRadius(10)
             } placeholder: {
-                Text("n/a")
+                Rectangle()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.gray.opacity(0.5))
+                    .cornerRadius(10)
             }
         }
         .padding(10)

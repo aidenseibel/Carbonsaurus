@@ -27,8 +27,8 @@ struct FeedTab: View {
                                     SkeletonNewsComponent()
                                 } else {
                                     ForEach(articles, id: \.self) { article in
-                                        Link(destination: URL(string: article.url!)!, label: {
-                                            NewsComponent(date: formatDate(date: article.publishedDate), title: article.title, imageURL: article.multimedia[0].url)
+                                        Link(destination: URL(string: article.url)!, label: {
+                                            NewsComponent(date: formatDate(date: article.publishedAt), title: article.title, imageURL: article.urlToImage)
                                         }).buttonStyle(.plain)
 
                                     }
@@ -42,15 +42,18 @@ struct FeedTab: View {
                         FeedService.shared.fetchTopStories { fetched in
                             if let stories = fetched {
                                 articles = stories
+                                isLoading = false
                             }
                         }
                     }
                 }
             }
         }.refreshable {
+            isLoading = true
             FeedService.shared.fetchTopStories { fetched in
                 if let stories = fetched {
                     articles = stories
+                    isLoading = false
                 }
             }
         }
