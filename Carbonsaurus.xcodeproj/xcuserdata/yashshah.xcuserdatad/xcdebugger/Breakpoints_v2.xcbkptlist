@@ -7,77 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D"
+            uuid = "8461BCC7-F324-4452-A586-0B5BF1677AFF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Carbonsaurus/views/Feed/FeedService.swift"
+            filePath = "Carbonsaurus/views/Feed/FeedTab.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "FeedService"
-            landmarkType = "3">
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "body"
+            landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - dcc42449ff4a89bc"
+                  uuid = "8461BCC7-F324-4452-A586-0B5BF1677AFF - 91848a50fc0e50e4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Carbonsaurus.FeedService.__allocating_init() -&gt; Carbonsaurus.FeedService"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;&lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;&lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in Carbonsaurus.FeedTab.body.getter : some"
                   moduleName = "Carbonsaurus"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedTab.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "96">
                </Location>
                <Location
-                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - c302159db9166abe"
+                  uuid = "8461BCC7-F324-4452-A586-0B5BF1677AFF - 21f900d31a1db1b4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Carbonsaurus.FeedService.deinit"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Carbonsaurus.Article&gt;&gt;) -&gt; () in closure #2 @Sendable () async -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0 in closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;&lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0&gt;)&gt; in closure #1 () -&gt; SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.edgesIgnoringSafeArea(SwiftUI.Edge.Set) -&gt; some&gt;&gt;.0, SwiftUI.ScrollView&lt;&lt;&lt;opaque return type of SwiftUI.View.task(priority: Swift.TaskPriority, _: @Sendable () async -&gt; ()) -&gt; some&gt;&gt;.0&gt;)&gt;&gt; in Carbonsaurus.FeedTab.body.getter : some"
                   moduleName = "Carbonsaurus"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
+                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedTab.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - 5b1dc6b7004f32c3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Carbonsaurus.FeedService.__deallocating_deinit"
-                  moduleName = "Carbonsaurus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  uuid = "6EDF8287-6439-41DB-B422-BCD74D12B61D - 22b151eb1a33ffb0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Carbonsaurus.FeedService.init() -&gt; Carbonsaurus.FeedService"
-                  moduleName = "Carbonsaurus"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yashshah/Documents/GitHub/Carbonsaurus/Carbonsaurus/views/Feed/FeedService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "108">
                </Location>
             </Locations>
          </BreakpointContent>

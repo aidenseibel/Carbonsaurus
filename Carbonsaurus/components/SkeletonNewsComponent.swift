@@ -28,10 +28,8 @@ struct SkeletonNewsComponent: View {
             Spacer()
             Rectangle()
                 .frame(width: 100, height: 100)
-                .foregroundColor(.gray)
+                .foregroundColor(.gray.opacity(0.5))
                 .cornerRadius(10)
-                .redacted(reason: .placeholder)
-                .shimmering()
 
         }
         .padding(10)

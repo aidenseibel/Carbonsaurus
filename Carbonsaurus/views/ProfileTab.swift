@@ -15,7 +15,6 @@ struct ProfileTab: View {
             ZStack {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
-                MeteorView()
                 ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
                         Text("profile")

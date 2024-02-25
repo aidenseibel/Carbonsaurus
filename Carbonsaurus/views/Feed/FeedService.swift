@@ -7,76 +7,78 @@
 
 import Foundation
 
-struct Article: Decodable, Hashable {
-    static func == (lhs: Article, rhs: Article) -> Bool {
-        return lhs.url == rhs.url
-    }
-    var id = UUID()
+fileprivate let relativeDateFormatter = RelativeDateTimeFormatter()
+
+struct Article: Hashable {
     
-    public func hash(into hasher: inout Hasher) {
-        return hasher.combine(id)
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 
-    let section: String
-    let subsection: String?
+    let id = UUID()
+
+    let source: Source
     let title: String
-    let abstract: String
-    let url: String?
-    let uri: String
-    let byline: String?
-    let itemType: String
-    let updatedDate: Date
-    let createdDate: Date
-    let publishedDate: Date
-    let materialTypeFacet: String?
-    let kicker: String?
-    let desFacet: [String]
-    let orgFacet: [String]
-    let perFacet: [String]
-    let geoFacet: [String]
-    let multimedia: [Multimedia]
-    let shortUrl: String
+    let url: String
+    let publishedAt: Date
+    
+    let author: String?
+    let description: String?
+    let urlToImage: String?
+    
     
     enum CodingKeys: String, CodingKey {
-        case section
-        case subsection
+        case source
         case title
-        case abstract
         case url
-        case uri
-        case byline
-        case itemType = "item_type"
-        case updatedDate = "updated_date"
-        case createdDate = "created_date"
-        case publishedDate = "published_date"
-        case materialTypeFacet = "material_type_facet"
-        case kicker
-        case desFacet = "des_facet"
-        case orgFacet = "org_facet"
-        case perFacet = "per_facet"
-        case geoFacet = "geo_facet"
-        case multimedia
-        case shortUrl = "short_url"
+        case publishedAt
+        case author
+        case description
+        case urlToImage
     }
+    
+    var authorText: String {
+        author ?? ""
+    }
+    
+    var descriptionText: String {
+        description ?? ""
+    }
+    
+    var captionText: String {
+        "\(source.name) ‧ \(relativeDateFormatter.localizedString(for: publishedAt, relativeTo: Date()))"
+    }
+    
+    var articleURL: URL {
+        URL(string: url)!
+    }
+    
+    var imageURL: URL? {
+        guard let urlToImage = urlToImage else {
+            return nil
+        }
+        return URL(string: urlToImage)
+    }
+    
 }
 
-struct Multimedia: Decodable {
-    let url: String
-    let format: String
-    let height: Int
-    let width: Int
-    let type: String
-    let subtype: String
-    let caption: String
-    let copyright: String
+extension Article: Codable {}
+extension Article: Equatable {}
+extension Article: Identifiable {}
+
+struct Source {
+    let name: String
 }
+
+extension Source: Codable {}
+extension Source: Equatable {}
 
 class FeedService {
     static let shared = FeedService()
-    private let apiKey = "s3T85WyaHvrJG5Q6n0elFP6bBIY61NgM"
+    private let apiKey = "f1f3468c3181496c84dcbec0af0a1ee8"
     
     func fetchTopStories(completion: @escaping ([Article]?) -> Void) {
-        guard let url = URL(string: "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=\(apiKey)") else {
+        guard let url = URL(string: "https://newsapi.org/v2/everything?q=climate change OR global warming OR emission OR environment&from=2024-02-10&to=2024-02-24&pageSize=10&excludeDomains=yahoo.com&sortBy=popularity&apiKey=\(apiKey)") else {
             print("Invalid URL")
             completion(nil)
             return
@@ -99,7 +101,8 @@ class FeedService {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let response = try decoder.decode(FeedResponse.self, from: data)
-                completion(response.results)
+                let articles = response.articles
+                completion(articles)
             } catch let error {
                 print("Error decoding JSON: \(error)")
                 completion(nil)
@@ -109,5 +112,5 @@ class FeedService {
 }
 
 struct FeedResponse: Decodable {
-    let results: [Article]
+    let articles: [Article]
 }
