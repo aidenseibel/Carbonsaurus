@@ -37,6 +37,14 @@
 		C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF912B8B1495002AE026 /* MeteorView.swift */; };
 		C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CFEF932B8B1902002AE026 /* explosion.mp3 */; };
 		C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF952B8B6226002AE026 /* TabBar.swift */; };
+		C4CFEFFD2B8B8CAD002AE026 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CFEFFC2B8B8CAD002AE026 /* WidgetKit.framework */; };
+		C4CFEFFF2B8B8CAD002AE026 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CFEFFE2B8B8CAD002AE026 /* SwiftUI.framework */; };
+		C4CFF0022B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFF0012B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift */; };
+		C4CFF0042B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFF0032B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift */; };
+		C4CFF0062B8B8CAD002AE026 /* CarbonsaurusWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFF0052B8B8CAD002AE026 /* CarbonsaurusWidget.swift */; };
+		C4CFF0082B8B8CAD002AE026 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFF0072B8B8CAD002AE026 /* AppIntent.swift */; };
+		C4CFF00A2B8B8CAF002AE026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CFF0092B8B8CAF002AE026 /* Assets.xcassets */; };
+		C4CFF00E2B8B8CAF002AE026 /* CarbonsaurusWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C4CFEFFA2B8B8CAD002AE026 /* CarbonsaurusWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +62,28 @@
 			remoteGlobalIDString = 1767611C2B8A8017001EC050;
 			remoteInfo = Carbonsaurus;
 		};
+		C4CFF00C2B8B8CAF002AE026 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 176761152B8A8017001EC050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C4CFEFF92B8B8CAD002AE026;
+			remoteInfo = CarbonsaurusWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4CFF00F2B8B8CAF002AE026 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C4CFF00E2B8B8CAF002AE026 /* CarbonsaurusWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		172DAE2D2B8B83240050895B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +117,15 @@
 		C4CFEF912B8B1495002AE026 /* MeteorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorView.swift; sourceTree = "<group>"; };
 		C4CFEF932B8B1902002AE026 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		C4CFEF952B8B6226002AE026 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		C4CFEFFA2B8B8CAD002AE026 /* CarbonsaurusWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarbonsaurusWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CFEFFC2B8B8CAD002AE026 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		C4CFEFFE2B8B8CAD002AE026 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		C4CFF0012B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusWidgetBundle.swift; sourceTree = "<group>"; };
+		C4CFF0032B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		C4CFF0052B8B8CAD002AE026 /* CarbonsaurusWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusWidget.swift; sourceTree = "<group>"; };
+		C4CFF0072B8B8CAD002AE026 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		C4CFF0092B8B8CAF002AE026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C4CFF00B2B8B8CAF002AE026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +152,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4CFEFF72B8B8CAD002AE026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CFEFFF2B8B8CAD002AE026 /* SwiftUI.framework in Frameworks */,
+				C4CFEFFD2B8B8CAD002AE026 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -123,6 +170,8 @@
 				1767611F2B8A8017001EC050 /* Carbonsaurus */,
 				176761302B8A8018001EC050 /* CarbonsaurusTests */,
 				1767613A2B8A8018001EC050 /* CarbonsaurusUITests */,
+				C4CFF0002B8B8CAD002AE026 /* CarbonsaurusWidget */,
+				C4CFEFFB2B8B8CAD002AE026 /* Frameworks */,
 				1767611E2B8A8017001EC050 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,6 +182,7 @@
 				1767611D2B8A8017001EC050 /* Carbonsaurus.app */,
 				1767612D2B8A8018001EC050 /* CarbonsaurusTests.xctest */,
 				176761372B8A8018001EC050 /* CarbonsaurusUITests.xctest */,
+				C4CFEFFA2B8B8CAD002AE026 /* CarbonsaurusWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,6 +284,28 @@
 			path = Feed;
 			sourceTree = "<group>";
 		};
+		C4CFEFFB2B8B8CAD002AE026 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4CFEFFC2B8B8CAD002AE026 /* WidgetKit.framework */,
+				C4CFEFFE2B8B8CAD002AE026 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4CFF0002B8B8CAD002AE026 /* CarbonsaurusWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C4CFF0012B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift */,
+				C4CFF0032B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift */,
+				C4CFF0052B8B8CAD002AE026 /* CarbonsaurusWidget.swift */,
+				C4CFF0072B8B8CAD002AE026 /* AppIntent.swift */,
+				C4CFF0092B8B8CAF002AE026 /* Assets.xcassets */,
+				C4CFF00B2B8B8CAF002AE026 /* Info.plist */,
+			);
+			path = CarbonsaurusWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -244,10 +316,12 @@
 				176761192B8A8017001EC050 /* Sources */,
 				1767611A2B8A8017001EC050 /* Frameworks */,
 				1767611B2B8A8017001EC050 /* Resources */,
+				C4CFF00F2B8B8CAF002AE026 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C4CFF00D2B8B8CAF002AE026 /* PBXTargetDependency */,
 			);
 			name = Carbonsaurus;
 			packageProductDependencies = (
@@ -294,6 +368,23 @@
 			productReference = 176761372B8A8018001EC050 /* CarbonsaurusUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C4CFEFF92B8B8CAD002AE026 /* CarbonsaurusWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4CFF0122B8B8CAF002AE026 /* Build configuration list for PBXNativeTarget "CarbonsaurusWidgetExtension" */;
+			buildPhases = (
+				C4CFEFF62B8B8CAD002AE026 /* Sources */,
+				C4CFEFF72B8B8CAD002AE026 /* Frameworks */,
+				C4CFEFF82B8B8CAD002AE026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarbonsaurusWidgetExtension;
+			productName = CarbonsaurusWidgetExtension;
+			productReference = C4CFEFFA2B8B8CAD002AE026 /* CarbonsaurusWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -314,6 +405,9 @@
 					176761362B8A8018001EC050 = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = 1767611C2B8A8017001EC050;
+					};
+					C4CFEFF92B8B8CAD002AE026 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -337,6 +431,7 @@
 				1767611C2B8A8017001EC050 /* Carbonsaurus */,
 				1767612C2B8A8018001EC050 /* CarbonsaurusTests */,
 				176761362B8A8018001EC050 /* CarbonsaurusUITests */,
+				C4CFEFF92B8B8CAD002AE026 /* CarbonsaurusWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -364,6 +459,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4CFEFF82B8B8CAD002AE026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CFF00A2B8B8CAF002AE026 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +518,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4CFEFF62B8B8CAD002AE026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4CFF0042B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift in Sources */,
+				C4CFF0082B8B8CAD002AE026 /* AppIntent.swift in Sources */,
+				C4CFF0062B8B8CAD002AE026 /* CarbonsaurusWidget.swift in Sources */,
+				C4CFF0022B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -427,6 +541,11 @@
 			isa = PBXTargetDependency;
 			target = 1767611C2B8A8017001EC050 /* Carbonsaurus */;
 			targetProxy = 176761382B8A8018001EC050 /* PBXContainerItemProxy */;
+		};
+		C4CFF00D2B8B8CAF002AE026 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C4CFEFF92B8B8CAD002AE026 /* CarbonsaurusWidgetExtension */;
+			targetProxy = C4CFF00C2B8B8CAF002AE026 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -553,6 +672,7 @@
 		176761422B8A8018001EC050 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -584,6 +704,7 @@
 		176761432B8A8018001EC050 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -684,6 +805,60 @@
 			};
 			name = Release;
 		};
+		C4CFF0102B8B8CAF002AE026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C72D493DTH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C4CFF0112B8B8CAF002AE026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C72D493DTH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -719,6 +894,15 @@
 			buildConfigurations = (
 				176761482B8A8018001EC050 /* Debug */,
 				176761492B8A8018001EC050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4CFF0122B8B8CAF002AE026 /* Build configuration list for PBXNativeTarget "CarbonsaurusWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4CFF0102B8B8CAF002AE026 /* Debug */,
+				C4CFF0112B8B8CAF002AE026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
