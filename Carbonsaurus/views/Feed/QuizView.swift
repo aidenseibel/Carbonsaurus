@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuizView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var localuser: user
+    @EnvironmentObject var viewModel: ViewModel
     
     var quiz: quiz
     

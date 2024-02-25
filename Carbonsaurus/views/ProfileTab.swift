@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileTab: View {
-    @EnvironmentObject var localuser: user
+    @EnvironmentObject var viewModel: ViewModel
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
     
@@ -24,7 +24,7 @@ struct ProfileTab: View {
                                 Circle()
                                     .frame(width: UIScreen.main.bounds.width * 0.70)
                                     .foregroundColor(.white)
-                                Image(toggleDino ? localuser.getDinoImageString() : localuser.getHigherDinoImageString())
+                                Image(toggleDino ? viewModel.localuser.getDinoImageString() : viewModel.localuser.getHigherDinoImageString())
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.50)
@@ -45,7 +45,7 @@ struct ProfileTab: View {
                                     Text("your dino is")
                                         .font(.system(size: 20))
                                         .bold()
-                                    Text("\(localuser.dinoStatusToString())")
+                                    Text("\(viewModel.localuser.dinoStatusToString())")
                                         .font(.system(size: 42))
                                         .bold()
                                 }
@@ -59,7 +59,7 @@ struct ProfileTab: View {
 
                             }
                             
-                            Text("\(localuser.getDinoStatusDescription())")
+                            Text("\(viewModel.localuser.getDinoStatusDescription())")
                                 .frame(width: UIScreen.main.bounds.width * 0.80)
                                 .multilineTextAlignment(.center)
                                 .bold()
@@ -96,7 +96,7 @@ struct ProfileTab: View {
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                     HStack{
-                                        Text("\(localuser.getAverageDinoPointsThisWeek())")
+                                        Text("\(viewModel.localuser.getAverageDinoPointsThisWeek())")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
@@ -112,7 +112,7 @@ struct ProfileTab: View {
                                             .bold()
                                     }
                                     HStack{
-                                        Text("\(localuser.getCarbonRanking())")
+                                        Text("\(viewModel.localuser.getCarbonRanking())")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
@@ -131,6 +131,7 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                                 Spacer()
                                 Text("overall stats")
                                     .bold()
@@ -140,6 +141,7 @@ struct ProfileTab: View {
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 70, height: 70)
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                                 Spacer()
                             }
                             //MARK: STATS
@@ -154,7 +156,7 @@ struct ProfileTab: View {
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                     
                                     HStack{
-                                        Text("\(localuser.getDinoPoints())")
+                                        Text("\(viewModel.localuser.getDinoPoints())")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
@@ -173,7 +175,7 @@ struct ProfileTab: View {
                                     }
                                     .frame(width: UIScreen.main.bounds.width * 0.40)
                                     HStack{
-                                        Text("\(localuser.diaries.count)")
+                                        Text("\(viewModel.localuser.diaries.count)")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()
@@ -189,7 +191,7 @@ struct ProfileTab: View {
                                             .bold()
                                     }
                                     HStack{
-                                        Text("\(localuser.getDinoPoints() / localuser.diaries.count)")
+                                        Text("\(viewModel.localuser.getDinoPoints() / viewModel.localuser.diaries.count)")
                                             .multilineTextAlignment(.leading)
                                             .bold()
                                         Spacer()

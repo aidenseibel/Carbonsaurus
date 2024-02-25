@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Onboarding: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var viewModel: ViewModel
     @Namespace var questionsID
 
     @State var driving: String = ""
@@ -110,6 +111,8 @@ struct Onboarding: View {
                         
                         
                         Button(action: {
+//                            viewModel.localuser.average_driving = driving
+                            viewModel.isLoggedIn = true
                             presentationMode.wrappedValue.dismiss()
                         }, label: {
                             HStack{

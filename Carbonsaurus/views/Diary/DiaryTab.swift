@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct DiaryTab: View {
-    @EnvironmentObject var localuser: user
-    @State var hasDiaryToday: Bool = false
+    @EnvironmentObject var viewModel: ViewModel
     
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
@@ -21,7 +20,7 @@ struct DiaryTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false){
                     VStack(alignment: .leading){
-                        if !hasDiaryToday{
+                        if !viewModel.hasLoggedToday{
                             NavigationLink {
                                 DiaryCreator()
                             } label: {
@@ -61,7 +60,7 @@ struct DiaryTab: View {
                             .bold()
                             .font(.system(size: 32))
 
-                        ForEach(localuser.diaries, id: \.self){diary in
+                        ForEach(viewModel.localuser.diaries, id: \.self){diary in
                             NavigationLink {
                                 DiaryEntryLarge(diary: diary)
                             } label: {

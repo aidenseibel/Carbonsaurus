@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiaryCreator: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @EnvironmentObject var localuser: user
+    @EnvironmentObject var viewModel: ViewModel
 
     @State var driving = 3
     @State var phone = 3
@@ -91,8 +91,9 @@ struct DiaryCreator: View {
                     .frame(width: UIScreen.main.bounds.width * 0.90)
                     
                     Button(action: {
-                        localuser.diaries.append(diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
-                        print(localuser.diaries)
+                        viewModel.localuser.diaries.append(diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
+                        viewModel.hasLoggedToday = true
+                        print(viewModel.localuser.diaries)
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack{
