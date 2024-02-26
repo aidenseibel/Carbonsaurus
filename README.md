@@ -1,3 +1,6 @@
+# RowdyHacks 2024 Best Design + Third Place Overall Winner!
+[https://devpost.com/software/carbonsaurus](url)
+
 ## Inspiration
 The growing climate crisis is affecting everyone globally but is not talked about enough! We wanted to provide a way for people to stay aware of the incoming crisis and understand of their carbon emissions on a day-to-day basis while also keeping them engaged. Thus we used virtual pets (dinosaurs)!
 
