@@ -18,7 +18,7 @@ struct CarbonsaurusApp: App {
         
     var body: some Scene {
         WindowGroup {
-            if !viewModel.isLoggedIn{
+            if !viewModel.hasOnboarded{
                 Onboarding()
                     .environmentObject(viewModel)
             }else{

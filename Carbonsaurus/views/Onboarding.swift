@@ -64,8 +64,8 @@ struct Onboarding: View {
                                 viewModel.localUser.average_appliances = 1
                                 viewModel.localUser.average_eating = 1800
                                 viewModel.localUser.average_shower = 10
-
-                                viewModel.isLoggedIn = true
+                                DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
+                                viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
                             }
                             .foregroundColor(.pink.opacity(0.55))
@@ -148,7 +148,8 @@ struct Onboarding: View {
                                 viewModel.localUser.average_appliances = Int(parseNumber(input: appliances))
                                 viewModel.localUser.average_eating = Int(parseNumber(input: eat))
                                 viewModel.localUser.average_shower = Int(parseNumber(input: shower))
-                                viewModel.isLoggedIn = true
+                                DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
+                                viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
                             }
                             else{
