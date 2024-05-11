@@ -11,7 +11,7 @@ struct QuizView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel: ViewModel
     
-    var quiz: quiz
+    var quiz: Quiz
     
     @State var hasAnswered = false
     @State var isCorrect = false
@@ -73,7 +73,7 @@ struct QuizView: View {
                     if hasAnswered{
                         Button {
                             if isCorrect{
-                                viewModel.localuser.extraDinoPoints = viewModel.localuser.extraDinoPoints + 50
+                                viewModel.localUser.extraDinoPoints = viewModel.localUser.extraDinoPoints + 50
                             }
                             viewModel.isTabBarShowing = true
                             presentationMode.wrappedValue.dismiss()
@@ -113,5 +113,5 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView(quiz: quiz(question: "Which of the following greenhouse gases is primarily responsible for the current global warming trend?", answerIndex: 0, choices: ["Carbon dioxide (CO2)", "Methane (CH4)", "Nitrous oxide (N2O)", "Ozone (O3)"]))
+    QuizView(quiz: Quiz(question: "Which of the following greenhouse gases is primarily responsible for the current global warming trend?", answerIndex: 0, choices: ["Carbon dioxide (CO2)", "Methane (CH4)", "Nitrous oxide (N2O)", "Ozone (O3)"]))
 }

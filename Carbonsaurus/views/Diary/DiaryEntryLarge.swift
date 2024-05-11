@@ -10,7 +10,7 @@ import SwiftUI
 struct DiaryEntryLarge: View {
     @EnvironmentObject var viewModel: ViewModel
     
-    var diary: diary
+    var diary: Diary
     
     var body: some View {
         ZStack{
@@ -25,7 +25,7 @@ struct DiaryEntryLarge: View {
                                 .font(.system(size: 32))
 
                             HStack(alignment: .bottom){
-                                Text("\(diary.calculateCarbonFootprint(averages: viewModel.localuser.getDailyAverages()))")
+                                Text("\(diary.calculateCarbonFootprint(averages: viewModel.localUser.getDailyAverages()))")
                                     .font(.system(size: 42))
                                     .bold()
                                 Text("g of carbon")
@@ -47,7 +47,7 @@ struct DiaryEntryLarge: View {
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.90)
                     
-                    Image(diary.getImage(userAvatar: viewModel.localuser.getAvatar()))
+                    Image(diary.getImage(userAvatar: viewModel.localUser.getAvatar()))
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
@@ -69,7 +69,7 @@ struct DiaryEntryLarge: View {
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             
                             HStack{
-                                Text("\(viewModel.localuser.average_driving*diary.driving/3) (\(String(format: "%.0f", diary.getDrivingCarbon(average: viewModel.localuser.average_driving))) g)")
+                                Text("\(viewModel.localUser.average_driving*diary.driving/3) (\(String(format: "%.0f", diary.getDrivingCarbon(average: viewModel.localUser.average_driving))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -86,7 +86,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_phone*diary.phone/3) (\(String(format: "%.0f", diary.getPhoneCarbon(average: viewModel.localuser.average_phone))) g)")
+                                Text("\(viewModel.localUser.average_phone*diary.phone/3) (\(String(format: "%.0f", diary.getPhoneCarbon(average: viewModel.localUser.average_phone))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -103,7 +103,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_appliances*diary.appliances/3) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localuser.average_appliances))) g)")
+                                Text("\(viewModel.localUser.average_appliances*diary.appliances/3) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localUser.average_appliances))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -120,7 +120,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_eating*diary.eat/3) (\(String(format: "%.0f", diary.getEatCarbon(average: viewModel.localuser.average_eating))) g)")
+                                Text("\(viewModel.localUser.average_eating*diary.eat/3) (\(String(format: "%.0f", diary.getEatCarbon(average: viewModel.localUser.average_eating))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -137,7 +137,7 @@ struct DiaryEntryLarge: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack{
-                                Text("\(viewModel.localuser.average_shower*diary.shower/3) (\(String(format: "%.0f", diary.getShowerCarbon(average: viewModel.localuser.average_shower))) g)")
+                                Text("\(viewModel.localUser.average_shower*diary.shower/3) (\(String(format: "%.0f", diary.getShowerCarbon(average: viewModel.localUser.average_shower))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -157,5 +157,5 @@ struct DiaryEntryLarge: View {
 }
 
 #Preview {
-    DiaryEntryLarge(diary: diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
+    DiaryEntryLarge(diary: Diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
 }

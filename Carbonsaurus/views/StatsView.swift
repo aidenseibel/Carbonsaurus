@@ -52,7 +52,7 @@ struct StatsView: View {
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                             
                             HStack{
-                                Text("\(viewModel.localuser.getCarbonFootprintThisWeek()/1000) kg")
+                                Text("\(viewModel.localUser.getCarbonFootprintThisWeek()/1000) kg")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -69,7 +69,7 @@ struct StatsView: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                             HStack{
-                                Text("\(viewModel.localuser.getAverageDinoPointsThisWeek())")
+                                Text("\(viewModel.localUser.getAverageDinoPointsThisWeek())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -85,7 +85,7 @@ struct StatsView: View {
                                     .bold()
                             }
                             HStack{
-                                Text("\(viewModel.localuser.getCarbonRanking())")
+                                Text("\(viewModel.localUser.getCarbonRanking())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -129,7 +129,7 @@ struct StatsView: View {
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                             
                             HStack{
-                                Text("\(viewModel.localuser.getDinoPoints())")
+                                Text("\(viewModel.localUser.getDinoPoints())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -148,7 +148,7 @@ struct StatsView: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                             HStack{
-                                Text("\(viewModel.localuser.diaries.count)")
+                                Text("\(viewModel.localUser.diaries.count)")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -164,7 +164,7 @@ struct StatsView: View {
                                     .bold()
                             }
                             HStack{
-                                Text("\(viewModel.localuser.getDinoPoints() / viewModel.localuser.diaries.count)")
+                                Text("\(viewModel.localUser.getDinoPoints() / viewModel.localUser.diaries.count)")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()

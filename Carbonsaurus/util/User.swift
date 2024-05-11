@@ -24,16 +24,16 @@ enum avatarStatus: Codable{
     case sad
 }
 
-class user: Identifiable, Codable, ObservableObject{
+class User: Identifiable, Codable, ObservableObject{
     var id: UUID
     var username: String
-    var diaries: [diary]
+    var diaries: [Diary]
     var avatar: avatar
     var avatarStatus: avatarStatus
     var extraDinoPoints: Int
     var average_driving, average_phone, average_appliances, average_eating, average_shower: Int
         
-    init(username: String, diaries: [diary], avatar: avatar, avatarStatus: avatarStatus,extraDinoPoints: Int, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
+    init(username: String, diaries: [Diary], avatar: avatar, avatarStatus: avatarStatus,extraDinoPoints: Int, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
         self.id = UUID()
         self.username = username
         self.diaries = diaries

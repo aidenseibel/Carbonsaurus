@@ -25,7 +25,7 @@ struct ProfileTab: View {
                             Circle()
                                 .frame(width: UIScreen.main.bounds.width * 0.60)
                                 .foregroundColor(.white)
-                            Image(toggleDino ? viewModel.localuser.getDinoImageString() : viewModel.localuser.getHigherDinoImageString())
+                            Image(toggleDino ? viewModel.localUser.getDinoImageString() : viewModel.localUser.getHigherDinoImageString())
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
@@ -49,10 +49,10 @@ struct ProfileTab: View {
                                 Text("your dino is")
                                     .font(.system(size: 20))
                                     .bold()
-                                Text("\(viewModel.localuser.dinoStatusToString())")
+                                Text("\(viewModel.localUser.dinoStatusToString())")
                                     .font(.system(size: 42))
                                     .bold()
-                                Text("\(viewModel.localuser.getDinoPoints()) dino points")
+                                Text("\(viewModel.localUser.getDinoPoints()) dino points")
                                     .font(.system(size: 14))
                                     .bold()
 
@@ -67,7 +67,7 @@ struct ProfileTab: View {
 
                         }
                         
-                        Text("\(viewModel.localuser.getDinoStatusDescription())")
+                        Text("\(viewModel.localUser.getDinoStatusDescription())")
                             .frame(width: UIScreen.main.bounds.width * 0.80)
                             .multilineTextAlignment(.center)
                             .bold()

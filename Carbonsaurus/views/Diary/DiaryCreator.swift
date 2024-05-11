@@ -90,10 +90,10 @@ struct DiaryCreator: View {
                 .frame(width: UIScreen.main.bounds.width * 0.90)
                 
                 Button(action: {
-                    viewModel.localuser.diaries.append(diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
+                    viewModel.localUser.diaries.append(Diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
                     viewModel.hasLoggedToday = true
                     viewModel.isTabBarShowing = true
-                    print(viewModel.localuser.diaries)
+                    print(viewModel.localUser.diaries)
                     presentationMode.wrappedValue.dismiss()
                 }, label: {
                     HStack{

@@ -72,12 +72,12 @@ struct DiaryTab: View {
                             .bold()
                             .font(.system(size: 32))
                         
-                        Text("\(viewModel.localuser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
+                        Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
                             .bold()
                             .font(.system(size: 16))
                             .padding(.bottom, 4)
 
-                        ForEach(viewModel.localuser.diaries.sorted { $0.date > $1.date }, id: \.self){diary in
+                        ForEach(viewModel.localUser.diaries.sorted { $0.date > $1.date }, id: \.self){diary in
                             NavigationLink {
                                 DiaryEntryLarge(diary: diary)
                             } label: {

@@ -31,7 +31,7 @@ struct ChangeAvatarView: View {
                     Grid(alignment: .center, horizontalSpacing: 20, verticalSpacing: 20){
                         GridRow{
                             Button(action: {
-                                viewModel.localuser.avatar = .blue
+                                viewModel.localUser.avatar = .blue
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image("blue_dino_\(getFromIndex())")
@@ -42,7 +42,7 @@ struct ChangeAvatarView: View {
                             })
                             
                             Button(action: {
-                                viewModel.localuser.avatar = .green
+                                viewModel.localUser.avatar = .green
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image("green_dino_\(getFromIndex())")
@@ -54,7 +54,7 @@ struct ChangeAvatarView: View {
                         }
                         GridRow{
                             Button(action: {
-                                viewModel.localuser.avatar = .pink
+                                viewModel.localUser.avatar = .pink
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image("pink_dino_\(getFromIndex())")
@@ -64,7 +64,7 @@ struct ChangeAvatarView: View {
                                     .cornerRadius(10)
                             })
                             Button(action: {
-                                viewModel.localuser.avatar = .orange
+                                viewModel.localUser.avatar = .orange
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image("orange_dino_\(getFromIndex())")
@@ -77,7 +77,7 @@ struct ChangeAvatarView: View {
                         }
                         GridRow{
                             Button(action: {
-                                viewModel.localuser.avatar = .light_green
+                                viewModel.localUser.avatar = .light_green
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
                                 Image("light_green_dino_\(getFromIndex())")

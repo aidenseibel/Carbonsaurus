@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiaryEntry: View {
     @EnvironmentObject var viewModel: ViewModel
-    var diary: diary
+    var diary: Diary
     
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
@@ -26,7 +26,7 @@ struct DiaryEntry: View {
                     .bold()
             }
             Spacer()
-            Image(viewModel.localuser.getDinoImageString())
+            Image(viewModel.localUser.getDinoImageString())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
@@ -48,6 +48,6 @@ struct DiaryEntry: View {
 }
 
 #Preview {
-    DiaryEntry(diary: diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
+    DiaryEntry(diary: Diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
         .previewLayout(.sizeThatFits)
 }

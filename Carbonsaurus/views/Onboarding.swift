@@ -59,11 +59,11 @@ struct Onboarding: View {
                                 .padding(.bottom, 100)
                             
                             Button("skip for now") {
-                                viewModel.localuser.average_driving = 1
-                                viewModel.localuser.average_phone = 195
-                                viewModel.localuser.average_appliances = 1
-                                viewModel.localuser.average_eating = 1800
-                                viewModel.localuser.average_shower = 10
+                                viewModel.localUser.average_driving = 1
+                                viewModel.localUser.average_phone = 195
+                                viewModel.localUser.average_appliances = 1
+                                viewModel.localUser.average_eating = 1800
+                                viewModel.localUser.average_shower = 10
 
                                 viewModel.isLoggedIn = true
                                 presentationMode.wrappedValue.dismiss()
@@ -143,11 +143,11 @@ struct Onboarding: View {
                         
                         Button(action: {
                             if allFieldsValid(){
-                                viewModel.localuser.average_driving = Int(parseNumber(input: driving))
-                                viewModel.localuser.average_phone = Int(parseNumber(input: phone))
-                                viewModel.localuser.average_appliances = Int(parseNumber(input: appliances))
-                                viewModel.localuser.average_eating = Int(parseNumber(input: eat))
-                                viewModel.localuser.average_shower = Int(parseNumber(input: shower))
+                                viewModel.localUser.average_driving = Int(parseNumber(input: driving))
+                                viewModel.localUser.average_phone = Int(parseNumber(input: phone))
+                                viewModel.localUser.average_appliances = Int(parseNumber(input: appliances))
+                                viewModel.localUser.average_eating = Int(parseNumber(input: eat))
+                                viewModel.localUser.average_shower = Int(parseNumber(input: shower))
                                 viewModel.isLoggedIn = true
                                 presentationMode.wrappedValue.dismiss()
                             }
