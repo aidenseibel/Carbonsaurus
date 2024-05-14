@@ -32,6 +32,7 @@
 		1767616D2B8B5679001EC050 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616C2B8B5679001EC050 /* Quiz.swift */; };
 		1767616F2B8B5736001EC050 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616E2B8B5736001EC050 /* QuizView.swift */; };
 		17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C52ABE2BF00CC40034540E /* DataModel.swift */; };
+		17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786742BF3E74600B9FA52 /* Notifications.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -119,6 +120,8 @@
 		1767616C2B8B5679001EC050 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		1767616E2B8B5736001EC050 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		17C52ABE2BF00CC40034540E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		17F786732BF3E3FD00B9FA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		17F786742BF3E74600B9FA52 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -200,6 +203,7 @@
 		1767611F2B8A8017001EC050 /* Carbonsaurus */ = {
 			isa = PBXGroup;
 			children = (
+				17F786732BF3E3FD00B9FA52 /* Info.plist */,
 				C4CFEF932B8B1902002AE026 /* explosion.mp3 */,
 				C492E6BF2B8B120900969486 /* meteor-rock.gif */,
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
@@ -274,6 +278,7 @@
 				176761612B8ADBBB001EC050 /* User.swift */,
 				172DAE2D2B8B83240050895B /* ViewModel.swift */,
 				17C52ABE2BF00CC40034540E /* DataModel.swift */,
+				17F786742BF3E74600B9FA52 /* Notifications.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -495,6 +500,7 @@
 				170982892B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift in Sources */,
 				176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */,
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
+				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
@@ -701,6 +707,7 @@
 				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carbonsaurus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonSaurus;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -735,6 +742,7 @@
 				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Carbonsaurus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonSaurus;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

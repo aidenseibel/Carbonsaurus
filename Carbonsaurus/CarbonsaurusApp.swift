@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 @main
 struct CarbonsaurusApp: App {
@@ -14,8 +15,17 @@ struct CarbonsaurusApp: App {
     
     init() {
         UITabBar.appearance().isHidden = true
-    }
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
+            if granted {
+                print("Notifications permission granted")
+                scheduleDailyNotification()
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     var body: some Scene {
         WindowGroup {
             if !viewModel.hasOnboarded{
