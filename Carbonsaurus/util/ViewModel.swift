@@ -21,7 +21,7 @@ class ViewModel: ObservableObject {
             hasLoggedToday = localUser.diaries.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
             
         }else{
-            localUser = User(username: "default account", diaries: exampleDiaries, avatar: avatar.orange, avatarStatus: .great, extraDinoPoints: 0, average_driving: 1, average_phone: 195, average_appliances: 1, average_eating: 1800, average_shower: 10)
+            localUser = User(username: "default account", diaries: exampleDiaries, avatar: Avatar(color: .orange, mood: .neutral, accessory: nil), extraDinoPoints: 0, average_driving: 1, average_phone: 195, average_appliances: 1, average_eating: 1800, average_shower: 10)
         }
     }
     

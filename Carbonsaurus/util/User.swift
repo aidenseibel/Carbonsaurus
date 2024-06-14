@@ -6,39 +6,21 @@
 //
 
 import Foundation
-import SwiftUI
-
-enum avatar: Codable{
-    case light_green
-    case green
-    case blue
-    case orange
-    case pink
-}
-
-enum avatarStatus: Codable{
-    case great
-    case happy
-    case neutral
-    case worried
-    case sad
-}
+//import SwiftUI
 
 class User: Identifiable, Codable, ObservableObject{
     var id: UUID
     var username: String
     var diaries: [Diary]
-    var avatar: avatar
-    var avatarStatus: avatarStatus
+    var avatar: Avatar
     var extraDinoPoints: Int
     var average_driving, average_phone, average_appliances, average_eating, average_shower: Int
         
-    init(username: String, diaries: [Diary], avatar: avatar, avatarStatus: avatarStatus,extraDinoPoints: Int, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
+    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Int, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
         self.id = UUID()
         self.username = username
         self.diaries = diaries
         self.avatar = avatar
-        self.avatarStatus = avatarStatus
         self.extraDinoPoints = 0
         self.average_driving = average_driving /*?? 1 // 3360*/
         self.average_phone = average_phone /*?? 195 // 189*/
@@ -99,7 +81,7 @@ class User: Identifiable, Codable, ObservableObject{
         return [average_driving, average_phone, average_appliances, average_eating, average_shower]
     }
     
-    func getDinoStatus() -> avatarStatus{
+    func getDinoStatus() -> avatar_mood{
         switch getAverageDinoPointsThisWeek(){
         case 0..<1200:
             return .sad
@@ -115,22 +97,7 @@ class User: Identifiable, Codable, ObservableObject{
             return .neutral
         }
     }
-    
-    func dinoStatusToString() -> String{
-        switch getDinoStatus(){
-        case .sad:
-            return "sad"
-        case .worried:
-            return "worried"
-        case .neutral:
-            return "neutral"
-        case .happy:
-            return "happy"
-        case .great:
-            return "great"
-        }
-    }
-    
+        
     func getDinoStatusDescription() -> String{
         switch getDinoStatus(){
         case .sad:
@@ -144,161 +111,5 @@ class User: Identifiable, Codable, ObservableObject{
         case .great:
             return "oh yeah! now that's what i'm talking about. keep it up and check out your stats:"
         }
-    }
-    
-    func getAvatar() -> String{
-        switch avatar {
-        case .light_green:
-            return "light_green_dino"
-        case .green:
-            return "green_dino"
-        case .blue:
-            return "blue_dino"
-        case .orange:
-            return "orange_dino"
-        case .pink:
-            return "pink_dino"
-        }
-    }
-    
-    func getDinoImageString() -> String {
-        switch avatar {
-        case .light_green:
-            switch getDinoStatus() {
-            case .great:
-                return "light_green_dino_great"
-            case .happy:
-                return "light_green_dino_happy"
-            case .neutral:
-                return "light_green_dino_neutral"
-            case .worried:
-                return "light_green_dino_worried"
-            case .sad:
-                return "light_green_dino_sad"
-            }
-        case .green:
-            switch getDinoStatus() {
-            case .great:
-                return "green_dino_great"
-            case .happy:
-                return "green_dino_happy"
-            case .neutral:
-                return "green_dino_neutral"
-            case .worried:
-                return "green_dino_worried"
-            case .sad:
-                return "green_dino_sad"
-            }
-        case .blue:
-            switch getDinoStatus() {
-            case .great:
-                return "blue_dino_great"
-            case .happy:
-                return "blue_dino_happy"
-            case .neutral:
-                return "blue_dino_neutral"
-            case .worried:
-                return "blue_dino_worried"
-            case .sad:
-                return "blue_dino_sad"
-            }
-        case .orange:
-            switch getDinoStatus() {
-            case .great:
-                return "orange_dino_great"
-            case .happy:
-                return "orange_dino_happy"
-            case .neutral:
-                return "orange_dino_neutral"
-            case .worried:
-                return "orange_dino_worried"
-            case .sad:
-                return "orange_dino_sad"
-            }
-        case .pink:
-            switch getDinoStatus() {
-            case .great:
-                return "pink_dino_great"
-            case .happy:
-                return "pink_dino_happy"
-            case .neutral:
-                return "pink_dino_neutral"
-            case .worried:
-                return "pink_dino_worried"
-            case .sad:
-                return "pink_dino_sad"
-            }
-        }
-    }
-    
-    func getHigherDinoImageString() -> String{
-        switch avatar {
-        case .light_green:
-            switch getDinoStatus() {
-            case .great:
-                return "light_green_dino_happy"
-            case .happy:
-                return "light_green_dino_great"
-            case .neutral:
-                return "light_green_dino_happy"
-            case .worried:
-                return "light_green_dino_neutral"
-            case .sad:
-                return "light_green_dino_worried"
-            }
-        case .green:
-            switch getDinoStatus() {
-            case .great:
-                return "green_dino_happy"
-            case .happy:
-                return "green_dino_great"
-            case .neutral:
-                return "green_dino_happy"
-            case .worried:
-                return "green_dino_neutral"
-            case .sad:
-                return "green_dino_worried"
-            }
-        case .blue:
-            switch getDinoStatus() {
-            case .great:
-                return "blue_dino_happy"
-            case .happy:
-                return "blue_dino_great"
-            case .neutral:
-                return "blue_dino_happy"
-            case .worried:
-                return "blue_dino_neutral"
-            case .sad:
-                return "blue_dino_worried"
-            }
-        case .orange:
-            switch getDinoStatus() {
-            case .great:
-                return "orange_dino_happy"
-            case .happy:
-                return "orange_dino_great"
-            case .neutral:
-                return "orange_dino_happy"
-            case .worried:
-                return "orange_dino_neutral"
-            case .sad:
-                return "orange_dino_worried"
-            }
-        case .pink:
-            switch getDinoStatus() {
-            case .great:
-                return "pink_dino_happy"
-            case .happy:
-                return "pink_dino_great"
-            case .neutral:
-                return "pink_dino_happy"
-            case .worried:
-                return "pink_dino_neutral"
-            case .sad:
-                return "pink_dino_worried"
-            }
-        }
-
     }
 }

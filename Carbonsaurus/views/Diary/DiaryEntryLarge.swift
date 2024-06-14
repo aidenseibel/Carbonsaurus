@@ -47,7 +47,7 @@ struct DiaryEntryLarge: View {
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.90)
                     
-                    Image(diary.getImage(userAvatar: viewModel.localUser.getAvatar()))
+                    Image(viewModel.localUser.avatar.getImageString())
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)

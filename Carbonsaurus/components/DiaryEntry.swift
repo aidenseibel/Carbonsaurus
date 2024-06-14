@@ -26,7 +26,7 @@ struct DiaryEntry: View {
                     .bold()
             }
             Spacer()
-            Image(viewModel.localUser.getDinoImageString())
+            Image(viewModel.localUser.avatar.getImageString())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)

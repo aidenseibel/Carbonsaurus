@@ -15,7 +15,7 @@ func scheduleDailyNotification() {
     content.sound = UNNotificationSound.default
     
     var dateComponents = DateComponents()
-    dateComponents.hour = Int.random(in: 5...8)
+    dateComponents.hour = Int.random(in: 17...20)
     dateComponents.minute = Int.random(in: 0...59)
 
     print("Notification scheduled for \(String(describing: dateComponents.hour)) \(String(describing: dateComponents.minute)) p.m.")
@@ -25,5 +25,6 @@ func scheduleDailyNotification() {
     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
 
     // add our notification request
+    UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     UNUserNotificationCenter.current().add(request)
 }

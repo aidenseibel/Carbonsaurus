@@ -33,6 +33,10 @@
 		1767616F2B8B5736001EC050 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616E2B8B5736001EC050 /* QuizView.swift */; };
 		17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C52ABE2BF00CC40034540E /* DataModel.swift */; };
 		17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786742BF3E74600B9FA52 /* Notifications.swift */; };
+		17F786772BF3EBEE00B9FA52 /* UpdateAveragesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */; };
+		17F786792BF4077600B9FA52 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786782BF4077600B9FA52 /* ShopView.swift */; };
+		17F7867B2BF4086D00B9FA52 /* ShopCosmeticSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F7867A2BF4086D00B9FA52 /* ShopCosmeticSubView.swift */; };
+		17F786812BF52B7E00B9FA52 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786802BF52B7E00B9FA52 /* Avatar.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -122,6 +126,10 @@
 		17C52ABE2BF00CC40034540E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		17F786732BF3E3FD00B9FA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17F786742BF3E74600B9FA52 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAveragesView.swift; sourceTree = "<group>"; };
+		17F786782BF4077600B9FA52 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		17F7867A2BF4086D00B9FA52 /* ShopCosmeticSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCosmeticSubView.swift; sourceTree = "<group>"; };
+		17F786802BF52B7E00B9FA52 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -247,6 +255,8 @@
 				176761672B8B1FDA001EC050 /* Diary */,
 				C492E6A12B8AA76500969486 /* Feed */,
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
+				17F786782BF4077600B9FA52 /* ShopView.swift */,
+				17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */,
 				172DAE332B8B9A0E0050895B /* StatsView.swift */,
 				172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */,
 				176761652B8B15AF001EC050 /* Onboarding.swift */,
@@ -265,6 +275,7 @@
 				C492E6BD2B8B0FC800969486 /* GifView.swift */,
 				1767616A2B8B5518001EC050 /* QuizSubView.swift */,
 				C4CFEF952B8B6226002AE026 /* TabBar.swift */,
+				17F7867A2BF4086D00B9FA52 /* ShopCosmeticSubView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -276,6 +287,7 @@
 				1767616C2B8B5679001EC050 /* Quiz.swift */,
 				C492E6A42B8AD74400969486 /* Util.swift */,
 				176761612B8ADBBB001EC050 /* User.swift */,
+				17F786802BF52B7E00B9FA52 /* Avatar.swift */,
 				172DAE2D2B8B83240050895B /* ViewModel.swift */,
 				17C52ABE2BF00CC40034540E /* DataModel.swift */,
 				17F786742BF3E74600B9FA52 /* Notifications.swift */,
@@ -503,7 +515,9 @@
 				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
+				17F786812BF52B7E00B9FA52 /* Avatar.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
+				17F786792BF4077600B9FA52 /* ShopView.swift in Sources */,
 				1767615A2B8AA267001EC050 /* Diary.swift in Sources */,
 				1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */,
 				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
@@ -514,12 +528,14 @@
 				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
+				17F7867B2BF4086D00B9FA52 /* ShopCosmeticSubView.swift in Sources */,
 				172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */,
 				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* User.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
+				17F786772BF3EBEE00B9FA52 /* UpdateAveragesView.swift in Sources */,
 				172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */,
 				17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */,
 				C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */,

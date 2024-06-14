@@ -19,13 +19,13 @@ struct ProfileTab: View {
             ZStack {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
-                VStack(alignment: .leading){
+                ScrollView(showsIndicators: false){
                     VStack(alignment: .center, spacing: 25){
                         ZStack{
                             Circle()
                                 .frame(width: UIScreen.main.bounds.width * 0.60)
                                 .foregroundColor(.white)
-                            Image(toggleDino ? viewModel.localUser.getDinoImageString() : viewModel.localUser.getHigherDinoImageString())
+                            Image(toggleDino ? viewModel.localUser.avatar.getImageString() : viewModel.localUser.avatar.getHigherImageString())
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
@@ -49,7 +49,7 @@ struct ProfileTab: View {
                                 Text("your dino is")
                                     .font(.system(size: 20))
                                     .bold()
-                                Text("\(viewModel.localUser.dinoStatusToString())")
+                                Text("\(viewModel.localUser.getDinoStatus().rawValue)")
                                     .font(.system(size: 42))
                                     .bold()
                                 Text("\(viewModel.localUser.getDinoPoints()) dino points")
@@ -82,11 +82,21 @@ struct ProfileTab: View {
                                 .bold()
                                 .background(.white)
                                 .cornerRadius(10)
+                        }
+                        
+                        NavigationLink(destination: UpdateAveragesView()) {
+                            Text("update my averages")
+                                .foregroundColor(.green.opacity(0.55))
+                                .buttonStyle(.plain)
+                                .padding(20)
+                                .bold()
+                                .background(.white)
+                                .cornerRadius(10)
                                 .padding(.bottom, 100)
                         }
                     }
+                    .padding(10)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.90)
             }
             .navigationTitle("profile")
             .navigationBarTitleDisplayMode(.large)

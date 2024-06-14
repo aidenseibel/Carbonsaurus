@@ -28,68 +28,25 @@ struct ChangeAvatarView: View {
                     }
                     .padding(.top, 40)
                     
-                    Grid(alignment: .center, horizontalSpacing: 20, verticalSpacing: 20){
-                        GridRow{
+                    Grid(alignment: .center, horizontalSpacing: 0, verticalSpacing: 20){
+                        ForEach(all_avatar_colors, id: \.self){ avatar_color in
                             Button(action: {
-                                viewModel.localUser.avatar = .blue
+                                viewModel.localUser.avatar.color = avatar_color
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
-                                Image("blue_dino_\(getFromIndex())")
+                                Image("\(avatar_color.rawValue)_dino_\(getFromIndex())")
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
-                                    .cornerRadius(10)
-                            })
-                            
-                            Button(action: {
-                                viewModel.localUser.avatar = .green
-                                presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image("green_dino_\(getFromIndex())")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
+                                    .frame(width: UIScreen.main.bounds.width * 0.35, height: UIScreen.main.bounds.width * 0.35)
                                     .cornerRadius(10)
                             })
                         }
-                        GridRow{
-                            Button(action: {
-                                viewModel.localUser.avatar = .pink
-                                presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image("pink_dino_\(getFromIndex())")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
-                                    .cornerRadius(10)
-                            })
-                            Button(action: {
-                                viewModel.localUser.avatar = .orange
-                                presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image("orange_dino_\(getFromIndex())")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
-                                    .cornerRadius(10)
-                            })
-
-                        }
-                        GridRow{
-                            Button(action: {
-                                viewModel.localUser.avatar = .light_green
-                                presentationMode.wrappedValue.dismiss()
-                            }, label: {
-                                Image("light_green_dino_\(getFromIndex())")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
-                                    .cornerRadius(10)
-                            })
-                            Text("")
-                                .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)
-                                .cornerRadius(10)
-                        }
+                    }
+                    HStack{
+                        Text("dino accessories")
+                            .font(.title)
+                            .bold()
+                        Spacer()
                     }
                 }
             }

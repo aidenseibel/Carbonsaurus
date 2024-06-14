@@ -14,7 +14,7 @@ struct QuizSubView: View {
 
     var body: some View {
         HStack {
-            Image("\(viewModel.localUser.getDinoImageString())")
+            Image("\(viewModel.localUser.avatar.getImageString())")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 100, height: 100)
