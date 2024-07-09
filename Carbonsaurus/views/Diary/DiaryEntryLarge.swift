@@ -22,7 +22,7 @@ struct DiaryEntryLarge: View {
                         VStack(alignment: .leading, spacing: 20){
                             Text("\(formatDate(date: diary.date))")
                                 .bold()
-                                .font(.system(size: 32))
+                                .font(.system(size: 28))
 
                             HStack(alignment: .bottom){
                                 Text("\(diary.calculateCarbonFootprint(averages: viewModel.localUser.getDailyAverages()))")

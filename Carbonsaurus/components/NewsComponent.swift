@@ -15,14 +15,15 @@ struct NewsComponent: View {
         HStack {
             VStack (alignment: .leading) {
                 Text(date)
-                    .font(.system(size: 16))
+                    .font(.system(size: 12))
                     .bold()
                     .padding(.bottom, 5)
-                
                 Text(title)
-                    .font(.system(size: 20))
-                    .bold()
-            }.padding(10)
+                    .font(.system(size: 18))
+                
+            }
+            .padding(10)
+            
             Spacer()
             AsyncImage(url: URL(string: imageURL ?? "")) { image in image
                     .resizable()
@@ -39,9 +40,8 @@ struct NewsComponent: View {
         }
         .padding(10)
         .frame(width: UIScreen.main.bounds.width * 0.9)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 10)
+        .background(Color.white)
+        .cornerRadius(10)
     }
 }
 

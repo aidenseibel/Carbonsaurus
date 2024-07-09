@@ -50,6 +50,7 @@ class User: Identifiable, Codable, ObservableObject{
             }
         }
         
+        if count == 0 { return 0}
         return total / count
     }
     
@@ -101,15 +102,15 @@ class User: Identifiable, Codable, ObservableObject{
     func getDinoStatusDescription() -> String{
         switch getDinoStatus(){
         case .sad:
-            return "oh no! it's been a hard week. you got this! check out your stats:"
+            return "it's been a hard week."
         case .worried:
-            return "stick in there! remember your goals, you got this. check out your stats:"
+            return "you're this close to killing the planet."
         case .neutral:
-            return "you're trying so hard! don't worry, we know it's difficult. check out your stats:"
+            return "don't worry, we know it's difficult."
         case .happy:
-            return "congrats! you’ve done such a good job lately. check out your stats:"
+            return "congrats on being clutch this week."
         case .great:
-            return "oh yeah! now that's what i'm talking about. keep it up and check out your stats:"
+            return "now that's what i'm talking about."
         }
     }
 }

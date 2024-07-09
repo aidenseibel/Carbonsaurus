@@ -21,7 +21,7 @@
 		1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767614C2B8A8CC6001EC050 /* ProfileTab.swift */; };
 		1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767614E2B8A8CD0001EC050 /* DiaryTab.swift */; };
 		176761532B8A8CE4001EC050 /* FeedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761522B8A8CE4001EC050 /* FeedTab.swift */; };
-		176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761542B8A8CEF001EC050 /* DiaryEntry.swift */; };
+		176761552B8A8CEF001EC050 /* DiaryEntrySubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */; };
 		176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761562B8A8CFB001EC050 /* NewsComponent.swift */; };
 		1767615A2B8AA267001EC050 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* Diary.swift */; };
 		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
@@ -42,10 +42,6 @@
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
 		C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */; };
 		C492E6BC2B8B0F6B00969486 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6BB2B8B0F6B00969486 /* SDWebImageSwiftUI */; };
-		C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6BD2B8B0FC800969486 /* GifView.swift */; };
-		C492E6C02B8B120900969486 /* meteor-rock.gif in Resources */ = {isa = PBXBuildFile; fileRef = C492E6BF2B8B120900969486 /* meteor-rock.gif */; };
-		C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF912B8B1495002AE026 /* MeteorView.swift */; };
-		C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C4CFEF932B8B1902002AE026 /* explosion.mp3 */; };
 		C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFEF952B8B6226002AE026 /* TabBar.swift */; };
 		C4CFEFFD2B8B8CAD002AE026 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CFEFFC2B8B8CAD002AE026 /* WidgetKit.framework */; };
 		C4CFEFFF2B8B8CAD002AE026 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CFEFFE2B8B8CAD002AE026 /* SwiftUI.framework */; };
@@ -113,7 +109,7 @@
 		1767614C2B8A8CC6001EC050 /* ProfileTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTab.swift; sourceTree = "<group>"; };
 		1767614E2B8A8CD0001EC050 /* DiaryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTab.swift; sourceTree = "<group>"; };
 		176761522B8A8CE4001EC050 /* FeedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTab.swift; sourceTree = "<group>"; };
-		176761542B8A8CEF001EC050 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntrySubView.swift; sourceTree = "<group>"; };
 		176761562B8A8CFB001EC050 /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
 		176761592B8AA267001EC050 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
@@ -133,10 +129,6 @@
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
-		C492E6BD2B8B0FC800969486 /* GifView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifView.swift; sourceTree = "<group>"; };
-		C492E6BF2B8B120900969486 /* meteor-rock.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "meteor-rock.gif"; sourceTree = "<group>"; };
-		C4CFEF912B8B1495002AE026 /* MeteorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteorView.swift; sourceTree = "<group>"; };
-		C4CFEF932B8B1902002AE026 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		C4CFEF952B8B6226002AE026 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		C4CFEFFA2B8B8CAD002AE026 /* CarbonsaurusWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CarbonsaurusWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CFEFFC2B8B8CAD002AE026 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -212,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				17F786732BF3E3FD00B9FA52 /* Info.plist */,
-				C4CFEF932B8B1902002AE026 /* explosion.mp3 */,
-				C492E6BF2B8B120900969486 /* meteor-rock.gif */,
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
 				176761582B8AA24B001EC050 /* util */,
 				1767614B2B8A8CB1001EC050 /* components */,
@@ -267,12 +257,10 @@
 		1767614B2B8A8CB1001EC050 /* components */ = {
 			isa = PBXGroup;
 			children = (
-				C4CFEF912B8B1495002AE026 /* MeteorView.swift */,
-				176761542B8A8CEF001EC050 /* DiaryEntry.swift */,
+				176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */,
 				170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */,
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
-				C492E6BD2B8B0FC800969486 /* GifView.swift */,
 				1767616A2B8B5518001EC050 /* QuizSubView.swift */,
 				C4CFEF952B8B6226002AE026 /* TabBar.swift */,
 				17F7867A2BF4086D00B9FA52 /* ShopCosmeticSubView.swift */,
@@ -473,8 +461,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4CFEF942B8B1902002AE026 /* explosion.mp3 in Resources */,
-				C492E6C02B8B120900969486 /* meteor-rock.gif in Resources */,
 				176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */,
 				176761252B8A8018001EC050 /* Assets.xcassets in Resources */,
 			);
@@ -520,11 +506,10 @@
 				17F786792BF4077600B9FA52 /* ShopView.swift in Sources */,
 				1767615A2B8AA267001EC050 /* Diary.swift in Sources */,
 				1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */,
-				176761552B8A8CEF001EC050 /* DiaryEntry.swift in Sources */,
+				176761552B8A8CEF001EC050 /* DiaryEntrySubView.swift in Sources */,
 				176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */,
 				1767616D2B8B5679001EC050 /* Quiz.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
-				C492E6BE2B8B0FC800969486 /* GifView.swift in Sources */,
 				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
@@ -538,7 +523,6 @@
 				17F786772BF3EBEE00B9FA52 /* UpdateAveragesView.swift in Sources */,
 				172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */,
 				17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */,
-				C4CFEF922B8B1496002AE026 /* MeteorView.swift in Sources */,
 				C4CFEF962B8B6226002AE026 /* TabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

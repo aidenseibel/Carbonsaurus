@@ -48,13 +48,11 @@ struct ProfileTab: View {
                             VStack(spacing: 5){
                                 Text("your dino is")
                                     .font(.system(size: 20))
-                                    .bold()
                                 Text("\(viewModel.localUser.getDinoStatus().rawValue)")
                                     .font(.system(size: 42))
                                     .bold()
                                 Text("\(viewModel.localUser.getDinoPoints()) dino points")
                                     .font(.system(size: 14))
-                                    .bold()
 
                             }
                             Spacer()
@@ -69,9 +67,7 @@ struct ProfileTab: View {
                         
                         Text("\(viewModel.localUser.getDinoStatusDescription())")
                             .frame(width: UIScreen.main.bounds.width * 0.80)
-                            .multilineTextAlignment(.center)
-                            .bold()
-                        
+                            .multilineTextAlignment(.center)                        
                         Button {
                             viewStats = true
                         } label: {

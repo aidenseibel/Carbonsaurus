@@ -32,8 +32,7 @@ struct DiaryTab: View {
                                         Text("time to check in!")
                                             .font(.title2)
                                             .bold()
-                                        Text("complete your daily report!")
-                                            .bold()
+                                        Text("complete your daily report")
                                     }
                                     Spacer()
                                 }
@@ -45,35 +44,32 @@ struct DiaryTab: View {
                             .buttonStyle(.plain)
                         }
                         
-                        NavigationLink {
-                            CarbonFootprintBreakdown()
-                        } label: {
-                            CarbonFootprintBreakdownSubView()
-                                .padding(.bottom, 5)
-                        }
-                        .buttonStyle(.plain)
+//                        NavigationLink {
+//                            CarbonFootprintBreakdown()
+//                        } label: {
+//                            CarbonFootprintBreakdownSubView()
+//                                .padding(.bottom, 5)
+//                        }
+//                        .buttonStyle(.plain)
 
-
-
-                        HStack{
-                            ForEach(1...3, id: \.self){_ in
-                                Spacer()
-                                Image("tree")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 70, height: 70)
-                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                            }
-                            Spacer()
-                        }
-                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
+//                        HStack{
+//                            ForEach(1...3, id: \.self){_ in
+//                                Spacer()
+//                                Image("tree")
+//                                    .resizable()
+//                                    .scaledToFill()
+//                                    .frame(width: 70, height: 70)
+//                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
+//                            }
+//                            Spacer()
+//                        }
+//                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
                                                 
                         Text("this week")
                             .bold()
-                            .font(.system(size: 32))
+                            .font(.system(size: 28))
                         
                         Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
-                            .bold()
                             .font(.system(size: 16))
                             .padding(.bottom, 4)
 
@@ -81,7 +77,7 @@ struct DiaryTab: View {
                             NavigationLink {
                                 DiaryEntryLarge(diary: diary)
                             } label: {
-                                DiaryEntry(diary: diary)
+                                DiaryEntrySubView(diary: diary)
                             }
                             .buttonStyle(.plain)
                         }
