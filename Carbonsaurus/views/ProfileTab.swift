@@ -13,15 +13,15 @@ struct ProfileTab: View {
     @State var toggleDino: Bool = false
     @State var openChangeAvatar: Bool = false
     @State var viewStats: Bool = false
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
-                ScrollView(showsIndicators: false){
-                    VStack(alignment: .center, spacing: 25){
-                        ZStack{
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .center, spacing: 25) {
+                        ZStack {
                             Circle()
                                 .frame(width: UIScreen.main.bounds.width * 0.60)
                                 .foregroundColor(.white)
@@ -37,15 +37,14 @@ struct ProfileTab: View {
                             openChangeAvatar = true
                         }
 
-                        HStack{
+                        HStack {
                             Spacer()
                             Image("flower")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 70, height: 70)
-                                .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                             Spacer()
-                            VStack(spacing: 5){
+                            VStack(spacing: 5) {
                                 Text("your dino is")
                                     .font(.system(size: 20))
                                 Text("\(viewModel.localUser.getDinoStatus().rawValue)")
@@ -53,21 +52,20 @@ struct ProfileTab: View {
                                     .bold()
                                 Text("\(viewModel.localUser.getDinoPoints()) dino points")
                                     .font(.system(size: 14))
-
                             }
                             Spacer()
                             Image("flower")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 70, height: 70)
-                                .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                             Spacer()
 
                         }
-                        
+
                         Text("\(viewModel.localUser.getDinoStatusDescription())")
                             .frame(width: UIScreen.main.bounds.width * 0.80)
-                            .multilineTextAlignment(.center)                        
+                            .multilineTextAlignment(.center)
+
                         Button {
                             viewStats = true
                         } label: {
@@ -79,7 +77,7 @@ struct ProfileTab: View {
                                 .background(.white)
                                 .cornerRadius(10)
                         }
-                        
+
                         NavigationLink(destination: UpdateAveragesView()) {
                             Text("update my averages")
                                 .foregroundColor(.green.opacity(0.55))
@@ -108,17 +106,16 @@ struct ProfileTab: View {
             })
 
         }
-        .onAppear{
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        .onAppear {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 toggleDino.toggle()
             }
         }
-        .onDisappear{
+        .onDisappear {
             timer?.invalidate()
         }
     }
 }
-
 
 #Preview {
     ProfileTab()

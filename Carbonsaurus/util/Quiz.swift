@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct Quiz{
+struct Quiz {
     var question: String
     var answerIndex: Int
     var choices: [String]
 }
-
 
 var exampleQuizzes: [Quiz] = [
     Quiz(question: "Which gas is primarily responsible for trapping heat in the Earth's atmosphere?", answerIndex: 2, choices: ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"]),

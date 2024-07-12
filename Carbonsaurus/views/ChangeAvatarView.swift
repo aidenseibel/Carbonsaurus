@@ -10,31 +10,31 @@ import SwiftUI
 struct ChangeAvatarView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
     @State private var timer: Timer?
     @State var index: Int = 0
 
     var body: some View {
-        ZStack{
+        ZStack {
             Color.yellow.opacity(0.50)
                 .ignoresSafeArea()
-            ScrollView(showsIndicators: false){
-                VStack{
-                    HStack{
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    HStack {
                         Text("change your avatar")
                             .font(.title)
                             .bold()
                         Spacer()
                     }
                     .padding(.top, 40)
-                    
-                    Grid(alignment: .center, horizontalSpacing: 0, verticalSpacing: 20){
-                        ForEach(all_avatar_colors, id: \.self){ avatar_color in
+
+                    Grid(alignment: .center, horizontalSpacing: 0, verticalSpacing: 20) {
+                        ForEach(allAvatarColors, id: \.self) { avatarColor in
                             Button(action: {
-                                viewModel.localUser.avatar.color = avatar_color
+                                viewModel.localUser.avatar.color = avatarColor
                                 presentationMode.wrappedValue.dismiss()
                             }, label: {
-                                Image("\(avatar_color.rawValue)_dino_\(getFromIndex())")
+                                Image("\(avatarColor.rawValue)_dino_\(getFromIndex())")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: UIScreen.main.bounds.width * 0.35, height: UIScreen.main.bounds.width * 0.35)
@@ -42,7 +42,8 @@ struct ChangeAvatarView: View {
                             })
                         }
                     }
-                    HStack{
+
+                    HStack {
                         Text("dino accessories")
                             .font(.title)
                             .bold()
@@ -51,22 +52,22 @@ struct ChangeAvatarView: View {
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.90)
-            .onAppear{
-                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-                    index = index + 1
-                    if index > 4{
+            .onAppear {
+                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+                    index += 1
+                    if index > 4 {
                         index = 0
                     }
                 }
             }
-            .onDisappear{
+            .onDisappear {
                 timer?.invalidate()
             }
         }
     }
-    
-    func getFromIndex() -> String{
-        switch index{
+
+    func getFromIndex() -> String {
+        switch index {
         case 0:
             return "great"
         case 1:

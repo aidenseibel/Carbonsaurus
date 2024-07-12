@@ -10,12 +10,12 @@ import SwiftUI
 struct DiaryEntrySubView: View {
     @EnvironmentObject var viewModel: ViewModel
     var diary: Diary
-        
+
     var body: some View {
-        HStack{
-            VStack(alignment: .leading, spacing: 5){
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
                 Text("\(formatDate(date: diary.date))")
-                HStack (alignment: .bottom){
+                HStack(alignment: .bottom) {
                     Text("\(diary.dinoPoints())")
                         .font(.title)
                     Text("dino points")

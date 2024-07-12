@@ -14,13 +14,13 @@ struct StatsView: View {
     @State var toggleDino: Bool = false
 
     var body: some View {
-        ZStack{
+        ZStack {
             Color.yellow.opacity(0.50)
                 .ignoresSafeArea()
-            ScrollView(showsIndicators: false){
-                VStack{
-                    //MARK: WEEK STATS
-                    HStack{
+            ScrollView(showsIndicators: false) {
+                VStack {
+                    // MARK: WEEK STATS
+                    HStack {
                         Spacer()
                         Image("tree")
                             .resizable()
@@ -40,18 +40,17 @@ struct StatsView: View {
                         Spacer()
                     }
                     .padding(.top, 50)
-                    
-                    Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10){
-                        GridRow{
-                            HStack{
+
+                    Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10) {
+                        GridRow {
+                            HStack {
                                 Spacer()
                                 Text("carbon footprint this week")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
-                            
-                            HStack{
+
+                            HStack {
                                 Text("\(viewModel.localUser.getCarbonFootprintThisWeek()/1000) kg")
                                     .multilineTextAlignment(.leading)
                                     .bold()
@@ -59,33 +58,16 @@ struct StatsView: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                         }
-                        
-                        GridRow{
-                            HStack{
+
+                        GridRow {
+                            HStack {
                                 Spacer()
                                 Text("avg. dino points this week")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
-                            HStack{
+                            HStack {
                                 Text("\(viewModel.localUser.getAverageDinoPointsThisWeek())")
-                                    .multilineTextAlignment(.leading)
-                                    .bold()
-                                Spacer()
-                            }
-                            .frame(width: UIScreen.main.bounds.width * 0.40)
-                        }
-                        
-                        GridRow{
-                            HStack{
-                                Spacer()
-                                Text("your carbon ranking")
-                                    .multilineTextAlignment(.trailing)
-                                    .bold()
-                            }
-                            HStack{
-                                Text("\(viewModel.localUser.getCarbonRanking())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
@@ -96,9 +78,8 @@ struct StatsView: View {
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
                     .background(.white)
                     .cornerRadius(10)
-                    
-                    
-                    HStack{
+
+                    HStack {
                         Spacer()
                         Image("tree")
                             .resizable()
@@ -117,37 +98,34 @@ struct StatsView: View {
                             .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                         Spacer()
                     }
-                    //MARK: STATS
-                    Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10){
-                        GridRow{
-                            HStack{
+
+                    // MARK: STATS
+                    Grid(alignment: .trailing, horizontalSpacing: 20, verticalSpacing: 10) {
+                        GridRow {
+                            HStack {
                                 Spacer()
                                 Text("total dino points")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
-                            
-                            HStack{
+
+                            HStack {
                                 Text("\(viewModel.localUser.getDinoPoints())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
-                            
-                            
                         }
-                        
-                        GridRow{
-                            HStack{
+
+                        GridRow {
+                            HStack {
                                 Spacer()
                                 Text("diaries")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
-                            HStack{
+                            HStack {
                                 Text("\(viewModel.localUser.diaries.count)")
                                     .multilineTextAlignment(.leading)
                                     .bold()
@@ -155,15 +133,14 @@ struct StatsView: View {
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.40)
                         }
-                        
-                        GridRow{
-                            HStack{
+
+                        GridRow {
+                            HStack {
                                 Spacer()
                                 Text("average dino points")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
-                            HStack{
+                            HStack {
                                 Text("\(viewModel.localUser.getDinoPoints() / viewModel.localUser.diaries.count)")
                                     .multilineTextAlignment(.leading)
                                     .bold()
@@ -175,11 +152,6 @@ struct StatsView: View {
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
                     .background(.white)
                     .cornerRadius(10)
-                    
-                    
-                    Text("great job!")
-                        .bold()
-                        .padding()
 
                     Button {
                         presentationMode.wrappedValue.dismiss()
@@ -192,17 +164,16 @@ struct StatsView: View {
                             .background(.white)
                             .cornerRadius(10)
                             .padding(.bottom, 100)
-                        
                     }
                 }
             }
             .frame(width: UIScreen.main.bounds.width * 0.90)
-            .onAppear{
-                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            .onAppear {
+                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                     toggleDino.toggle()
                 }
             }
-            .onDisappear{
+            .onDisappear {
                 timer?.invalidate()
             }
         }

@@ -1,21 +1,21 @@
 //
-//  QuizSubView.swift
+//  LessonSubView.swift
 //  Carbonsaurus
 //
-//  Created by Aiden Seibel on 2/25/24.
+//  Created by Aiden Seibel on 7/12/24.
 //
 
 import SwiftUI
 
-struct QuizSubView: View {
+struct LessonSubView: View {
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text("test your knowledge for 50 dino points")
+                Text("take a short lesson for 100 dino points")
                     .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text("answer a quiz question correctly to win")
+                Text("spend 5 minutes to learn something useful")
                     .font(.system(size: 14))
             }.padding(10)
             Spacer()
@@ -30,8 +30,9 @@ struct QuizSubView: View {
         .cornerRadius(10)
         .shadow(radius: 10)
     }
+
 }
 
 #Preview {
-    QuizSubView()
+    LessonSubView()
 }

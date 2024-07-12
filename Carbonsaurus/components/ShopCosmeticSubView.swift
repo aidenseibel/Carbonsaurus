@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ShopCosmeticSubView: View {
-    var accessory: avatar_accessory
-    
+    var accessory: AvatarAccessory
+
     var body: some View {
-        VStack(alignment: .leading){
+        VStack(alignment: .leading) {
             Image(accessory.imageString)
                 .resizable()
                 .scaledToFill()

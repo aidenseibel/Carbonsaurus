@@ -12,10 +12,10 @@ import UserNotifications
 struct CarbonsaurusApp: App {
     @State private var selectedTab: Tab = .profile
     @StateObject var viewModel = ViewModel()
-    
+
     init() {
         UITabBar.appearance().isHidden = true
-        
+
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted {
                 print("Notifications permission granted")
@@ -25,13 +25,13 @@ struct CarbonsaurusApp: App {
             }
         }
     }
-    
+
     var body: some Scene {
         WindowGroup {
-            if !viewModel.hasOnboarded{
+            if !viewModel.hasOnboarded {
                 Onboarding()
                     .environmentObject(viewModel)
-            }else{
+            } else {
                 ZStack {
                     VStack {
                         TabView(selection: $selectedTab) {
@@ -40,7 +40,7 @@ struct CarbonsaurusApp: App {
                             FeedTab().tag(Tab.feed)
                         }.environmentObject(viewModel)
                     }
-                    if viewModel.isTabBarShowing{
+                    if viewModel.isTabBarShowing {
                         VStack {
                             Spacer()
                             TabBar(selectedTab: $selectedTab)

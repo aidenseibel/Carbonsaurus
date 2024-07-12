@@ -9,11 +9,11 @@ import Foundation
 
 public func formatDate(date: Date) -> String {
     let dateFormatter = DateFormatter()
-    
+
     dateFormatter.dateFormat = "MMM d"
 
     let dateString: String = dateFormatter.string(from: date)
-    
+
     return (dateString + " - " + timeAgoString(from: date)).lowercased()
 }
 
@@ -55,6 +55,6 @@ public func isLessThanAWeekAgo(date: Date) -> Bool {
     return false
 }
 
-public func parseNumber(input: String) -> Double{
+public func parseNumber(input: String) -> Double {
     return Double(input) ?? 1.0
 }

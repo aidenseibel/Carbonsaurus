@@ -11,14 +11,14 @@ import Shimmer
 struct SkeletonNewsComponent: View {
     var body: some View {
         HStack {
-            VStack (alignment: .leading) {
+            VStack(alignment: .leading) {
                 Text("Placeholder")
                     .font(.system(size: 16))
                     .bold()
                     .padding(.bottom, 5)
                     .redacted(reason: .placeholder)
                     .shimmering()
-                
+
                 Text("Lorem ipsum dolor sit amet consectetur adipisicing elit")
                     .font(.system(size: 20))
                     .bold()

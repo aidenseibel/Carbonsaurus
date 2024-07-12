@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct DataModel{
+struct DataModel {
     // saves the local user locally, returns true if successful.
     // since User is already Codable, most of the work is done for us.
-    static func saveLocalUserToUserDefaults(user: User) -> Bool{
+    static func saveLocalUserToUserDefaults(user: User) -> Bool {
         do {
             // encode the user
             let encoder = JSONEncoder()
@@ -18,7 +18,7 @@ struct DataModel{
 
             // save and return true
             UserDefaults.standard.set(data, forKey: "localUser")
-            
+
             print("Successfully saved localUser to UserDefaults")
             return true
         } catch {
@@ -26,15 +26,15 @@ struct DataModel{
         }
         return false
     }
-    
+
     // loads in the local user on launch.
-    static func getLocalUserFromAppStorage() -> User?{
+    static func getLocalUserFromAppStorage() -> User? {
         if let data = UserDefaults.standard.data(forKey: "localUser") {
             do {
                 // try to decode
                 let decoder = JSONDecoder()
                 let localUser = try decoder.decode(User.self, from: data)
-                
+
                 print("Successfully fetched localUser from UserDefaults")
                 return localUser
             } catch {

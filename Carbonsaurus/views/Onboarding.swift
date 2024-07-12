@@ -17,17 +17,17 @@ struct Onboarding: View {
     @State var appliances: String = ""
     @State var eat: String = ""
     @State var shower: String = ""
-    
+
     @State var errorInInputs: Bool = false
 
     var body: some View {
         ZStack {
             Color.red.opacity(0.30)
                 .ignoresSafeArea()
-            
-            ScrollViewReader{ proxy in
-                ScrollView(showsIndicators: false){
-                    VStack(alignment: .leading, spacing: 20){
+
+            ScrollViewReader { proxy in
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 20) {
                         Image("pink_dino_transparent")
                             .resizable()
                             .scaledToFill()
@@ -43,8 +43,8 @@ struct Onboarding: View {
                         Text("You can change these at any time, so don't worry!")
                             .bold()
                             .padding(.bottom, 50)
-                        
-                        HStack{
+
+                        HStack {
                             Button("to the questions!") {
                                 withAnimation(.easeInOut(duration: 2.0)) {
                                     proxy.scrollTo(questionsID, anchor: .top)
@@ -57,13 +57,13 @@ struct Onboarding: View {
                                 .background(.white)
                                 .cornerRadius(10)
                                 .padding(.bottom, 100)
-                            
+
                             Button("skip for now") {
-                                viewModel.localUser.average_driving = 1
-                                viewModel.localUser.average_phone = 195
-                                viewModel.localUser.average_appliances = 1
-                                viewModel.localUser.average_eating = 1800
-                                viewModel.localUser.average_shower = 10
+                                viewModel.localUser.averageDriving = 1
+                                viewModel.localUser.averagePhone = 195
+                                viewModel.localUser.averageAppliances = 1
+                                viewModel.localUser.averageEating = 1800
+                                viewModel.localUser.averageShower = 10
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
@@ -77,11 +77,10 @@ struct Onboarding: View {
                                 .padding(.bottom, 100)
 
                         }
-                        
-                        
-                        Group{
-                            VStack(alignment: .leading, spacing: 50){
-                                VStack(alignment: .leading){
+
+                        Group {
+                            VStack(alignment: .leading, spacing: 50) {
+                                VStack(alignment: .leading) {
                                     Text("How many hours do you drive on an average day?")
                                         .bold()
                                         .id(questionsID)
@@ -91,8 +90,8 @@ struct Onboarding: View {
                                         .background(.white)
                                         .cornerRadius(10)
                                 }
-                                
-                                VStack(alignment: .leading){
+
+                                VStack(alignment: .leading) {
                                     Text("What is your daily average screen time?")
                                         .bold()
                                     TextField("enter hours", text: $phone)
@@ -101,8 +100,8 @@ struct Onboarding: View {
                                         .background(.white)
                                         .cornerRadius(10)
                                 }
-                                
-                                VStack(alignment: .leading){
+
+                                VStack(alignment: .leading) {
                                     Text("How often do you use large appliances (washer, dryer, oven, etc) on any given day?")
                                         .bold()
                                     TextField("enter number of times", text: $appliances)
@@ -111,8 +110,8 @@ struct Onboarding: View {
                                         .background(.white)
                                         .cornerRadius(10)
                                 }
-                                
-                                VStack(alignment: .leading){
+
+                                VStack(alignment: .leading) {
                                     Text("How many calories do you eat every day?")
                                         .bold()
                                     TextField("enter calories", text: $eat)
@@ -121,8 +120,8 @@ struct Onboarding: View {
                                         .background(.white)
                                         .cornerRadius(10)
                                 }
-                                
-                                VStack(alignment: .leading){
+
+                                VStack(alignment: .leading) {
                                     Text("How many minutes do you shower on an average day?")
                                         .bold()
                                     TextField("enter minutes", text: $shower)
@@ -134,29 +133,27 @@ struct Onboarding: View {
                             }
                         }
                         .padding(.bottom, 100)
-                        
-                        if errorInInputs{
+
+                        if errorInInputs {
                             Text("Make sure you enter numbers into the text fields!")
                                 .bold()
                         }
-                        
-                        
+
                         Button(action: {
-                            if allFieldsValid(){
-                                viewModel.localUser.average_driving = Int(parseNumber(input: driving))
-                                viewModel.localUser.average_phone = Int(parseNumber(input: phone))
-                                viewModel.localUser.average_appliances = Int(parseNumber(input: appliances))
-                                viewModel.localUser.average_eating = Int(parseNumber(input: eat))
-                                viewModel.localUser.average_shower = Int(parseNumber(input: shower))
+                            if allFieldsValid() {
+                                viewModel.localUser.averageDriving = Int(parseNumber(input: driving))
+                                viewModel.localUser.averagePhone = Int(parseNumber(input: phone))
+                                viewModel.localUser.averageAppliances = Int(parseNumber(input: appliances))
+                                viewModel.localUser.averageEating = Int(parseNumber(input: eat))
+                                viewModel.localUser.averageShower = Int(parseNumber(input: shower))
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
-                            }
-                            else{
+                            } else {
                                 errorInInputs = true
                             }
                         }, label: {
-                            HStack{
+                            HStack {
                                 Spacer()
                                 Text("let's go!")
                                     .bold()
@@ -172,13 +169,12 @@ struct Onboarding: View {
                     }
                     .frame(width: UIScreen.main.bounds.width * 0.90)
                     .padding(.top, UIScreen.main.bounds.width * 0.40)
-                    
                 }
             }
         }
     }
-    
-    func allFieldsValid() -> Bool{
+
+    func allFieldsValid() -> Bool {
         return driving != "" && phone != "" && appliances != "" && eat != "" && shower != ""
     }
 }

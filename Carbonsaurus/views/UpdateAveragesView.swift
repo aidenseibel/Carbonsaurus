@@ -16,17 +16,17 @@ struct UpdateAveragesView: View {
     @State var appliances: String = ""
     @State var eat: String = ""
     @State var shower: String = ""
-    
+
     var body: some View {
         ZStack {
             Color.red.opacity(0.30)
                 .ignoresSafeArea()
 
-            ScrollView{
-                VStack{
-                    Group{
-                        VStack(alignment: .leading, spacing: 50){
-                            VStack(alignment: .leading){
+            ScrollView {
+                VStack {
+                    Group {
+                        VStack(alignment: .leading, spacing: 50) {
+                            VStack(alignment: .leading) {
                                 Text("How many hours do you drive on an average day?")
                                     .bold()
                                 TextField("enter hours", text: $driving)
@@ -35,8 +35,8 @@ struct UpdateAveragesView: View {
                                     .background(.white)
                                     .cornerRadius(10)
                             }
-                            
-                            VStack(alignment: .leading){
+
+                            VStack(alignment: .leading) {
                                 Text("What is your daily average screen time?")
                                     .bold()
                                 TextField("enter hours", text: $phone)
@@ -45,8 +45,8 @@ struct UpdateAveragesView: View {
                                     .background(.white)
                                     .cornerRadius(10)
                             }
-                            
-                            VStack(alignment: .leading){
+
+                            VStack(alignment: .leading) {
                                 Text("How often do you use large appliances (washer, dryer, oven, etc) on any given day?")
                                     .bold()
                                 TextField("enter number of times", text: $appliances)
@@ -55,8 +55,8 @@ struct UpdateAveragesView: View {
                                     .background(.white)
                                     .cornerRadius(10)
                             }
-                            
-                            VStack(alignment: .leading){
+
+                            VStack(alignment: .leading) {
                                 Text("How many calories do you eat every day?")
                                     .bold()
                                 TextField("enter calories", text: $eat)
@@ -65,8 +65,8 @@ struct UpdateAveragesView: View {
                                     .background(.white)
                                     .cornerRadius(10)
                             }
-                            
-                            VStack(alignment: .leading){
+
+                            VStack(alignment: .leading) {
                                 Text("How many minutes do you shower on an average day?")
                                     .bold()
                                 TextField("enter minutes", text: $shower)
@@ -77,19 +77,19 @@ struct UpdateAveragesView: View {
                             }
                         }
                     }
-                    
-                    Button(action: {
-                        if isValid(driving){ viewModel.localUser.average_driving = Int(parseNumber(input: driving))}
-                        if isValid(phone){ viewModel.localUser.average_phone = Int(parseNumber(input: phone))}
-                        if isValid(appliances){ viewModel.localUser.average_appliances = Int(parseNumber(input: appliances))}
-                        if isValid(eat){ viewModel.localUser.average_eating = Int(parseNumber(input: eat))}
-                        if isValid(shower){ viewModel.localUser.average_shower = Int(parseNumber(input: shower))}
 
-                        if DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser){
+                    Button(action: {
+                        if isValid(driving) { viewModel.localUser.averageDriving = Int(parseNumber(input: driving)) }
+                        if isValid(phone) { viewModel.localUser.averagePhone = Int(parseNumber(input: phone)) }
+                        if isValid(appliances) { viewModel.localUser.averageAppliances = Int(parseNumber(input: appliances)) }
+                        if isValid(eat) { viewModel.localUser.averageEating = Int(parseNumber(input: eat)) }
+                        if isValid(shower) { viewModel.localUser.averageShower = Int(parseNumber(input: shower)) }
+
+                        if DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser) {
                             presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {
-                        HStack{
+                        HStack {
                             Spacer()
                             Text("save")
                                 .bold()
@@ -106,17 +106,17 @@ struct UpdateAveragesView: View {
             }
         }
     }
-    
+
     func isValid(_ str: String) -> Bool {
         // Check if the string is empty
         guard !str.isEmpty else {
             return true
         }
-        
+
         // Check if all characters are digits
         let characterSet = CharacterSet.decimalDigits
         let isAllDigits = str.unicodeScalars.allSatisfy { characterSet.contains($0) }
-        
+
         return isAllDigits
     }
 

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CarbonFootprintBreakdownSubView: View {
     @EnvironmentObject var viewModel: ViewModel
-    
+
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
-    
+
     var body: some View {
-        HStack(spacing: 1){
-            VStack(alignment: .leading, spacing: 5){
+        HStack(spacing: 1) {
+            VStack(alignment: .leading, spacing: 5) {
                 Text("view your carbon footprint breakdown")
                     .multilineTextAlignment(.leading)
                     .bold()
@@ -36,12 +36,12 @@ struct CarbonFootprintBreakdownSubView: View {
         .frame(width: UIScreen.main.bounds.width * 0.90)
         .background(.white)
         .cornerRadius(10)
-        .onAppear{
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        .onAppear {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 toggleDino.toggle()
             }
         }
-        .onDisappear{
+        .onDisappear {
             timer?.invalidate()
         }
     }

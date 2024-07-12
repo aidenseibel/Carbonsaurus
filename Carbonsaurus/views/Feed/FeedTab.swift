@@ -12,19 +12,19 @@ struct FeedTab: View {
     @Environment(\.openURL) var openURL
     @State private var articles: [Article] = []
     @State private var isLoading: Bool = true
-    
+
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.orange.opacity(0.3).edgesIgnoringSafeArea(.all)
                 ScrollView {
-                    ZStack (alignment: .center) {
+                    ZStack(alignment: .center) {
                         Color.orange.opacity(0).edgesIgnoringSafeArea(.all)
-                        VStack (alignment: .leading, spacing: 10) {
-                                if(isLoading) {
+                        VStack(alignment: .leading, spacing: 10) {
+                                if isLoading {
                                     SkeletonNewsComponent()
                                     SkeletonNewsComponent()
                                     SkeletonNewsComponent()
@@ -37,9 +37,15 @@ struct FeedTab: View {
                                         QuizSubView()
                                     }
                                     .buttonStyle(.plain)
-                                    
-                                    
-                                    HStack{
+
+                                    NavigationLink {
+                                        // lesson
+                                    } label: {
+                                        LessonSubView()
+                                    }
+                                    .buttonStyle(.plain)
+
+                                    HStack {
                                         Spacer()
                                         Image("fern")
                                             .resizable()
@@ -63,8 +69,6 @@ struct FeedTab: View {
                                     }
                                     .padding(20)
 
-
-                                    
                                     Text("recent climate news")
                                         .bold()
                                         .font(.system(size: 28))
@@ -74,8 +78,8 @@ struct FeedTab: View {
                                             NewsComponent(date: formatDate(date: article.publishedAt), title: article.title, imageURL: article.urlToImage)
                                         }).buttonStyle(.plain)
                                     }
-                                    
-                                    HStack{
+
+                                    HStack {
                                         Spacer()
                                         Image("fern")
                                             .resizable()
@@ -99,13 +103,13 @@ struct FeedTab: View {
                                     }
                                     .padding(5)
                                     .padding(.bottom, 100)
-                                    
-                                    .onAppear{
-                                        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+
+                                    .onAppear {
+                                        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                                             toggleDino.toggle()
                                         }
                                     }
-                                    .onDisappear{
+                                    .onDisappear {
                                         timer?.invalidate()
                                     }
                                 }
@@ -135,7 +139,6 @@ struct FeedTab: View {
         }
     }
 }
-
 
 #Preview {
     FeedTab()

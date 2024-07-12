@@ -15,7 +15,7 @@ enum Tab: String, CaseIterable {
 
 struct TabBar: View {
     @Binding var selectedTab: Tab
-    
+
     private var tabColor: Color {
         switch selectedTab {
         case .profile:
@@ -30,9 +30,9 @@ struct TabBar: View {
     var body: some View {
         VStack {
             HStack {
-                ForEach (Tab.allCases, id: \.rawValue) { tab in
-                    Spacer ()
-                    Image (systemName: tab.rawValue)
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                    Spacer()
+                    Image(systemName: tab.rawValue)
                         .scaleEffect(selectedTab == tab ? 1.5 : 1.0)
                         .foregroundColor(selectedTab == tab ? tabColor : .gray)
                     .font(.system(size: 22))
@@ -41,7 +41,7 @@ struct TabBar: View {
                             selectedTab = tab
                         }
                     }
-                    Spacer ()
+                    Spacer()
                 }
             }.frame(width: nil, height: 60)
                 .background(.white)

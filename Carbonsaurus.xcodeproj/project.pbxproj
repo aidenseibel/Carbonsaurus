@@ -31,6 +31,7 @@
 		1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616A2B8B5518001EC050 /* QuizSubView.swift */; };
 		1767616D2B8B5679001EC050 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616C2B8B5679001EC050 /* Quiz.swift */; };
 		1767616F2B8B5736001EC050 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616E2B8B5736001EC050 /* QuizView.swift */; };
+		17B568FE2C41BB65003F7B43 /* LessonSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B568FD2C41BB65003F7B43 /* LessonSubView.swift */; };
 		17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C52ABE2BF00CC40034540E /* DataModel.swift */; };
 		17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786742BF3E74600B9FA52 /* Notifications.swift */; };
 		17F786772BF3EBEE00B9FA52 /* UpdateAveragesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */; };
@@ -119,6 +120,7 @@
 		1767616A2B8B5518001EC050 /* QuizSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSubView.swift; sourceTree = "<group>"; };
 		1767616C2B8B5679001EC050 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		1767616E2B8B5736001EC050 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
+		17B568FD2C41BB65003F7B43 /* LessonSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSubView.swift; sourceTree = "<group>"; };
 		17C52ABE2BF00CC40034540E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		17F786732BF3E3FD00B9FA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		17F786742BF3E74600B9FA52 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
 				1767616A2B8B5518001EC050 /* QuizSubView.swift */,
+				17B568FD2C41BB65003F7B43 /* LessonSubView.swift */,
 				C4CFEF952B8B6226002AE026 /* TabBar.swift */,
 				17F7867A2BF4086D00B9FA52 /* ShopCosmeticSubView.swift */,
 			);
@@ -443,6 +446,7 @@
 			packageReferences = (
 				C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				C492E6BA2B8B0F6B00969486 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				17B568FF2C41BF41003F7B43 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
 			);
 			productRefGroup = 1767611E2B8A8017001EC050 /* Products */;
 			projectDirPath = "";
@@ -514,6 +518,7 @@
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
 				17F7867B2BF4086D00B9FA52 /* ShopCosmeticSubView.swift in Sources */,
+				17B568FE2C41BB65003F7B43 /* LessonSubView.swift in Sources */,
 				172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */,
 				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
@@ -942,6 +947,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		17B568FF2C41BF41003F7B43 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.55.1;
+			};
+		};
 		C492E6B52B8AF69D00969486 /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer.git";

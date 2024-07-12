@@ -10,21 +10,21 @@ import SwiftUI
 struct QuizView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel: ViewModel
-    
+
     var quiz: Quiz
-    
+
     @State var hasAnswered = false
     @State var isCorrect = false
-    
+
     var body: some View {
         ZStack {
             Color.red.opacity(0.30)
                 .ignoresSafeArea()
-            
-            ScrollView(showsIndicators: false){
-                VStack(alignment: .leading, spacing: 20){
-                    if hasAnswered && !isCorrect{
-                        HStack{
+
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 20) {
+                    if hasAnswered && !isCorrect {
+                        HStack {
                             Spacer()
                             Image("meteor_1")
                                 .resizable()
@@ -45,17 +45,17 @@ struct QuizView: View {
                     Text(quiz.question)
                         .font(.title2)
                         .bold()
-                    
-                    ForEach(quiz.choices, id: \.self){choice in
+
+                    ForEach(quiz.choices, id: \.self) { choice in
                         Button {
                             checkAnswer(choice: choice)
                         } label: {
-                            HStack{
+                            HStack {
                                 Spacer()
-                                if hasAnswered && choice == quiz.choices[quiz.answerIndex]{
+                                if hasAnswered && choice == quiz.choices[quiz.answerIndex] {
                                     Image(systemName: "checkmark")
                                 }
-                                if hasAnswered && choice != quiz.choices[quiz.answerIndex]{
+                                if hasAnswered && choice != quiz.choices[quiz.answerIndex] {
                                     Image(systemName: "xmark")
                                 }
                                 Text("\(choice)")
@@ -69,16 +69,16 @@ struct QuizView: View {
                         }
                         .disabled(hasAnswered)
                     }
-                    
-                    if hasAnswered{
+
+                    if hasAnswered {
                         Button {
-                            if isCorrect{
-                                viewModel.localUser.extraDinoPoints = viewModel.localUser.extraDinoPoints + 50
+                            if isCorrect {
+                                viewModel.localUser.extraDinoPoints += 50
                             }
                             viewModel.isTabBarShowing = true
                             presentationMode.wrappedValue.dismiss()
                         } label: {
-                            HStack{
+                            HStack {
                                 Spacer()
                                 Text("go back to feed")
                                     .bold()
@@ -96,17 +96,17 @@ struct QuizView: View {
             }
             .frame(width: UIScreen.main.bounds.width * 0.90)
             .navigationBarBackButtonHidden(true)
-            .onAppear{
+            .onAppear {
                 viewModel.isTabBarShowing = false
             }
         }
     }
-    
-    func checkAnswer(choice: String){
+
+    func checkAnswer(choice: String) {
         hasAnswered = true
-        if choice == quiz.choices[quiz.answerIndex]{
+        if choice == quiz.choices[quiz.answerIndex] {
             isCorrect = true
-        }else{
+        } else {
             isCorrect = false
         }
     }

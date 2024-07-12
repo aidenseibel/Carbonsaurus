@@ -6,84 +6,96 @@
 //
 
 import Foundation
-//import SwiftUI
 
-class User: Identifiable, Codable, ObservableObject{
+class User: Identifiable, Codable, ObservableObject {
     var id: UUID
     var username: String
     var diaries: [Diary]
     var avatar: Avatar
     var extraDinoPoints: Int
-    var average_driving, average_phone, average_appliances, average_eating, average_shower: Int
-        
-    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Int, average_driving: Int, average_phone: Int, average_appliances: Int, average_eating: Int, average_shower: Int) {
+    var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Int
+
+    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Int, averageDriving: Int, averagePhone: Int, averageAppliances: Int, averageEating: Int, averageShower: Int) {
         self.id = UUID()
         self.username = username
         self.diaries = diaries
         self.avatar = avatar
         self.extraDinoPoints = 0
-        self.average_driving = average_driving /*?? 1 // 3360*/
-        self.average_phone = average_phone /*?? 195 // 189*/
-        self.average_appliances = average_appliances /*??  1 // 2000*/
-        self.average_eating = average_eating /*?? 1800 // 4500*/
-        self.average_shower = average_shower /*?? 10 // 2000*/
+        self.averageDriving = averageDriving /*?? 1 // 3360*/
+        self.averagePhone = averagePhone /*?? 195 // 189*/
+        self.averageAppliances = averageAppliances /*??  1 // 2000*/
+        self.averageEating = averageEating /*?? 1800 // 4500*/
+        self.averageShower = averageShower /*?? 10 // 2000*/
     }
-        
-    func getDinoPoints() -> Int{
+
+    func getDinoPoints() -> Int {
         var total = 0
-        
+
         for diary in diaries {
-            total = total + diary.dinoPoints()
+            total += diary.dinoPoints()
         }
-        
+
         return total + extraDinoPoints
     }
-    
-    func getAverageDinoPointsThisWeek() -> Int{
+
+    func getDiariesThisWeek() -> [Diary] {
+        var diariesThisWeek: [Diary] = []
+
+        for diary in diaries {
+            if isLessThanAWeekAgo(date: diary.date) {
+                diariesThisWeek.append(diary)
+            }
+        }
+
+        return diariesThisWeek
+    }
+
+    func getAverageDinoPointsThisWeek() -> Int {
         var total = 0
         var count = 0
-        
-        for diary in diaries {
-            if isLessThanAWeekAgo(date: diary.date){
-                total = total + diary.dinoPoints()
-                count = count + 1
-            }
+
+        for diary in getDiariesThisWeek() {
+            total += diary.dinoPoints()
+            count += 1
         }
-        
-        if count == 0 { return 0}
+
+        if count == 0 { return 0 }
         return total / count
     }
-    
-    func getCarbonFootprintThisWeek() -> Int{
+
+    func getDinoPointsThisWeek() -> Int {
         var total = 0
-        
-        for diary in diaries {
-            if isLessThanAWeekAgo(date: diary.date){
-                total = total + diary.calculateCarbonFootprint(averages: getDailyAverages())
-            }
+
+        for diary in getDiariesThisWeek() {
+            total += diary.dinoPoints()
         }
-        
+
         return total
     }
-    
 
-    func getAverageDinoPoints() -> Int{
-        if diaries.isEmpty{
+    func getCarbonFootprintThisWeek() -> Int {
+        var total = 0
+
+        for diary in getDiariesThisWeek() {
+            total += diary.calculateCarbonFootprint(averages: getDailyAverages())
+        }
+
+        return total
+    }
+
+    func getAverageDinoPoints() -> Int {
+        if diaries.isEmpty {
             return 0
         }
         return getDinoPoints() / diaries.count + extraDinoPoints
     }
-    
-    func getCarbonRanking() -> Int {
-        return Int(3000 - Double(getAverageDinoPointsThisWeek()) * 1.25)
+
+    func getDailyAverages() -> [Int] {
+        return [averageDriving, averagePhone, averageAppliances, averageEating, averageShower]
     }
-    
-    func getDailyAverages() -> [Int]{
-        return [average_driving, average_phone, average_appliances, average_eating, average_shower]
-    }
-    
-    func getDinoStatus() -> avatar_mood{
-        switch getAverageDinoPointsThisWeek(){
+
+    func getDinoStatus() -> AvatarMood {
+        switch getAverageDinoPointsThisWeek() {
         case 0..<1200:
             return .sad
         case 1200..<1400:
@@ -98,9 +110,9 @@ class User: Identifiable, Codable, ObservableObject{
             return .neutral
         }
     }
-        
-    func getDinoStatusDescription() -> String{
-        switch getDinoStatus(){
+
+    func getDinoStatusDescription() -> String {
+        switch getDinoStatus() {
         case .sad:
             return "it's been a hard week."
         case .worried:

@@ -9,26 +9,26 @@ import SwiftUI
 
 struct DiaryTab: View {
     @EnvironmentObject var viewModel: ViewModel
-    
+
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
-    
+
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 Color.blue.opacity(0.30)
                     .ignoresSafeArea()
-                ScrollView(showsIndicators: false){
-                    VStack(alignment: .leading){
-                        if !viewModel.hasLoggedToday{
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        if !viewModel.hasLoggedToday {
                             NavigationLink {
                                 DiaryCreator()
                             } label: {
-                                HStack(spacing: 15){
+                                HStack(spacing: 15) {
                                     Image("sun")
                                         .resizable()
                                         .frame(width: 50, height: 50)
-                                    VStack(alignment: .leading){
+                                    VStack(alignment: .leading) {
                                         Text("time to check in!")
                                             .font(.title2)
                                             .bold()
@@ -43,44 +43,46 @@ struct DiaryTab: View {
                             }
                             .buttonStyle(.plain)
                         }
-                        
-//                        NavigationLink {
-//                            CarbonFootprintBreakdown()
-//                        } label: {
-//                            CarbonFootprintBreakdownSubView()
-//                                .padding(.bottom, 5)
-//                        }
-//                        .buttonStyle(.plain)
 
-//                        HStack{
-//                            ForEach(1...3, id: \.self){_ in
-//                                Spacer()
-//                                Image("tree")
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 70, height: 70)
-//                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-//                            }
-//                            Spacer()
-//                        }
-//                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
-                                                
-                        Text("this week")
-                            .bold()
-                            .font(.system(size: 28))
-                        
-                        Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
-                            .font(.system(size: 16))
-                            .padding(.bottom, 4)
+                        VStack(alignment: .leading) {
+                            Text("this week")
+                                .bold()
+                                .font(.system(size: 28))
 
-                        ForEach(viewModel.localUser.diaries.sorted { $0.date > $1.date }, id: \.self){diary in
-                            NavigationLink {
-                                DiaryEntryLarge(diary: diary)
-                            } label: {
-                                DiaryEntrySubView(diary: diary)
+                            Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
+                                .font(.system(size: 16))
+                                .padding(.bottom, 4)
+
+                            ForEach(viewModel.localUser.getDiariesThisWeek().sorted { $0.date > $1.date }, id: \.self) {diary in
+                                NavigationLink {
+                                    DiaryEntryLarge(diary: diary)
+                                } label: {
+                                    DiaryEntrySubView(diary: diary)
+                                }
+                                .buttonStyle(.plain)
                             }
-                            .buttonStyle(.plain)
                         }
+
+                        VStack(alignment: .leading) {
+                            Text("all entries")
+                                .bold()
+                                .font(.system(size: 28))
+
+                            Text("\(viewModel.localUser.getDinoPoints()) dino points")
+                                .font(.system(size: 16))
+                                .padding(.bottom, 4)
+
+                            ForEach(viewModel.localUser.diaries.sorted { $0.date > $1.date }, id: \.self) {diary in
+                                NavigationLink {
+                                    DiaryEntryLarge(diary: diary)
+                                } label: {
+                                    DiaryEntrySubView(diary: diary)
+                                }
+                                .buttonStyle(.plain)
+                            }
+
+                        }
+
                     }.padding(.bottom, 100)
                 }
                 .frame(width: UIScreen.main.bounds.width * 0.90)
@@ -89,12 +91,12 @@ struct DiaryTab: View {
             .navigationBarTitleDisplayMode(.large)
 
         }
-        .onAppear{
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+        .onAppear {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
                 toggleDino.toggle()
             }
         }
-        .onDisappear{
+        .onDisappear {
             timer?.invalidate()
         }
     }

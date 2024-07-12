@@ -11,15 +11,16 @@ struct NewsComponent: View {
     var date: String
     var title: String
     var imageURL: String?
+    
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
                 Text(date)
                     .font(.system(size: 12))
-                    .bold()
                     .padding(.bottom, 5)
                 Text(title)
                     .font(.system(size: 18))
+                    .lineLimit(3)
                 
             }
             .padding(10)
