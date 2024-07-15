@@ -22,9 +22,19 @@ struct ProfileTab: View {
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center, spacing: 25) {
                         ZStack {
-                            Circle()
-                                .frame(width: UIScreen.main.bounds.width * 0.60)
-                                .foregroundColor(.white)
+                            if viewModel.localUser.avatar.background == .no_background{
+                                Circle()
+                                    .frame(width: UIScreen.main.bounds.width * 0.60)
+                                    .foregroundColor(.white)
+                            }
+                            else{
+                                Image(viewModel.localUser.avatar.background.rawValue)
+                                    .resizable()
+                                    .frame(width: UIScreen.main.bounds.width * 0.60, height: UIScreen.main.bounds.width * 0.60)
+                                    .scaledToFill()
+                                    .clipped()
+                                    .cornerRadius(UIScreen.main.bounds.width * 0.30)
+                            }
                             Image(toggleDino ? viewModel.localUser.avatar.getImageString() : viewModel.localUser.avatar.getHigherImageString())
                                 .resizable()
                                 .scaledToFit()
@@ -98,7 +108,7 @@ struct ProfileTab: View {
             .sheet(isPresented: $openChangeAvatar, onDismiss: {
                 openChangeAvatar = false
             }, content: {
-                ChangeAvatarView(selectedAvatarColor: viewModel.localUser.avatar.color, selectedAvatarAccessory: viewModel.localUser.avatar.accessory)
+                ChangeAvatarView(selectedAvatarColor: viewModel.localUser.avatar.color, selectedAvatarAccessory: viewModel.localUser.avatar.accessory, selectedAvatarBackground: viewModel.localUser.avatar.background)
             })
             .sheet(isPresented: $viewStats, onDismiss: {
                 viewStats = false

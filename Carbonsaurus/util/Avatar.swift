@@ -90,10 +90,37 @@ enum AvatarAccessory: String, Codable {
 
 var allAvatarAccessories: [AvatarAccessory] = [.no_accessory, .banana, .bowtie, .flower, .lollipop, .spinhat, .sunglasses, .tophat]
 
+enum AvatarBackground: String, Codable {
+    case no_background
+    case mountains
+    case beach
+    case space
+
+    var dinoPoints: Int {
+        switch self {
+        case .no_background:
+            return 0
+        case .mountains:
+            return 1000
+        case .beach:
+            return 3000
+        case .space:
+            return 5000
+        }
+    }
+
+    var name: String {
+        return self.rawValue
+    }
+}
+
+var allAvatarBackgrounds: [AvatarBackground] = [.no_background, .mountains, .beach, .space]
+
 struct Avatar: Codable {
     var color: AvatarColor
     var mood: AvatarMood
     var accessory: AvatarAccessory
+    var background: AvatarBackground
 
     func getImageString() -> String {
         return color.rawValue + "_dino_" + mood.rawValue

@@ -13,6 +13,7 @@ struct ChangeAvatarView: View {
     
     @State var selectedAvatarColor: AvatarColor
     @State var selectedAvatarAccessory: AvatarAccessory
+    @State var selectedAvatarBackground: AvatarBackground
 
     var body: some View {
         ZStack {
@@ -32,6 +33,7 @@ struct ChangeAvatarView: View {
                         Button {
                             viewModel.localUser.avatar.color = selectedAvatarColor
                             viewModel.localUser.avatar.accessory = selectedAvatarAccessory
+                            viewModel.localUser.avatar.background = selectedAvatarBackground
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("save")
@@ -97,6 +99,31 @@ struct ChangeAvatarView: View {
                             }
                         }
                     }
+                    
+                    VStack(alignment: .leading){
+                        Text("background")
+                            .font(.title2)
+                        ScrollView(.horizontal, showsIndicators: false){
+                            HStack{
+                                ForEach(allAvatarBackgrounds, id: \.self) { avatarBackground in
+                                    ZStack{
+                                        Color.black
+                                        Button(action: {
+                                            selectedAvatarBackground = avatarBackground
+                                        }, label: {
+                                            Image(avatarBackground.rawValue)
+                                                .resizable()
+                                                .scaledToFill()
+                                                .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+                                        })
+                                            .background(.white)
+                                            .opacity(selectedAvatarBackground == avatarBackground ? 1.0 : 0.70)
+                                    }
+                                    .cornerRadius(10)
+                                }
+                            }
+                        }
+                    }
                 }
                 .padding()
             }
@@ -105,5 +132,5 @@ struct ChangeAvatarView: View {
 }
 
 #Preview {
-    ChangeAvatarView(selectedAvatarColor: .blue, selectedAvatarAccessory: .bowtie)
+    ChangeAvatarView(selectedAvatarColor: .blue, selectedAvatarAccessory: .bowtie, selectedAvatarBackground: .space)
 }
