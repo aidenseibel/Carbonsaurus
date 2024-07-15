@@ -12,7 +12,7 @@ struct ShopCosmeticSubView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Image(accessory.imageString)
+            Image(accessory.rawValue)
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width * 0.40, height: UIScreen.main.bounds.width * 0.40)

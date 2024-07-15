@@ -36,6 +36,7 @@ enum AvatarMood: String, Codable {
 }
 
 enum AvatarAccessory: String, Codable {
+    case no_accessory
     case banana
     case bowtie
     case flower
@@ -46,6 +47,8 @@ enum AvatarAccessory: String, Codable {
 
     var dinoPoints: Int {
         switch self {
+        case .no_accessory:
+            return 0
         case .banana:
             return 1000
         case .bowtie:
@@ -65,6 +68,8 @@ enum AvatarAccessory: String, Codable {
 
     var name: String {
         switch self {
+        case .no_accessory:
+            return "no accessory"
         case .banana:
             return "banana"
         case .bowtie:
@@ -81,31 +86,14 @@ enum AvatarAccessory: String, Codable {
             return "top hat"
         }
     }
-
-    var imageString: String {
-        switch self {
-        case .banana:
-            return "banana"
-        case .bowtie:
-            return "bowtie"
-        case .flower:
-            return "flower_acc" // here is different
-        case .lollipop:
-            return "lollipop"
-        case .spinhat:
-            return "spinhat"
-        case .sunglasses:
-            return "sunglasses"
-        case .tophat:
-            return "tophat"
-        }
-    }
 }
+
+var allAvatarAccessories: [AvatarAccessory] = [.no_accessory, .banana, .bowtie, .flower, .lollipop, .spinhat, .sunglasses, .tophat]
 
 struct Avatar: Codable {
     var color: AvatarColor
     var mood: AvatarMood
-    var accessory: AvatarAccessory?
+    var accessory: AvatarAccessory
 
     func getImageString() -> String {
         return color.rawValue + "_dino_" + mood.rawValue

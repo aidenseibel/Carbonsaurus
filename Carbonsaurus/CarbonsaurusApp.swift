@@ -37,6 +37,7 @@ struct CarbonsaurusApp: App {
                         TabView(selection: $selectedTab) {
                             ProfileTab().tag(Tab.profile)
                             DiaryTab().tag(Tab.diary)
+                            ShopTab().tag(Tab.shop)
                             FeedTab().tag(Tab.feed)
                         }.environmentObject(viewModel)
                     }

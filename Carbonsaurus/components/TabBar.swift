@@ -10,6 +10,7 @@ import SwiftUI
 enum Tab: String, CaseIterable {
     case profile = "tree.circle.fill"
     case diary = "sun.horizon.fill"
+    case shop = "cart.circle.fill"
     case feed = "globe.europe.africa.fill"
 }
 
@@ -22,6 +23,8 @@ struct TabBar: View {
             return .green
         case .diary:
             return .blue
+        case .shop:
+            return .yellow
         case .feed:
             return .orange
         }
