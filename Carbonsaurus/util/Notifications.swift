@@ -15,8 +15,8 @@ func scheduleDailyNotification() {
     content.sound = UNNotificationSound.default
     
     var dateComponents = DateComponents()
-    dateComponents.hour = Int.random(in: 17...20)
-    dateComponents.minute = Int.random(in: 0...59)
+    dateComponents.hour = 7
+    dateComponents.minute = 30
 
     print("Notification scheduled for \(String(describing: dateComponents.hour)) \(String(describing: dateComponents.minute)) p.m.")
     let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)

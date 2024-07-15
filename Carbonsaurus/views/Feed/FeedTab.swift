@@ -13,109 +13,56 @@ struct FeedTab: View {
     @State private var articles: [Article] = []
     @State private var isLoading: Bool = true
 
-    @State private var timer: Timer?
-    @State var toggleDino: Bool = false
-
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.orange.opacity(0.3).edgesIgnoringSafeArea(.all)
                 ScrollView {
-                    ZStack(alignment: .center) {
-                        Color.orange.opacity(0).edgesIgnoringSafeArea(.all)
-                        VStack(alignment: .leading, spacing: 10) {
-                                if isLoading {
-                                    SkeletonNewsComponent()
-                                    SkeletonNewsComponent()
-                                    SkeletonNewsComponent()
-                                    SkeletonNewsComponent()
-                                    SkeletonNewsComponent()
-                                } else {
-                                    NavigationLink {
-                                        QuizView(quiz: exampleQuizzes.randomElement() ?? exampleQuizzes[0])
-                                    } label: {
-                                        QuizSubView()
-                                    }
-                                    .buttonStyle(.plain)
+                    VStack(alignment: .center, spacing: 25) {
+                        if isLoading {
+                            SkeletonNewsComponent()
+                            SkeletonNewsComponent()
+                            SkeletonNewsComponent()
+                            SkeletonNewsComponent()
+                            SkeletonNewsComponent()
+                        } else {
+                            VStack(alignment: .leading, spacing: 10){
+                                NavigationLink {
+                                    QuizView(quiz: exampleQuizzes.randomElement() ?? exampleQuizzes[0])
+                                } label: {
+                                    QuizSubView()
+                                }
+                                .buttonStyle(.plain)
 
-                                    NavigationLink {
-                                        // lesson
-                                    } label: {
-                                        LessonSubView()
-                                    }
-                                    .buttonStyle(.plain)
+                                NavigationLink {
+                                    // lesson
+                                } label: {
+                                    LessonSubView()
+                                }
+                                .buttonStyle(.plain)
+                            }
 
-                                    HStack {
-                                        Spacer()
-                                        Image("fern")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
-                                        Image("volcano")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 70, height: 70)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
-                                        Image("fern")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
+                            Image("volcano_trees")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.main.bounds.width * 0.80)
+                            
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("recent climate news")
+                                    .bold()
+                                    .font(.system(size: 28))
 
-                                    }
-                                    .padding(20)
-
-                                    Text("recent climate news")
-                                        .bold()
-                                        .font(.system(size: 28))
-
-                                    ForEach(articles, id: \.self) { article in
-                                        Link(destination: URL(string: article.url)!, label: {
-                                            NewsComponent(date: formatDate(date: article.publishedAt), title: article.title, imageURL: article.urlToImage)
-                                        }).buttonStyle(.plain)
-                                    }
-
-                                    HStack {
-                                        Spacer()
-                                        Image("fern")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 30, height: 30)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
-                                        Image("volcano")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
-                                        Image("fern")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 30, height: 30)
-                                            .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                                        Spacer()
-
-                                    }
-                                    .padding(5)
-                                    .padding(.bottom, 100)
-
-                                    .onAppear {
-                                        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                                            toggleDino.toggle()
-                                        }
-                                    }
-                                    .onDisappear {
-                                        timer?.invalidate()
-                                    }
+                                ForEach(articles, id: \.self) { article in
+                                    Link(destination: URL(string: article.url)!, label: {
+                                        NewsComponent(date: formatDate(date: article.publishedAt), title: article.title, imageURL: article.urlToImage)
+                                    }).buttonStyle(.plain)
                                 }
                             }
-                        .frame(width: UIScreen.main.bounds.width * 0.90)
-                    }.navigationTitle("feed")
+                        }
+                    }
+                    .padding()
+                    .padding(.bottom, 100)
+                    .navigationTitle("feed")
                     .navigationBarTitleDisplayMode(.large)
                     .task {
                         FeedService.shared.fetchTopStories { fetched in
@@ -125,7 +72,6 @@ struct FeedTab: View {
                             }
                         }
                     }
-
                 }
             }
         }.refreshable {

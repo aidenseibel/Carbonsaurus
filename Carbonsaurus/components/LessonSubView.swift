@@ -11,11 +11,11 @@ struct LessonSubView: View {
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text("take a short lesson for 100 dino points")
+                Text("take the daily lesson!")
                     .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text("spend 5 minutes to learn something useful")
+                Text("spend 5 minutes to earn 100 dino points")
                     .font(.system(size: 14))
             }.padding(10)
             Spacer()

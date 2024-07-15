@@ -21,51 +21,54 @@ struct ProfileTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center, spacing: 25) {
-                        ZStack {
-                            Circle()
-                                .frame(width: UIScreen.main.bounds.width * 0.60)
-                                .foregroundColor(.white)
-                            Image(toggleDino ? viewModel.localUser.avatar.getImageString() : viewModel.localUser.avatar.getHigherImageString())
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
-                                .cornerRadius(50)
-                                .clipped()
-                                .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                        }
-                        .onTapGesture {
-                            openChangeAvatar = true
-                        }
-
-                        HStack {
-                            Spacer()
-                            Image("flower")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 70, height: 70)
-                            Spacer()
-                            VStack(spacing: 5) {
-                                Text("your dino is")
-                                    .font(.system(size: 20))
-                                Text("\(viewModel.localUser.getDinoStatus().rawValue)")
-                                    .font(.system(size: 42))
-                                    .bold()
-                                Text("\(viewModel.localUser.getDinoPoints()) dino points")
-                                    .font(.system(size: 14))
+                        VStack(alignment: .center, spacing: 25) {
+                            ZStack {
+                                Circle()
+                                    .frame(width: UIScreen.main.bounds.width * 0.60)
+                                    .foregroundColor(.white)
+                                Image(toggleDino ? viewModel.localUser.avatar.getImageString() : viewModel.localUser.avatar.getHigherImageString())
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
+                                    .cornerRadius(50)
+                                    .clipped()
+                                    .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
                             }
-                            Spacer()
-                            Image("flower")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 70, height: 70)
-                            Spacer()
-
+                            .onTapGesture {
+                                openChangeAvatar = true
+                            }
+                            
+                            HStack {
+                                Spacer()
+                                Image("red_purple_flowers")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                Spacer()
+                                VStack(spacing: 5) {
+                                    Text("your dino is")
+                                        .font(.system(size: 20))
+                                    Text("\(viewModel.localUser.getDinoStatus().rawValue)")
+                                        .font(.system(size: 42))
+                                        .bold()
+                                    Text("\(viewModel.localUser.getDinoPoints()) dino points")
+                                        .font(.system(size: 14))
+                                }
+                                Spacer()
+                                Image("red_purple_flowers")
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 70, height: 70)
+                                    .scaleEffect(x: -1, y: 1)
+                                Spacer()
+                                
+                            }
+                            
+                            Text("\(viewModel.localUser.getDinoStatusDescription())")
+                                .frame(width: UIScreen.main.bounds.width * 0.80)
+                                .multilineTextAlignment(.center)
                         }
-
-                        Text("\(viewModel.localUser.getDinoStatusDescription())")
-                            .frame(width: UIScreen.main.bounds.width * 0.80)
-                            .multilineTextAlignment(.center)
-
+                        
                         Button {
                             viewStats = true
                         } label: {
@@ -107,7 +110,7 @@ struct ProfileTab: View {
 
         }
         .onAppear {
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { _ in
                 toggleDino.toggle()
             }
         }

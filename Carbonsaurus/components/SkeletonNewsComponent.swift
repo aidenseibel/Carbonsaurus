@@ -33,10 +33,9 @@ struct SkeletonNewsComponent: View {
 
         }
         .padding(10)
-        .frame(width: UIScreen.main.bounds.width * 0.9)
-            .background(Color.white)
-            .cornerRadius(10)
-            .shadow(radius: 10)
+        .background(Color.white)
+        .cornerRadius(10)
+        .shadow(radius: 10)
     }
 }
 

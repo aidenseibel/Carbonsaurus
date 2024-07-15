@@ -10,36 +10,18 @@ import SwiftUI
 struct DiaryTab: View {
     @EnvironmentObject var viewModel: ViewModel
 
-    @State private var timer: Timer?
-    @State var toggleDino: Bool = false
-
     var body: some View {
         NavigationView {
             ZStack {
                 Color.blue.opacity(0.30)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 20) {
                         if !viewModel.hasLoggedToday {
                             NavigationLink {
                                 DiaryCreator()
                             } label: {
-                                HStack(spacing: 15) {
-                                    Image("sun")
-                                        .resizable()
-                                        .frame(width: 50, height: 50)
-                                    VStack(alignment: .leading) {
-                                        Text("time to check in!")
-                                            .font(.title2)
-                                            .bold()
-                                        Text("complete your daily report")
-                                    }
-                                    Spacer()
-                                }
-                                .padding()
-                                .background(.white)
-                                .cornerRadius(10)
-                                .padding(.bottom, 10)
+                                DiaryReminderSubView()
                             }
                             .buttonStyle(.plain)
                         }
@@ -83,21 +65,14 @@ struct DiaryTab: View {
 
                         }
 
-                    }.padding(.bottom, 100)
+                    }
+                    .padding()
+                    .padding(.bottom, 100)
                 }
-                .frame(width: UIScreen.main.bounds.width * 0.90)
             }
             .navigationTitle("diary")
             .navigationBarTitleDisplayMode(.large)
 
-        }
-        .onAppear {
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                toggleDino.toggle()
-            }
-        }
-        .onDisappear {
-            timer?.invalidate()
         }
     }
 }

@@ -35,20 +35,20 @@ struct TabBar: View {
                     Image(systemName: tab.rawValue)
                         .scaleEffect(selectedTab == tab ? 1.5 : 1.0)
                         .foregroundColor(selectedTab == tab ? tabColor : .gray)
-                    .font(.system(size: 22))
-                    .onTapGesture {
-                        withAnimation(.easeIn(duration: 0.1)) {
-                            selectedTab = tab
+                        .font(.system(size: 22))
+                        .onTapGesture {
+                            withAnimation(.easeIn(duration: 0.1)) {
+                                selectedTab = tab
+                            }
                         }
-                    }
                     Spacer()
                 }
-            }.frame(width: nil, height: 60)
-                .background(.white)
-                .cornerRadius(50)
-                .padding()
-                .shadow(radius: 10)
-
+            }
+            .frame(height: UIScreen.main.bounds.height * 0.075)
+            .background(.white)
+            .cornerRadius(50)
+            .padding()
+            .shadow(radius: 10)
         }
     }
 }

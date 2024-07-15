@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		170982892B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */; };
 		1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1709828A2B8BA56000E01550 /* CarbonFootprintBreakdown.swift */; };
+		170EC3ED2C45B80100EBF44D /* DiaryReminderSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170EC3EC2C45B80100EBF44D /* DiaryReminderSubView.swift */; };
 		172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2D2B8B83240050895B /* ViewModel.swift */; };
 		172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */; };
 		172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE332B8B9A0E0050895B /* StatsView.swift */; };
@@ -95,6 +96,7 @@
 /* Begin PBXFileReference section */
 		170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintBreakdownSubView.swift; sourceTree = "<group>"; };
 		1709828A2B8BA56000E01550 /* CarbonFootprintBreakdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonFootprintBreakdown.swift; sourceTree = "<group>"; };
+		170EC3EC2C45B80100EBF44D /* DiaryReminderSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryReminderSubView.swift; sourceTree = "<group>"; };
 		172DAE2D2B8B83240050895B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAvatarView.swift; sourceTree = "<group>"; };
 		172DAE332B8B9A0E0050895B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */,
+				170EC3EC2C45B80100EBF44D /* DiaryReminderSubView.swift */,
 				170982882B8BA3C200E01550 /* CarbonFootprintBreakdownSubView.swift */,
 				176761562B8A8CFB001EC050 /* NewsComponent.swift */,
 				C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */,
@@ -507,6 +510,7 @@
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				17F786812BF52B7E00B9FA52 /* Avatar.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
+				170EC3ED2C45B80100EBF44D /* DiaryReminderSubView.swift in Sources */,
 				17F786792BF4077600B9FA52 /* ShopView.swift in Sources */,
 				1767615A2B8AA267001EC050 /* Diary.swift in Sources */,
 				1709828B2B8BA56000E01550 /* CarbonFootprintBreakdown.swift in Sources */,

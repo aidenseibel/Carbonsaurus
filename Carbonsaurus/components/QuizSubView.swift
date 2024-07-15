@@ -11,11 +11,11 @@ struct QuizSubView: View {
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
-                Text("test your knowledge for 50 dino points")
+                Text("answer the daily quiz question!")
                     .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text("answer a quiz question correctly to win")
+                Text("answer correctly for 50 dino points")
                     .font(.system(size: 14))
             }.padding(10)
             Spacer()
