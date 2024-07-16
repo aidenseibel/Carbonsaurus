@@ -15,7 +15,7 @@ struct ProfileTab: View {
     @State var viewStats: Bool = false
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()

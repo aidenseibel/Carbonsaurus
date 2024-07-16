@@ -32,4 +32,12 @@ class ViewModel: ObservableObject {
 
         DataModel.saveLocalUserToUserDefaults(user: localUser)
     }
+    
+    func updateLocalUserAvatar(avatarColor: AvatarColor, avatarAccessory: AvatarAccessory, avatarBackground: AvatarBackground) {
+        localUser.avatar.color = avatarColor
+        localUser.avatar.accessory = avatarAccessory
+        localUser.avatar.background = avatarBackground
+        
+        DataModel.saveLocalUserToUserDefaults(user: localUser)
+    }
 }

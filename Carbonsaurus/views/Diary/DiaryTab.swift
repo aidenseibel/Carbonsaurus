@@ -11,7 +11,7 @@ struct DiaryTab: View {
     @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 Color.blue.opacity(0.30)
                     .ignoresSafeArea()

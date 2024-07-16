@@ -31,18 +31,25 @@ struct ChangeAvatarView: View {
                         Spacer()
                         
                         Button {
-                            viewModel.localUser.avatar.color = selectedAvatarColor
-                            viewModel.localUser.avatar.accessory = selectedAvatarAccessory
-                            viewModel.localUser.avatar.background = selectedAvatarBackground
+                            viewModel.updateLocalUserAvatar(avatarColor: selectedAvatarColor, avatarAccessory: selectedAvatarAccessory, avatarBackground: selectedAvatarBackground)
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Text("save")
                         }
                     }
                     ZStack {
-                        Circle()
-                            .frame(width: UIScreen.main.bounds.width * 0.60)
-                            .foregroundColor(.white)
+                        if selectedAvatarBackground == .no_background{
+                            Circle()
+                                .frame(width: UIScreen.main.bounds.width * 0.60)
+                                .foregroundColor(.white)
+                        } else {
+                            Image(selectedAvatarBackground.rawValue)
+                                .resizable()
+                                .frame(width: UIScreen.main.bounds.width * 0.60, height: UIScreen.main.bounds.width * 0.60)
+                                .scaledToFill()
+                                .clipped()
+                                .cornerRadius(UIScreen.main.bounds.width * 0.30)
+                        }
                         Image("\(selectedAvatarColor)_dino_happy")
                             .resizable()
                             .scaledToFit()
@@ -67,6 +74,7 @@ struct ChangeAvatarView: View {
                                                 .scaledToFill()
                                                 .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                                         })
+                                        .background(.white)
                                         .opacity(selectedAvatarColor == avatarColor ? 1.0 : 0.70)
                                     }
                                     .cornerRadius(10)
@@ -91,8 +99,8 @@ struct ChangeAvatarView: View {
                                                 .scaledToFill()
                                                 .frame(width: UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
                                         })
-                                            .background(.white)
-                                            .opacity(selectedAvatarAccessory == avatarAccessory ? 1.0 : 0.70)
+                                        .background(.white)
+                                        .opacity(selectedAvatarAccessory == avatarAccessory ? 1.0 : 0.70)
                                     }
                                     .cornerRadius(10)
                                 }
