@@ -58,3 +58,8 @@ public func isLessThanAWeekAgo(date: Date) -> Bool {
 public func parseNumber(input: String) -> Double {
     return Double(input) ?? 1.0
 }
+
+public func getRandomPanorama() -> String{
+    let panoramas: [String] = ["meadow", "desert", "lake"]
+    return panoramas.randomElement()!
+}

@@ -32,7 +32,7 @@ struct DiaryTab: View {
                                 .font(.system(size: 28))
 
                             Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
-                                .font(.system(size: 16))
+                                .font(.system(size: 14))
                                 .padding(.bottom, 4)
 
                             ForEach(viewModel.localUser.getDiariesThisWeek().sorted { $0.date > $1.date }, id: \.self) {diary in
@@ -48,10 +48,10 @@ struct DiaryTab: View {
                         VStack(alignment: .leading) {
                             Text("all entries")
                                 .bold()
-                                .font(.system(size: 28))
+                                .font(.system(size: 22))
 
                             Text("\(viewModel.localUser.getDinoPoints()) dino points")
-                                .font(.system(size: 16))
+                                .font(.system(size: 14))
                                 .padding(.bottom, 4)
 
                             ForEach(viewModel.localUser.diaries.sorted { $0.date > $1.date }, id: \.self) {diary in
@@ -62,9 +62,7 @@ struct DiaryTab: View {
                                 }
                                 .buttonStyle(.plain)
                             }
-
                         }
-
                     }
                     .padding()
                     .padding(.bottom, 100)
@@ -72,7 +70,6 @@ struct DiaryTab: View {
             }
             .navigationTitle("diary")
             .navigationBarTitleDisplayMode(.large)
-
         }
     }
 }

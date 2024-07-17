@@ -20,7 +20,7 @@ struct ProfileTab: View {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .center, spacing: 25) {
+                    VStack(alignment: .center, spacing: 15) {
                         ZStack {
                             if viewModel.localUser.avatar.background == .no_background{
                                 Circle()
@@ -80,21 +80,19 @@ struct ProfileTab: View {
                         Button {
                             viewStats = true
                         } label: {
-                            Text("view your stats here!")
-                                .foregroundColor(.green.opacity(0.55))
+                            Text("view my stats")
+                                .foregroundColor(.green.opacity(0.75))
                                 .buttonStyle(.plain)
-                                .padding(20)
-                                .bold()
+                                .padding(15)
                                 .background(.white)
                                 .cornerRadius(10)
                         }
 
                         NavigationLink(destination: UpdateAveragesView()) {
                             Text("update my averages")
-                                .foregroundColor(.green.opacity(0.55))
+                                .foregroundColor(.green.opacity(0.75))
                                 .buttonStyle(.plain)
-                                .padding(20)
-                                .bold()
+                                .padding(15)
                                 .background(.white)
                                 .cornerRadius(10)
                                 .padding(.bottom, 100)

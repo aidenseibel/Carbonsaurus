@@ -10,7 +10,7 @@ import SwiftUI
 struct DiaryReminderSubView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Image("panorama")
+            Image(getRandomPanorama())
                 .resizable()
                 .scaledToFit()
             Text("time to check in!")

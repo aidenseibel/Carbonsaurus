@@ -15,6 +15,7 @@ struct DiaryEntrySubView: View {
         HStack {
             VStack(alignment: .leading, spacing: 5) {
                 Text("\(formatDate(date: diary.date))")
+                    .font(.system(size: 14))
                 HStack(alignment: .bottom) {
                     Text("\(diary.dinoPoints())")
                         .font(.title)
@@ -28,7 +29,7 @@ struct DiaryEntrySubView: View {
                 .scaledToFit()
                 .frame(width: 75, height: 75)
         }
-        .padding(EdgeInsets(top: 10, leading: 15, bottom: 5, trailing: 15))
+        .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
         .frame(width: UIScreen.main.bounds.width * 0.90)
         .background(.white)
         .cornerRadius(10)
