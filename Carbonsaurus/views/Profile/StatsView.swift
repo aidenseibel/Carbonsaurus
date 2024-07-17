@@ -141,7 +141,7 @@ struct StatsView: View {
                                     .multilineTextAlignment(.trailing)
                             }
                             HStack {
-                                Text("\(viewModel.localUser.getDinoPoints() / viewModel.localUser.diaries.count)")
+                                Text("\(viewModel.localUser.getAverageDinoPoints())")
                                     .multilineTextAlignment(.leading)
                                     .bold()
                                 Spacer()

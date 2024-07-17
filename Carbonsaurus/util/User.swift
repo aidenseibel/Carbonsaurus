@@ -12,10 +12,10 @@ class User: Identifiable, Codable, ObservableObject {
     var username: String
     var diaries: [Diary]
     var avatar: Avatar
-    var extraDinoPoints: Int
-    var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Int
+    var extraDinoPoints: Double
+    var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Double
 
-    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Int, averageDriving: Int, averagePhone: Int, averageAppliances: Int, averageEating: Int, averageShower: Int) {
+    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Double, averageDriving: Double, averagePhone: Double, averageAppliances: Double, averageEating: Double, averageShower: Double) {
         self.id = UUID()
         self.username = username
         self.diaries = diaries
@@ -28,8 +28,8 @@ class User: Identifiable, Codable, ObservableObject {
         self.averageShower = averageShower /*?? 10 // 2000*/
     }
 
-    func getDinoPoints() -> Int {
-        var total = 0
+    func getDinoPoints() -> Double {
+        var total: Double = 0
 
         for diary in diaries {
             total += diary.dinoPoints()
@@ -50,21 +50,21 @@ class User: Identifiable, Codable, ObservableObject {
         return diariesThisWeek
     }
 
-    func getAverageDinoPointsThisWeek() -> Int {
-        var total = 0
-        var count = 0
+    func getAverageDinoPointsThisWeek() -> Double {
+        var total: Double = 0
+        var count: Double = 0
 
         for diary in getDiariesThisWeek() {
             total += diary.dinoPoints()
-            count += 1
+            count += 1.0
         }
 
         if count == 0 { return 0 }
         return total / count
     }
 
-    func getDinoPointsThisWeek() -> Int {
-        var total = 0
+    func getDinoPointsThisWeek() -> Double {
+        var total: Double = 0
 
         for diary in getDiariesThisWeek() {
             total += diary.dinoPoints()
@@ -73,8 +73,8 @@ class User: Identifiable, Codable, ObservableObject {
         return total
     }
 
-    func getCarbonFootprintThisWeek() -> Int {
-        var total = 0
+    func getCarbonFootprintThisWeek() -> Double {
+        var total: Double = 0
 
         for diary in getDiariesThisWeek() {
             total += diary.calculateCarbonFootprint(averages: getDailyAverages())
@@ -83,14 +83,14 @@ class User: Identifiable, Codable, ObservableObject {
         return total
     }
 
-    func getAverageDinoPoints() -> Int {
+    func getAverageDinoPoints() -> Double {
         if diaries.isEmpty {
             return 0
         }
-        return getDinoPoints() / diaries.count + extraDinoPoints
+        return getDinoPoints() / Double(diaries.count) + extraDinoPoints
     }
 
-    func getDailyAverages() -> [Int] {
+    func getDailyAverages() -> [Double] {
         return [averageDriving, averagePhone, averageAppliances, averageEating, averageShower]
     }
 

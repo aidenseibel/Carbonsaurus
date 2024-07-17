@@ -141,11 +141,11 @@ struct Onboarding: View {
 
                         Button(action: {
                             if allFieldsValid() {
-                                viewModel.localUser.averageDriving = Int(parseNumber(input: driving))
-                                viewModel.localUser.averagePhone = Int(parseNumber(input: phone))
-                                viewModel.localUser.averageAppliances = Int(parseNumber(input: appliances))
-                                viewModel.localUser.averageEating = Int(parseNumber(input: eat))
-                                viewModel.localUser.averageShower = Int(parseNumber(input: shower))
+                                viewModel.localUser.averageDriving = parseNumber(input: driving)
+                                viewModel.localUser.averagePhone = parseNumber(input: phone)
+                                viewModel.localUser.averageAppliances = parseNumber(input: appliances)
+                                viewModel.localUser.averageEating = parseNumber(input: eat)
+                                viewModel.localUser.averageShower = parseNumber(input: shower)
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()

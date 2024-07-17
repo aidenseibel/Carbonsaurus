@@ -23,27 +23,8 @@ struct QuizView: View {
 
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
-                    if hasAnswered && !isCorrect {
-                        HStack {
-                            Spacer()
-                            Image("meteor_1")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 70, height: 70)
-                                .clipped()
-                                .cornerRadius(10)
-                            Spacer()
-                        }
-                    }
-                    Image("pink_dino_transparent")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.25)
-                        .clipped()
-                        .padding(.top, (hasAnswered && !isCorrect) ? 0: 70)
-
                     Text(quiz.question)
-                        .font(.title2)
+                        .font(.title3)
                         .bold()
 
                     ForEach(quiz.choices, id: \.self) { choice in
@@ -59,8 +40,6 @@ struct QuizView: View {
                                     Image(systemName: "xmark")
                                 }
                                 Text("\(choice)")
-                                    .bold()
-                                    .foregroundColor(.pink.opacity(0.55))
                                 Spacer()
                             }
                             .padding(20)
@@ -75,7 +54,6 @@ struct QuizView: View {
                             if isCorrect {
                                 viewModel.localUser.extraDinoPoints += 50
                             }
-                            viewModel.isTabBarShowing = true
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             HStack {
@@ -95,10 +73,6 @@ struct QuizView: View {
                 .frame(width: UIScreen.main.bounds.width * 0.90)
             }
             .frame(width: UIScreen.main.bounds.width * 0.90)
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                viewModel.isTabBarShowing = false
-            }
         }
     }
 

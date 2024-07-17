@@ -7,17 +7,21 @@
 
 import SwiftUI
 
-struct DiaryCreator: View {
+struct DiaryCreatorView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var viewModel: ViewModel
 
-    @State var driving = 3
-    @State var phone = 3
-    @State var appliances = 3
-    @State var eat = 3
-    @State var shower = 3
-
-    var options: [Int] = [1, 2, 3, 4, 5]
+    @State var driving: Double = 3.0
+    @State var phone: Double = 3.0
+    @State var appliances: Double = 3.0
+    @State var eat: Double = 3.0
+    @State var shower: Double = 3.0
+    
+    @State var isEditingDriving: Bool = false
+    @State var isEditingPhone: Bool = false
+    @State var isEditingAppliances: Bool = false
+    @State var isEditingEat: Bool = false
+    @State var isEditingShower: Bool = false
 
     var body: some View {
         ZStack {
@@ -30,51 +34,61 @@ struct DiaryCreator: View {
                             VStack(alignment: .leading) {
                                 Text("How much did you drive today compared to a normal day?")
                                     .font(.system(size: 14))
-                                Picker("driving", selection: $driving) {
-                                    ForEach(options, id: \.self) {option in
-                                        Text("\(option)")
+                                Slider(
+                                    value: $driving,
+                                    in: 1.0...5.0,
+                                    onEditingChanged: { editing in
+                                        isEditingDriving = editing
                                     }
-                                }
+                                )
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you use your phone today compared to a normal day?")
                                     .font(.system(size: 14))
-                                Picker("phone", selection: $phone) {
-                                    ForEach(options, id: \.self) {option in
-                                        Text("\(option)")
+                                Slider(
+                                    value: $phone,
+                                    in: 1.0...5.0,
+                                    onEditingChanged: { editing in
+                                        isEditingPhone = editing
                                     }
-                                }
+                                )
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you use large appliances (washer, dryer, oven, etc) compared to a normal day?")
                                     .font(.system(size: 14))
-                                Picker("appliances", selection: $appliances) {
-                                    ForEach(options, id: \.self) {option in
-                                        Text("\(option)")
+                                Slider(
+                                    value: $appliances,
+                                    in: 1.0...5.0,
+                                    onEditingChanged: { editing in
+                                        isEditingAppliances = editing
                                     }
-                                }
+                                )
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you eat today compared to a normal day?")
                                     .font(.system(size: 14))
-                                Picker("eat", selection: $eat) {
-                                    ForEach(options, id: \.self) {option in
-                                        Text("\(option)")
+                                Slider(
+                                    value: $eat,
+                                    in: 1.0...5.0,
+                                    onEditingChanged: { editing in
+                                        isEditingEat = editing
                                     }
-                                }
+                                )
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How long did you shower today compared to a normal day?")
                                     .font(.system(size: 14))
-                                Picker("shower", selection: $shower) {
-                                    ForEach(options, id: \.self) {option in
-                                        Text("\(option)")
+                                Slider(
+                                    value: $shower,
+                                    in: 1.0...5.0,
+                                    onEditingChanged: { editing in
+                                        isEditingShower = editing
                                     }
-                                }
+                                )
                             }
                         }
                     }
@@ -105,5 +119,5 @@ struct DiaryCreator: View {
 }
 
 #Preview {
-    DiaryCreator()
+    DiaryCreatorView()
 }

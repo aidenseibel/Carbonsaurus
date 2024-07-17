@@ -23,7 +23,7 @@
 		176761552B8A8CEF001EC050 /* DiaryEntrySubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */; };
 		176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761562B8A8CFB001EC050 /* NewsComponent.swift */; };
 		1767615A2B8AA267001EC050 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* Diary.swift */; };
-		1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */; };
+		1767615C2B8AA2AA001EC050 /* DiaryCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767615B2B8AA2AA001EC050 /* DiaryCreatorView.swift */; };
 		176761622B8ADBBB001EC050 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* User.swift */; };
 		176761662B8B15AF001EC050 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761652B8B15AF001EC050 /* Onboarding.swift */; };
 		176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */; };
@@ -111,7 +111,7 @@
 		176761542B8A8CEF001EC050 /* DiaryEntrySubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntrySubView.swift; sourceTree = "<group>"; };
 		176761562B8A8CFB001EC050 /* NewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsComponent.swift; sourceTree = "<group>"; };
 		176761592B8AA267001EC050 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
-		1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreator.swift; sourceTree = "<group>"; };
+		1767615B2B8AA2AA001EC050 /* DiaryCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCreatorView.swift; sourceTree = "<group>"; };
 		176761612B8ADBBB001EC050 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		176761652B8B15AF001EC050 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryLarge.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				1767614E2B8A8CD0001EC050 /* DiaryTab.swift */,
-				1767615B2B8AA2AA001EC050 /* DiaryCreator.swift */,
+				1767615B2B8AA2AA001EC050 /* DiaryCreatorView.swift */,
 				176761682B8B1FFB001EC050 /* DiaryEntryLarge.swift */,
 			);
 			path = Diary;
@@ -525,7 +525,7 @@
 				176761552B8A8CEF001EC050 /* DiaryEntrySubView.swift in Sources */,
 				176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */,
 				1767616D2B8B5679001EC050 /* Quiz.swift in Sources */,
-				1767615C2B8AA2AA001EC050 /* DiaryCreator.swift in Sources */,
+				1767615C2B8AA2AA001EC050 /* DiaryCreatorView.swift in Sources */,
 				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,

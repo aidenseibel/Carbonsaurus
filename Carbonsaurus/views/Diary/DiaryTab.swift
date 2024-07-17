@@ -19,7 +19,7 @@ struct DiaryTab: View {
                     VStack(alignment: .leading, spacing: 20) {
                         if !viewModel.hasLoggedToday {
                             NavigationLink {
-                                DiaryCreator()
+                                DiaryCreatorView()
                             } label: {
                                 DiaryReminderSubView()
                             }
@@ -31,7 +31,7 @@ struct DiaryTab: View {
                                 .bold()
                                 .font(.system(size: 28))
 
-                            Text("\(viewModel.localUser.getAverageDinoPointsThisWeek()*7)/\(12000) dino points")
+                            Text(String(format: "%.0f", viewModel.localUser.getDinoPointsThisWeek()) + " dino points")
                                 .font(.system(size: 14))
                                 .padding(.bottom, 4)
 

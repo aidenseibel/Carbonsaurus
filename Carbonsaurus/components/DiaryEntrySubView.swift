@@ -17,7 +17,7 @@ struct DiaryEntrySubView: View {
                 Text("\(formatDate(date: diary.date))")
                     .font(.system(size: 14))
                 HStack(alignment: .bottom) {
-                    Text("\(diary.dinoPoints())")
+                    Text(String(format: "%.0f", diary.dinoPoints()))
                         .font(.title)
                     Text("dino points")
                         .padding(.bottom, 4)

@@ -10,9 +10,9 @@ import Foundation
 struct Diary: Identifiable, Codable, Hashable {
     var id: UUID
     var date: Date
-    var driving, phone, appliances, eat, shower: Int
+    var driving, phone, appliances, eat, shower: Double
 
-    init(date: Date, driving: Int, phone: Int, appliances: Int, eat: Int, shower: Int) {
+    init(date: Date, driving: Double, phone: Double, appliances: Double, eat: Double, shower: Double) {
         self.id = UUID()
         self.date = date
         self.driving = driving
@@ -26,31 +26,31 @@ struct Diary: Identifiable, Codable, Hashable {
         hasher.combine(id)
     }
 
-    func total() -> Int {
+    func total() -> Double {
         return driving + phone + appliances + eat + shower
     }
 
-    func dinoPoints() -> Int {
-        return 3000 - total() * 100
+    func dinoPoints() -> Double {
+        return 3000.0 - total() * 100.0
     }
 
     func getImage(userAvatar: String) -> String {
         switch dinoPoints() {
-        case 0..<900:
+        case 0..<900.0:
             return userAvatar + "_sad"
-        case 900..<1300:
+        case 900..<1300.0:
             return userAvatar + "_worried"
-        case 1300..<1700:
+        case 1300..<1700.0:
             return userAvatar + "_neutral"
-        case 1700..<2200:
+        case 1700..<2200.0:
             return userAvatar + "_happy"
         default:
             return userAvatar + "_great"
         }
     }
 
-    func calculateCarbonFootprint(averages: [Int]) -> Int {
-        var carbonFootprint = 0
+    func calculateCarbonFootprint(averages: [Double]) -> Double {
+        var carbonFootprint: Double = 0
 
         // driving
         carbonFootprint += averages[0]/1 * (driving/3) * 3360
@@ -70,24 +70,24 @@ struct Diary: Identifiable, Codable, Hashable {
         return carbonFootprint
     }
 
-    func getDrivingCarbon(average: Int) -> Double {
-        return Double(average * (driving)) * 1120.0
+    func getDrivingCarbon(average: Double) -> Double {
+        return average * driving * 1120.0
     }
 
-    func getPhoneCarbon(average: Int) -> Double {
-        return Double(average * (phone)) / 3.0
+    func getPhoneCarbon(average: Double) -> Double {
+        return average * phone * 0.333
     }
 
-    func getAppliancesCarbon(average: Int) -> Double {
-        return Double(average * appliances) * 660
+    func getAppliancesCarbon(average: Double) -> Double {
+        return average * appliances * 660
     }
 
-    func getEatCarbon(average: Int) -> Double {
-            return Double(average * eat) * 0.83
+    func getEatCarbon(average: Double) -> Double {
+            return average * eat * 0.83
     }
 
-    func getShowerCarbon(average: Int) -> Double {
-        return Double(average * shower) * 3.2
+    func getShowerCarbon(average: Double) -> Double {
+        return average * shower * 3.2
     }
 }
 

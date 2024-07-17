@@ -20,7 +20,7 @@ struct ProfileTab: View {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .center, spacing: 15) {
+                    VStack(alignment: .center, spacing: 20) {
                         ZStack {
                             if viewModel.localUser.avatar.background == .no_background{
                                 Circle()
@@ -60,7 +60,7 @@ struct ProfileTab: View {
                                 Text("\(viewModel.localUser.getDinoStatus().rawValue)")
                                     .font(.system(size: 42))
                                     .bold()
-                                Text("\(viewModel.localUser.getDinoPoints()) dino points")
+                                Text(String(format: "%.0f", viewModel.localUser.getDinoPoints()) + " dino points")
                                     .font(.system(size: 14))
                             }
                             Spacer()

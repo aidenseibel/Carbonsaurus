@@ -79,11 +79,11 @@ struct UpdateAveragesView: View {
                     }
 
                     Button(action: {
-                        if isValid(driving) { viewModel.localUser.averageDriving = Int(parseNumber(input: driving)) }
-                        if isValid(phone) { viewModel.localUser.averagePhone = Int(parseNumber(input: phone)) }
-                        if isValid(appliances) { viewModel.localUser.averageAppliances = Int(parseNumber(input: appliances)) }
-                        if isValid(eat) { viewModel.localUser.averageEating = Int(parseNumber(input: eat)) }
-                        if isValid(shower) { viewModel.localUser.averageShower = Int(parseNumber(input: shower)) }
+                        if isValid(driving) { viewModel.localUser.averageDriving = parseNumber(input: driving) }
+                        if isValid(phone) { viewModel.localUser.averagePhone = parseNumber(input: phone) }
+                        if isValid(appliances) { viewModel.localUser.averageAppliances = parseNumber(input: appliances) }
+                        if isValid(eat) { viewModel.localUser.averageEating = parseNumber(input: eat) }
+                        if isValid(shower) { viewModel.localUser.averageShower = parseNumber(input: shower) }
 
                         if DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser) {
                             presentationMode.wrappedValue.dismiss()
