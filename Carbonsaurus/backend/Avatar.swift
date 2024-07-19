@@ -14,6 +14,21 @@ enum AvatarColor: String, Codable {
     case orange
     case pink
     
+    var name: String {
+        switch self {
+        case .blue:
+            return "blue"
+        case .lightGreen:
+            return "light green"
+        case .green:
+            return "green"
+        case .orange:
+            return "orange"
+        case .pink:
+            return "pink"
+        }
+    }
+    
     var dinoPoints: Int {
         switch self {
         case .blue:

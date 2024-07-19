@@ -16,7 +16,7 @@ struct DinoShopSubView: View {
                 .resizable()
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
-            Text(dino.rawValue)
+            Text(dino.name)
                 .font(.title2)
                 .bold()
                 .lineLimit(1)

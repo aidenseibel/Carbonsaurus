@@ -32,6 +32,7 @@
 		1767616F2B8B5736001EC050 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1767616E2B8B5736001EC050 /* QuizView.swift */; };
 		177ACA492C4AF5D3003666BE /* BackgroundShopSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177ACA482C4AF5D3003666BE /* BackgroundShopSubView.swift */; };
 		177ACA4B2C4AF6C2003666BE /* DinoShopSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177ACA4A2C4AF6C2003666BE /* DinoShopSubView.swift */; };
+		177ACA4D2C4B04B4003666BE /* BuyShopItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177ACA4C2C4B04B4003666BE /* BuyShopItemView.swift */; };
 		17B568FE2C41BB65003F7B43 /* LessonSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B568FD2C41BB65003F7B43 /* LessonSubView.swift */; };
 		17C52ABF2BF00CC40034540E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C52ABE2BF00CC40034540E /* DataModel.swift */; };
 		17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F786742BF3E74600B9FA52 /* Notifications.swift */; };
@@ -122,6 +123,7 @@
 		1767616E2B8B5736001EC050 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		177ACA482C4AF5D3003666BE /* BackgroundShopSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundShopSubView.swift; sourceTree = "<group>"; };
 		177ACA4A2C4AF6C2003666BE /* DinoShopSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoShopSubView.swift; sourceTree = "<group>"; };
+		177ACA4C2C4B04B4003666BE /* BuyShopItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyShopItemView.swift; sourceTree = "<group>"; };
 		17B568FD2C41BB65003F7B43 /* LessonSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonSubView.swift; sourceTree = "<group>"; };
 		17C52ABE2BF00CC40034540E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		17F786732BF3E3FD00B9FA52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				17F7867A2BF4086D00B9FA52 /* AccessoryShopSubView.swift */,
 				177ACA482C4AF5D3003666BE /* BackgroundShopSubView.swift */,
 				177ACA4A2C4AF6C2003666BE /* DinoShopSubView.swift */,
+				177ACA4C2C4B04B4003666BE /* BuyShopItemView.swift */,
 			);
 			path = Shop;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				177ACA4B2C4AF6C2003666BE /* DinoShopSubView.swift in Sources */,
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
+				177ACA4D2C4B04B4003666BE /* BuyShopItemView.swift in Sources */,
 				177ACA492C4AF5D3003666BE /* BackgroundShopSubView.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,

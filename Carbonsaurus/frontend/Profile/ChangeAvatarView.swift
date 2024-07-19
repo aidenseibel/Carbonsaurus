@@ -60,7 +60,7 @@ struct ChangeAvatarView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 5){
-                        Text("choose your dino")
+                        Text("dino")
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
                                 ForEach(viewModel.localUser.ownedAvatarColors, id: \.self) { avatarColor in
