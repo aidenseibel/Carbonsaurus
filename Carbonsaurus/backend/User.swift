@@ -8,24 +8,25 @@
 import Foundation
 
 class User: Identifiable, Codable, ObservableObject {
-    var id: UUID
+    var id: UUID = UUID()
     var username: String
-    var diaries: [Diary]
-    var avatar: Avatar
-    var extraDinoPoints: Double
+    var diaries: [Diary] = []
+    
+    var avatar: Avatar = Avatar()
+    var ownedAvatarColors: [AvatarColor] = [.blue]
+    var ownedAvatarAccessories: [AvatarAccessory] = [.no_accessory]
+    var ownedAvatarBackgrounds: [AvatarBackground] = [.no_background]
+    
+    var extraDinoPoints: Double = 0
     var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Double
 
-    init(username: String, diaries: [Diary], avatar: Avatar, extraDinoPoints: Double, averageDriving: Double, averagePhone: Double, averageAppliances: Double, averageEating: Double, averageShower: Double) {
-        self.id = UUID()
+    init(username: String, averageDriving: Double, averagePhone: Double, averageAppliances: Double, averageEating: Double, averageShower: Double) {
         self.username = username
-        self.diaries = diaries
-        self.avatar = avatar
-        self.extraDinoPoints = 0
-        self.averageDriving = averageDriving /*?? 1 // 3360*/
-        self.averagePhone = averagePhone /*?? 195 // 189*/
-        self.averageAppliances = averageAppliances /*??  1 // 2000*/
-        self.averageEating = averageEating /*?? 1800 // 4500*/
-        self.averageShower = averageShower /*?? 10 // 2000*/
+        self.averageDriving = averageDriving            /*?? 1 // 3360*/
+        self.averagePhone = averagePhone                /*?? 195 // 189*/
+        self.averageAppliances = averageAppliances      /*??  1 // 2000*/
+        self.averageEating = averageEating              /*?? 1800 // 4500*/
+        self.averageShower = averageShower              /*?? 10 // 2000*/
     }
 
     func getDinoPoints() -> Double {
@@ -94,7 +95,7 @@ class User: Identifiable, Codable, ObservableObject {
         return [averageDriving, averagePhone, averageAppliances, averageEating, averageShower]
     }
 
-    func getDinoStatus() -> AvatarMood {
+    func getDinoMood() -> AvatarMood {
         switch getAverageDinoPointsThisWeek() {
         case 0..<1200:
             return .sad
@@ -111,8 +112,8 @@ class User: Identifiable, Codable, ObservableObject {
         }
     }
 
-    func getDinoStatusDescription() -> String {
-        switch getDinoStatus() {
+    func getDinoMoodDescription() -> String {
+        switch getDinoMood() {
         case .sad:
             return "it's been a hard week."
         case .worried:
@@ -125,4 +126,13 @@ class User: Identifiable, Codable, ObservableObject {
             return "now that's what i'm talking about."
         }
     }
+    
+    func getAvatarImage() -> String {
+        return avatar.color.rawValue + "_dino_" + getDinoMood().rawValue
+    }
+
+    func getAvatarImageOneHigher() -> String {
+        return avatar.color.rawValue + "_dino_" + getDinoMood().oneHigher().rawValue
+    }
+
 }

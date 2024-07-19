@@ -50,7 +50,7 @@ struct DiaryTab: View {
                                 .bold()
                                 .font(.system(size: 22))
 
-                            Text("\(viewModel.localUser.getDinoPoints()) dino points")
+                            Text(String(format: "%.0f", viewModel.localUser.getDinoPoints()) + " dino points")
                                 .font(.system(size: 14))
                                 .padding(.bottom, 4)
 

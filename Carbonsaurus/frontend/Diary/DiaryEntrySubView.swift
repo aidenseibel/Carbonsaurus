@@ -24,7 +24,7 @@ struct DiaryEntrySubView: View {
                 }
             }
             Spacer()
-            Image(viewModel.localUser.avatar.getImageString())
+            Image(viewModel.localUser.getAvatarImage())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 75, height: 75)

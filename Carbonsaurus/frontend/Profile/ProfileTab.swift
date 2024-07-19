@@ -12,7 +12,6 @@ struct ProfileTab: View {
     @State private var timer: Timer?
     @State var toggleDino: Bool = false
     @State var openChangeAvatar: Bool = false
-    @State var viewStats: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -20,22 +19,22 @@ struct ProfileTab: View {
                 Color.green.opacity(0.30)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .center, spacing: 20) {
+                    VStack(alignment: .center, spacing: 30) {
                         ZStack {
                             if viewModel.localUser.avatar.background == .no_background{
                                 Circle()
-                                    .frame(width: UIScreen.main.bounds.width * 0.60)
+                                    .frame(width: UIScreen.main.bounds.width * 0.70)
                                     .foregroundColor(.white)
                             }
                             else{
                                 Image(viewModel.localUser.avatar.background.rawValue)
                                     .resizable()
-                                    .frame(width: UIScreen.main.bounds.width * 0.60, height: UIScreen.main.bounds.width * 0.60)
+                                    .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
                                     .scaledToFill()
                                     .clipped()
-                                    .cornerRadius(UIScreen.main.bounds.width * 0.30)
+                                    .cornerRadius(UIScreen.main.bounds.width * 0.35)
                             }
-                            Image(toggleDino ? viewModel.localUser.avatar.getImageString() : viewModel.localUser.avatar.getHigherImageString())
+                            Image(toggleDino ? viewModel.localUser.getAvatarImage() : viewModel.localUser.getAvatarImageOneHigher())
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
@@ -57,7 +56,7 @@ struct ProfileTab: View {
                             VStack(spacing: 5) {
                                 Text("your dino is")
                                     .font(.system(size: 20))
-                                Text("\(viewModel.localUser.getDinoStatus().rawValue)")
+                                Text("\(viewModel.localUser.getDinoMood().rawValue)")
                                     .font(.system(size: 42))
                                     .bold()
                                 Text(String(format: "%.0f", viewModel.localUser.getDinoPoints()) + " dino points")
@@ -73,45 +72,36 @@ struct ProfileTab: View {
                             
                         }
                         
-                        Text("\(viewModel.localUser.getDinoStatusDescription())")
+                        Text("\(viewModel.localUser.getDinoMoodDescription())")
                             .frame(width: UIScreen.main.bounds.width * 0.80)
                             .multilineTextAlignment(.center)
                         
-                        Button {
-                            viewStats = true
-                        } label: {
+                        NavigationLink(destination: {
+                            StatsView()
+                        }, label: {
                             Text("view my stats")
-                                .foregroundColor(.green.opacity(0.75))
-                                .buttonStyle(.plain)
                                 .padding(15)
                                 .background(.white)
                                 .cornerRadius(10)
-                        }
-
-                        NavigationLink(destination: UpdateAveragesView()) {
-                            Text("update my averages")
-                                .foregroundColor(.green.opacity(0.75))
-                                .buttonStyle(.plain)
-                                .padding(15)
-                                .background(.white)
-                                .cornerRadius(10)
-                                .padding(.bottom, 100)
-                        }
+                        })
+                        .buttonStyle(.plain)
                     }
                     .padding(10)
                 }
             }
-            .navigationTitle("profile")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationTitle("my dino")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarItems(trailing:
+                NavigationLink(destination: {
+                    
+                }, label: {
+                    Image(systemName: "gear")}
+                )
+            )
             .sheet(isPresented: $openChangeAvatar, onDismiss: {
                 openChangeAvatar = false
             }, content: {
                 ChangeAvatarView(selectedAvatarColor: viewModel.localUser.avatar.color, selectedAvatarAccessory: viewModel.localUser.avatar.accessory, selectedAvatarBackground: viewModel.localUser.avatar.background)
-            })
-            .sheet(isPresented: $viewStats, onDismiss: {
-                viewStats = false
-            }, content: {
-                StatsView()
             })
         }
         .onAppear {

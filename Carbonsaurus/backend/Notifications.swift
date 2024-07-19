@@ -15,7 +15,7 @@ func scheduleDailyNotification() {
     content.sound = UNNotificationSound.default
     
     var dateComponents = DateComponents()
-    dateComponents.hour = 7
+    dateComponents.hour = 19
     dateComponents.minute = 30
 
     print("Notification scheduled for \(String(describing: dateComponents.hour)) \(String(describing: dateComponents.minute)) p.m.")

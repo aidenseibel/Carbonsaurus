@@ -13,6 +13,22 @@ enum AvatarColor: String, Codable {
     case blue
     case orange
     case pink
+    
+    var dinoPoints: Int {
+        switch self {
+        case .blue:
+            return 0
+        case .green:
+            return 1000
+        case .lightGreen:
+            return 1000
+        case .orange:
+            return 1000
+        case .pink:
+            return 1000
+        }
+    }
+
 }
 
 var allAvatarColors: [AvatarColor] = [.blue, .green, .lightGreen, .orange, .pink]
@@ -118,15 +134,18 @@ var allAvatarBackgrounds: [AvatarBackground] = [.no_background, .mountains, .bea
 
 struct Avatar: Codable {
     var color: AvatarColor
-    var mood: AvatarMood
     var accessory: AvatarAccessory
     var background: AvatarBackground
-
-    func getImageString() -> String {
-        return color.rawValue + "_dino_" + mood.rawValue
+    
+    init(color: AvatarColor, mood: AvatarMood, accessory: AvatarAccessory, background: AvatarBackground) {
+        self.color = color
+        self.accessory = accessory
+        self.background = background
     }
-
-    func getHigherImageString() -> String {
-        return color.rawValue + "_dino_" + mood.oneHigher().rawValue
+    
+    init() {
+        self.color = .blue
+        self.accessory = .no_accessory
+        self.background = .no_background
     }
 }

@@ -20,7 +20,7 @@ struct ChangeAvatarView: View {
             Color.yellow.opacity(0.50)
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false) {
-                VStack(alignment: .center, spacing: 30) {
+                VStack(alignment: .center, spacing: 20) {
                     HStack {
                         Button {
                             presentationMode.wrappedValue.dismiss()
@@ -37,6 +37,7 @@ struct ChangeAvatarView: View {
                             Text("save")
                         }
                     }
+
                     ZStack {
                         if selectedAvatarBackground == .no_background{
                             Circle()
@@ -58,12 +59,11 @@ struct ChangeAvatarView: View {
                             .clipped()
                     }
 
-                    VStack(alignment: .leading){
+                    VStack(alignment: .leading, spacing: 5){
                         Text("choose your dino")
-                            .font(.title2)
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
-                                ForEach(allAvatarColors, id: \.self) { avatarColor in
+                                ForEach(viewModel.localUser.ownedAvatarColors, id: \.self) { avatarColor in
                                     ZStack{
                                         Color.black
                                         Button(action: {
@@ -83,12 +83,11 @@ struct ChangeAvatarView: View {
                         }
                     }
                     
-                    VStack(alignment: .leading){
+                    VStack(alignment: .leading, spacing: 5){
                         Text("accessories")
-                            .font(.title2)
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
-                                ForEach(allAvatarAccessories, id: \.self) { avatarAccessory in
+                                ForEach(viewModel.localUser.ownedAvatarAccessories, id: \.self) { avatarAccessory in
                                     ZStack{
                                         Color.black
                                         Button(action: {
@@ -108,12 +107,11 @@ struct ChangeAvatarView: View {
                         }
                     }
                     
-                    VStack(alignment: .leading){
+                    VStack(alignment: .leading, spacing: 5){
                         Text("background")
-                            .font(.title2)
                         ScrollView(.horizontal, showsIndicators: false){
                             HStack{
-                                ForEach(allAvatarBackgrounds, id: \.self) { avatarBackground in
+                                ForEach(viewModel.localUser.ownedAvatarBackgrounds, id: \.self) { avatarBackground in
                                     ZStack{
                                         Color.black
                                         Button(action: {
@@ -132,6 +130,9 @@ struct ChangeAvatarView: View {
                             }
                         }
                     }
+                    Text("check out the dino shop to customize your dino!")
+                        .font(.system(size: 12))
+                        .multilineTextAlignment(.center)
                 }
                 .padding()
             }
