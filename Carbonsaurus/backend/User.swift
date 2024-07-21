@@ -17,7 +17,7 @@ class User: Identifiable, Codable, ObservableObject {
     var ownedAvatarAccessories: [AvatarAccessory] = [.no_accessory]
     var ownedAvatarBackgrounds: [AvatarBackground] = [.no_background]
     
-    var extraDinoPoints: Double = 0
+    var dinoPointsBalance: Double = 0
     var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Double
 
     init(username: String, averageDriving: Double, averagePhone: Double, averageAppliances: Double, averageEating: Double, averageShower: Double) {
@@ -28,6 +28,11 @@ class User: Identifiable, Codable, ObservableObject {
         self.averageEating = averageEating              /*?? 1800 // 4500*/
         self.averageShower = averageShower              /*?? 10 // 2000*/
     }
+    
+    func addDiary(diary: Diary) {
+        diaries.append(diary)
+        dinoPointsBalance += diary.dinoPoints()
+    }
 
     func getDinoPoints() -> Double {
         var total: Double = 0
@@ -36,7 +41,7 @@ class User: Identifiable, Codable, ObservableObject {
             total += diary.dinoPoints()
         }
 
-        return total + extraDinoPoints
+        return total
     }
 
     func getDiariesThisWeek() -> [Diary] {
@@ -88,7 +93,7 @@ class User: Identifiable, Codable, ObservableObject {
         if diaries.isEmpty {
             return 0
         }
-        return getDinoPoints() / Double(diaries.count) + extraDinoPoints
+        return getDinoPoints() / Double(diaries.count) + dinoPointsBalance
     }
 
     func getDailyAverages() -> [Double] {
@@ -134,5 +139,25 @@ class User: Identifiable, Codable, ObservableObject {
     func getAvatarImageOneHigher() -> String {
         return avatar.color.rawValue + "_dino_" + getDinoMood().oneHigher().rawValue
     }
-
+    
+    func buyShopItem(shopItem: AvatarItem) -> Bool {
+        if dinoPointsBalance >= shopItem.dinoPoints {
+            dinoPointsBalance -= shopItem.dinoPoints
+            
+            switch shopItem{
+            case is AvatarColor:
+                ownedAvatarColors.append(shopItem as! AvatarColor)
+            case is AvatarAccessory:
+                ownedAvatarAccessories.append(shopItem as! AvatarAccessory)
+            case is AvatarBackground:
+                ownedAvatarBackgrounds.append(shopItem as! AvatarBackground)
+            default:
+                return false
+            }
+            
+            return true
+        }
+        
+        return false
+    }
 }

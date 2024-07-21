@@ -59,7 +59,7 @@ struct ProfileTab: View {
                                 Text("\(viewModel.localUser.getDinoMood().rawValue)")
                                     .font(.system(size: 42))
                                     .bold()
-                                Text(String(format: "%.0f", viewModel.localUser.getDinoPoints()) + " dino points")
+                                Text(String(format: "%.0f", viewModel.localUser.getDinoPointsThisWeek()) + " dino points this week")
                                     .font(.system(size: 14))
                             }
                             Spacer()

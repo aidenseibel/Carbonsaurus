@@ -25,9 +25,8 @@ class ViewModel: ObservableObject {
     }
 
     func addDiary(diary: Diary) {
-        localUser.diaries.append(diary)
+        localUser.addDiary(diary: diary)
         hasLoggedToday = true
-        isTabBarShowing = true
         print("Added diary to localUser. Saving to UserDefaults...")
 
         DataModel.saveLocalUserToUserDefaults(user: localUser)

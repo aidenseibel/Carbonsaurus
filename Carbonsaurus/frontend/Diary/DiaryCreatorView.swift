@@ -33,62 +33,92 @@ struct DiaryCreatorView: View {
                         VStack(alignment: .leading, spacing: 20) {
                             VStack(alignment: .leading) {
                                 Text("How much did you drive today compared to a normal day?")
-                                    .font(.system(size: 14))
-                                Slider(
-                                    value: $driving,
-                                    in: 1.0...5.0,
-                                    onEditingChanged: { editing in
-                                        isEditingDriving = editing
-                                    }
-                                )
+                                    .font(.system(size: 16))
+                                HStack {
+                                    Text("less")
+                                        .font(.system(size: 14))
+                                    Slider(
+                                        value: $driving,
+                                        in: 1.0...5.0,
+                                        onEditingChanged: { editing in
+                                            isEditingDriving = editing
+                                        }
+                                    )
+                                    Text("more")
+                                        .font(.system(size: 14))
+                                }
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you use your phone today compared to a normal day?")
-                                    .font(.system(size: 14))
-                                Slider(
-                                    value: $phone,
-                                    in: 1.0...5.0,
-                                    onEditingChanged: { editing in
-                                        isEditingPhone = editing
-                                    }
-                                )
+                                    .font(.system(size: 16))
+                                HStack {
+                                    Text("less")
+                                        .font(.system(size: 14))
+                                    Slider(
+                                        value: $phone,
+                                        in: 1.0...5.0,
+                                        onEditingChanged: { editing in
+                                            isEditingPhone = editing
+                                        }
+                                    )
+                                    Text("more")
+                                        .font(.system(size: 14))
+                                }
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you use large appliances (washer, dryer, oven, etc) compared to a normal day?")
-                                    .font(.system(size: 14))
-                                Slider(
-                                    value: $appliances,
-                                    in: 1.0...5.0,
-                                    onEditingChanged: { editing in
-                                        isEditingAppliances = editing
-                                    }
-                                )
+                                    .font(.system(size: 16))
+                                HStack {
+                                    Text("less")
+                                        .font(.system(size: 14))
+                                    Slider(
+                                        value: $appliances,
+                                        in: 1.0...5.0,
+                                        onEditingChanged: { editing in
+                                            isEditingAppliances = editing
+                                        }
+                                    )
+                                    Text("more")
+                                        .font(.system(size: 14))
+                                }
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How much did you eat today compared to a normal day?")
-                                    .font(.system(size: 14))
-                                Slider(
-                                    value: $eat,
-                                    in: 1.0...5.0,
-                                    onEditingChanged: { editing in
-                                        isEditingEat = editing
-                                    }
-                                )
+                                    .font(.system(size: 16))
+                                HStack {
+                                    Text("less")
+                                        .font(.system(size: 14))
+                                    Slider(
+                                        value: $eat,
+                                        in: 1.0...5.0,
+                                        onEditingChanged: { editing in
+                                            isEditingEat = editing
+                                        }
+                                    )
+                                    Text("more")
+                                        .font(.system(size: 14))
+                                }
                             }
 
                             VStack(alignment: .leading) {
                                 Text("How long did you shower today compared to a normal day?")
-                                    .font(.system(size: 14))
-                                Slider(
-                                    value: $shower,
-                                    in: 1.0...5.0,
-                                    onEditingChanged: { editing in
-                                        isEditingShower = editing
-                                    }
-                                )
+                                    .font(.system(size: 16))
+                                HStack {
+                                    Text("less")
+                                        .font(.system(size: 14))
+                                    Slider(
+                                        value: $shower,
+                                        in: 1.0...5.0,
+                                        onEditingChanged: { editing in
+                                            isEditingShower = editing
+                                        }
+                                    )
+                                    Text("more")
+                                        .font(.system(size: 14))
+                                }
                             }
                         }
                     }

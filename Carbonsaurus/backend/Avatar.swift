@@ -7,14 +7,24 @@
 
 import Foundation
 
-enum AvatarColor: String, Codable {
+protocol AvatarItem {
+    var imageName: String { get }
+    var displayName: String { get }
+    var dinoPoints: Double { get }
+}
+
+enum AvatarColor: String, Codable, AvatarItem {
     case lightGreen
     case green
     case blue
     case orange
     case pink
     
-    var name: String {
+    var imageName: String {
+        return self.rawValue + "_dino_happy"
+    }
+    
+    var displayName: String {
         switch self {
         case .blue:
             return "blue"
@@ -28,8 +38,8 @@ enum AvatarColor: String, Codable {
             return "pink"
         }
     }
-    
-    var dinoPoints: Int {
+        
+    var dinoPoints: Double {
         switch self {
         case .blue:
             return 0
@@ -66,7 +76,7 @@ enum AvatarMood: String, Codable {
     }
 }
 
-enum AvatarAccessory: String, Codable {
+enum AvatarAccessory: String, Codable, AvatarItem {
     case no_accessory
     case banana
     case bowtie
@@ -75,29 +85,12 @@ enum AvatarAccessory: String, Codable {
     case spinhat
     case sunglasses
     case tophat
-
-    var dinoPoints: Int {
-        switch self {
-        case .no_accessory:
-            return 0
-        case .banana:
-            return 1000
-        case .bowtie:
-            return 1000
-        case .flower:
-            return 2000
-        case .lollipop:
-            return 2000
-        case .spinhat:
-            return 5000
-        case .sunglasses:
-            return 5000
-        case .tophat:
-            return 5000
-        }
+    
+    var imageName: String {
+        return self.rawValue
     }
 
-    var name: String {
+    var displayName: String {
         switch self {
         case .no_accessory:
             return "no accessory"
@@ -117,17 +110,55 @@ enum AvatarAccessory: String, Codable {
             return "top hat"
         }
     }
+    
+    var dinoPoints: Double {
+        switch self {
+        case .no_accessory:
+            return 0
+        case .banana:
+            return 1000
+        case .bowtie:
+            return 1000
+        case .flower:
+            return 2000
+        case .lollipop:
+            return 2000
+        case .spinhat:
+            return 5000
+        case .sunglasses:
+            return 5000
+        case .tophat:
+            return 5000
+        }
+    }
 }
 
 var allAvatarAccessories: [AvatarAccessory] = [.no_accessory, .banana, .bowtie, .flower, .lollipop, .spinhat, .sunglasses, .tophat]
 
-enum AvatarBackground: String, Codable {
+enum AvatarBackground: String, Codable, AvatarItem {
     case no_background
     case mountains
     case beach
     case space
+    
+    var imageName: String {
+        return self.rawValue
+    }
 
-    var dinoPoints: Int {
+    var displayName: String {
+        switch self {
+        case .no_background:
+            return "no background"
+        case .mountains:
+            return "mountains"
+        case .beach:
+            return "beach"
+        case .space:
+            return "space"
+        }
+    }
+
+    var dinoPoints: Double {
         switch self {
         case .no_background:
             return 0
@@ -138,10 +169,6 @@ enum AvatarBackground: String, Codable {
         case .space:
             return 5000
         }
-    }
-
-    var name: String {
-        return self.rawValue
     }
 }
 

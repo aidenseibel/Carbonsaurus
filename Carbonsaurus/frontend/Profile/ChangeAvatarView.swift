@@ -17,7 +17,7 @@ struct ChangeAvatarView: View {
 
     var body: some View {
         ZStack {
-            Color.yellow.opacity(0.50)
+            Color.green.opacity(0.30)
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .center, spacing: 20) {

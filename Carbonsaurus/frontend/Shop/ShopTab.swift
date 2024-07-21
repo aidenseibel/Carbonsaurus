@@ -10,11 +10,11 @@ import SwiftUI
 struct ShopTab: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.yellow.opacity(0.50)
+                Color.yellow.opacity(0.40)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 30) {
@@ -24,7 +24,11 @@ struct ShopTab: View {
                                 HStack {
                                     ForEach(allAvatarColors, id: \.self){ dino in
                                         if !viewModel.localUser.ownedAvatarColors.contains(dino) {
-                                            DinoShopSubView(dino: dino)
+                                            NavigationLink {
+                                                BuyShopItemView(shopItem: dino)
+                                            } label: {
+                                                ShopItemSubView(shopItem: dino)
+                                            }
                                         }
                                     }
                                 }
@@ -37,7 +41,11 @@ struct ShopTab: View {
                                 HStack {
                                     ForEach(allAvatarAccessories, id: \.self){ accessory in
                                         if !viewModel.localUser.ownedAvatarAccessories.contains(accessory) {
-                                            AccessoryShopSubView(accessory: accessory)
+                                            NavigationLink {
+                                                BuyShopItemView(shopItem: accessory)
+                                            } label: {
+                                                ShopItemSubView(shopItem: accessory)
+                                            }
                                         }
                                     }
                                 }
@@ -50,16 +58,20 @@ struct ShopTab: View {
                                 HStack {
                                     ForEach(allAvatarBackgrounds, id: \.self){ background in
                                         if !viewModel.localUser.ownedAvatarBackgrounds.contains(background) {
-                                            BackgroundShopSubView(background: background)
+                                            NavigationLink {
+                                                BuyShopItemView(shopItem: background)
+                                            } label: {
+                                                ShopItemSubView(shopItem: background)
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
+                    .padding()
                     .padding(.bottom, UIScreen.main.bounds.width * 0.20)
                 }
-                .padding()
             }
             .navigationTitle("the dino shop")
             .navigationBarTitleDisplayMode(.large)
