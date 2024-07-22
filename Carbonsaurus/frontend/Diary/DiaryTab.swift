@@ -16,7 +16,7 @@ struct DiaryTab: View {
                 Color.blue.opacity(0.30)
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .center, spacing: 20) {
                         if !viewModel.hasLoggedToday {
                             NavigationLink {
                                 DiaryCreatorView()
@@ -25,6 +25,11 @@ struct DiaryTab: View {
                             }
                             .buttonStyle(.plain)
                         }
+                        
+                        Image("flowers")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: UIScreen.main.bounds.width * 0.80)
 
                         VStack(alignment: .leading) {
                             Text("this week")
