@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ViewModel: ObservableObject {
+public class ViewModel: ObservableObject {
     @Published var localUser: User
     @Published var hasOnboarded: Bool = false
     @Published var isTabBarShowing: Bool = true

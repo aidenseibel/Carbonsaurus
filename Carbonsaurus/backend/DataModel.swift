@@ -17,7 +17,9 @@ struct DataModel {
             let data = try encoder.encode(user)
 
             // save and return true
-            UserDefaults.standard.set(data, forKey: "localUser")
+            if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+                userDefaults.setValue(data, forKey: "localUser")
+            }
 
             print("Successfully saved localUser to UserDefaults")
             return true
@@ -29,11 +31,12 @@ struct DataModel {
 
     // loads in the local user on launch.
     static func getLocalUserFromAppStorage() -> User? {
-        if let data = UserDefaults.standard.data(forKey: "localUser") {
+        if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+            let data = userDefaults.value(forKey: "localUser")
             do {
                 // try to decode
                 let decoder = JSONDecoder()
-                let localUser = try decoder.decode(User.self, from: data)
+                let localUser = try decoder.decode(User.self, from: data as! Data)
 
                 print("Successfully fetched localUser from UserDefaults")
                 return localUser

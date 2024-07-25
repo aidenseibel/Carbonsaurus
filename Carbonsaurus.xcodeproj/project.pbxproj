@@ -128,6 +128,7 @@
 		17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAveragesView.swift; sourceTree = "<group>"; };
 		17F786782BF4077600B9FA52 /* ShopTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTab.swift; sourceTree = "<group>"; };
 		17F786802BF52B7E00B9FA52 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		C40808C52C52096D0015F936 /* Carbonsaurus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carbonsaurus.entitlements; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -226,6 +227,7 @@
 		1767611F2B8A8017001EC050 /* Carbonsaurus */ = {
 			isa = PBXGroup;
 			children = (
+				C40808C52C52096D0015F936 /* Carbonsaurus.entitlements */,
 				17F786732BF3E3FD00B9FA52 /* Info.plist */,
 				176761202B8A8017001EC050 /* CarbonsaurusApp.swift */,
 				176761582B8AA24B001EC050 /* backend */,
@@ -722,10 +724,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Carbonsaurus/Carbonsaurus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
-				DEVELOPMENT_TEAM = C72D493DTH;
+				DEVELOPMENT_TEAM = 5JV988A46C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Carbonsaurus/Info.plist;
@@ -743,7 +746,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinosw.Carbonsaurus;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -757,10 +760,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Carbonsaurus/Carbonsaurus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
-				DEVELOPMENT_TEAM = C72D493DTH;
+				DEVELOPMENT_TEAM = 5JV988A46C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Carbonsaurus/Info.plist;
@@ -778,7 +782,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinosw.Carbonsaurus;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -865,7 +869,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C72D493DTH;
+				DEVELOPMENT_TEAM = 5JV988A46C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
@@ -876,7 +880,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinosw.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus.CarbonsaurusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -892,7 +896,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C72D493DTH;
+				DEVELOPMENT_TEAM = 5JV988A46C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
@@ -903,7 +907,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinosw.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus.CarbonsaurusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

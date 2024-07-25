@@ -39,6 +39,8 @@ struct SimpleEntry: TimelineEntry {
 
 struct CarbonsaurusWidgetEntryView : View {
     var entry: Provider.Entry
+    @AppStorage("localUser", store: UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier")) var localUser: String = ""
+
     
     var body: some View {
         HStack {
@@ -52,7 +54,7 @@ struct CarbonsaurusWidgetEntryView : View {
             }
             Spacer()
             VStack {
-                Text("4000 dino points")
+                Text(localUser)
                 Text("neutral")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 32))
@@ -61,8 +63,9 @@ struct CarbonsaurusWidgetEntryView : View {
 
             }
             Spacer()
-        }
-
+        }.onAppear(perform: {
+            print("hello \(localUser)")
+        })
     }
 }
 
@@ -72,7 +75,7 @@ struct CarbonsaurusWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             CarbonsaurusWidgetEntryView(entry: entry)
-                .containerBackground(.orange.opacity(0.3), for: .widget)
+                .containerBackground(.orange, for: .widget)
         }
     }
 }
