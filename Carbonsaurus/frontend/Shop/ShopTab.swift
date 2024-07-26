@@ -18,6 +18,20 @@ struct ShopTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 30) {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text("your balance:")
+                                    .font(.system(size: 14))
+                                Text(String(format: "%.0f", viewModel.localUser.dinoPointsBalance) + " dino points")
+                                    .font(.title2)
+                                    .bold()
+                            }
+                            Spacer()
+                        }
+                        .padding()
+                        .background(.white)
+                        .cornerRadius(10)
+                        
                         VStack(alignment: .leading) {
                             Text("dinos")
                             ScrollView(.horizontal, showsIndicators: false){
@@ -26,6 +40,9 @@ struct ShopTab: View {
                                         if !viewModel.localUser.ownedAvatarColors.contains(dino) {
                                             NavigationLink {
                                                 BuyShopItemView(shopItem: dino)
+                                                    .onDisappear {
+                                                        
+                                                    }
                                             } label: {
                                                 ShopItemSubView(shopItem: dino)
                                             }

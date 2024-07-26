@@ -35,7 +35,7 @@ struct BuyShopItemView: View {
                             showNotEnoughDinoPoints = true
                         }
                     }, label: {
-                        Text("buy for " + String(shopItem.dinoPoints) + " dino points")
+                        Text("buy for " + String(format: "%.0f", shopItem.dinoPoints) + " dino points")
                             .padding(15)
                             .background(.white)
                             .cornerRadius(10)

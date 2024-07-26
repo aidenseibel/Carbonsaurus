@@ -60,8 +60,7 @@ struct Onboarding: View {
 
                             Button("skip for now") {
                                 viewModel.localUser.averageDriving = 1
-                                viewModel.localUser.averagePhone = 195
-                                viewModel.localUser.averageAppliances = 1
+                                viewModel.localUser.averageEnergy = 1
                                 viewModel.localUser.averageEating = 1800
                                 viewModel.localUser.averageShower = 10
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
@@ -142,8 +141,7 @@ struct Onboarding: View {
                         Button(action: {
                             if allFieldsValid() {
                                 viewModel.localUser.averageDriving = parseNumber(input: driving)
-                                viewModel.localUser.averagePhone = parseNumber(input: phone)
-                                viewModel.localUser.averageAppliances = parseNumber(input: appliances)
+                                viewModel.localUser.averageEnergy = parseNumber(input: appliances)
                                 viewModel.localUser.averageEating = parseNumber(input: eat)
                                 viewModel.localUser.averageShower = parseNumber(input: shower)
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)

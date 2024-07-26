@@ -93,7 +93,12 @@ struct ProfileTab: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
                 NavigationLink(destination: {
-                    
+                Button {
+                    viewModel.resetLocalUser()
+                } label: {
+                    Text("reset my profile")
+                }
+
                 }, label: {
                     Image(systemName: "gear")}
                 )

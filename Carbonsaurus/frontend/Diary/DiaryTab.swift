@@ -40,9 +40,21 @@ struct DiaryTab: View {
                                 .font(.system(size: 14))
                                 .padding(.bottom, 4)
 
+                            if viewModel.localUser.getDiariesThisWeek().count == 0 {
+                                HStack() {
+                                    Text("you haven't created any diaries this week!")
+                                        .font(.system(size: 14))
+                                        .padding()
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(.white)
+                                .cornerRadius(10)
+                            }
+
                             ForEach(viewModel.localUser.getDiariesThisWeek().sorted { $0.date > $1.date }, id: \.self) {diary in
                                 NavigationLink {
-                                    DiaryEntryLarge(diary: diary)
+                                    DiaryView(diary: diary)
                                 } label: {
                                     DiaryEntrySubView(diary: diary)
                                 }
@@ -59,14 +71,30 @@ struct DiaryTab: View {
                                 .font(.system(size: 14))
                                 .padding(.bottom, 4)
 
+                            if viewModel.localUser.diaries.count == 0 {
+                                HStack() {
+                                    Text("you haven't created any diaries")
+                                        .font(.system(size: 14))
+                                        .padding()
+                                    Spacer()
+                                }
+                                .padding()
+                                .background(.white)
+                                .cornerRadius(10)
+                            }
+
                             ForEach(viewModel.localUser.diaries.sorted { $0.date > $1.date }, id: \.self) {diary in
                                 NavigationLink {
-                                    DiaryEntryLarge(diary: diary)
+                                    DiaryView(diary: diary)
                                 } label: {
                                     DiaryEntrySubView(diary: diary)
                                 }
                                 .buttonStyle(.plain)
                             }
+                        }
+
+                        HStack {
+                            Spacer()
                         }
                     }
                     .padding()

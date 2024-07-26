@@ -37,6 +37,6 @@ struct DiaryEntrySubView: View {
 }
 
 #Preview {
-    DiaryEntrySubView(diary: Diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
+    DiaryEntrySubView(diary: Diary(date: Date.now, driving: 3, energy: 3, eat: 3, shower: 3))
         .previewLayout(.sizeThatFits)
 }

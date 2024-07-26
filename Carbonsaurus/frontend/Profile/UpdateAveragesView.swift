@@ -12,7 +12,6 @@ struct UpdateAveragesView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     @State var driving: String = ""
-    @State var phone: String = ""
     @State var appliances: String = ""
     @State var eat: String = ""
     @State var shower: String = ""
@@ -30,16 +29,6 @@ struct UpdateAveragesView: View {
                                 Text("How many hours do you drive on an average day?")
                                     .bold()
                                 TextField("enter hours", text: $driving)
-                                    .keyboardType(.numberPad)
-                                    .padding(10)
-                                    .background(.white)
-                                    .cornerRadius(10)
-                            }
-
-                            VStack(alignment: .leading) {
-                                Text("What is your daily average screen time?")
-                                    .bold()
-                                TextField("enter hours", text: $phone)
                                     .keyboardType(.numberPad)
                                     .padding(10)
                                     .background(.white)
@@ -80,8 +69,7 @@ struct UpdateAveragesView: View {
 
                     Button(action: {
                         if isValid(driving) { viewModel.localUser.averageDriving = parseNumber(input: driving) }
-                        if isValid(phone) { viewModel.localUser.averagePhone = parseNumber(input: phone) }
-                        if isValid(appliances) { viewModel.localUser.averageAppliances = parseNumber(input: appliances) }
+                        if isValid(appliances) { viewModel.localUser.averageEnergy = parseNumber(input: appliances) }
                         if isValid(eat) { viewModel.localUser.averageEating = parseNumber(input: eat) }
                         if isValid(shower) { viewModel.localUser.averageShower = parseNumber(input: shower) }
 

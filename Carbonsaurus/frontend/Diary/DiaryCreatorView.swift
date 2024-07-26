@@ -12,14 +12,12 @@ struct DiaryCreatorView: View {
     @EnvironmentObject var viewModel: ViewModel
 
     @State var driving: Double = 3.0
-    @State var phone: Double = 3.0
-    @State var appliances: Double = 3.0
+    @State var energy: Double = 3.0
     @State var eat: Double = 3.0
     @State var shower: Double = 3.0
     
     @State var isEditingDriving: Bool = false
-    @State var isEditingPhone: Bool = false
-    @State var isEditingAppliances: Bool = false
+    @State var isEditingEnergy: Bool = false
     @State var isEditingEat: Bool = false
     @State var isEditingShower: Bool = false
 
@@ -50,34 +48,16 @@ struct DiaryCreatorView: View {
                             }
 
                             VStack(alignment: .leading) {
-                                Text("How much did you use your phone today compared to a normal day?")
+                                Text("How much electricity did you use today compared to a normal day?")
                                     .font(.system(size: 16))
                                 HStack {
                                     Text("less")
                                         .font(.system(size: 14))
                                     Slider(
-                                        value: $phone,
+                                        value: $energy,
                                         in: 1.0...5.0,
                                         onEditingChanged: { editing in
-                                            isEditingPhone = editing
-                                        }
-                                    )
-                                    Text("more")
-                                        .font(.system(size: 14))
-                                }
-                            }
-
-                            VStack(alignment: .leading) {
-                                Text("How much did you use large appliances (washer, dryer, oven, etc) compared to a normal day?")
-                                    .font(.system(size: 16))
-                                HStack {
-                                    Text("less")
-                                        .font(.system(size: 14))
-                                    Slider(
-                                        value: $appliances,
-                                        in: 1.0...5.0,
-                                        onEditingChanged: { editing in
-                                            isEditingAppliances = editing
+                                            isEditingEnergy = editing
                                         }
                                     )
                                     Text("more")
@@ -125,7 +105,7 @@ struct DiaryCreatorView: View {
                     .pickerStyle(.segmented)
                     
                     Button(action: {
-                        viewModel.addDiary(diary: Diary(date: Date.now, driving: driving, phone: phone, appliances: appliances, eat: eat, shower: shower))
+                        viewModel.addDiary(diary: Diary(date: Date.now, driving: driving, energy: energy, eat: eat, shower: shower))
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         HStack {

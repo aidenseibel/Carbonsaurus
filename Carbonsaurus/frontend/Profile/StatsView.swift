@@ -25,13 +25,14 @@ struct StatsView: View {
                             GridRow {
                                 HStack {
                                     Spacer()
-                                    Text("carbon footprint this week")
+                                    Text("carbon footprint")
+                                        .font(.system(size: 14))
                                         .multilineTextAlignment(.trailing)
                                 }
                                 .frame(width: UIScreen.main.bounds.width * 0.40)
                                 
                                 HStack {
-                                    Text("\(viewModel.localUser.getCarbonFootprintThisWeek()/1000) kg")
+                                    Text(String(format: "%.2f", viewModel.localUser.getCarbonFootprintThisWeek()/1000) + " kg")
                                         .multilineTextAlignment(.leading)
                                         .bold()
                                     Spacer()
@@ -42,12 +43,13 @@ struct StatsView: View {
                             GridRow {
                                 HStack {
                                     Spacer()
-                                    Text("avg. dino points this week")
+                                    Text("average dino points")
+                                        .font(.system(size: 14))
                                         .multilineTextAlignment(.trailing)
                                 }
                                 .frame(width: UIScreen.main.bounds.width * 0.40)
                                 HStack {
-                                    Text("\(viewModel.localUser.getAverageDinoPointsThisWeek())")
+                                    Text(String(format: "%.0f", viewModel.localUser.getAverageDinoPointsThisWeek()))
                                         .multilineTextAlignment(.leading)
                                         .bold()
                                     Spacer()
@@ -70,24 +72,8 @@ struct StatsView: View {
                             GridRow {
                                 HStack {
                                     Spacer()
-                                    Text("total dino points")
-                                        .multilineTextAlignment(.trailing)
-                                }
-                                .frame(width: UIScreen.main.bounds.width * 0.40)
-                                
-                                HStack {
-                                    Text("\(viewModel.localUser.getDinoPoints())")
-                                        .multilineTextAlignment(.leading)
-                                        .bold()
-                                    Spacer()
-                                }
-                                .frame(width: UIScreen.main.bounds.width * 0.40)
-                            }
-                            
-                            GridRow {
-                                HStack {
-                                    Spacer()
-                                    Text("diaries")
+                                    Text("total diaries")
+                                        .font(.system(size: 14))
                                         .multilineTextAlignment(.trailing)
                                 }
                                 .frame(width: UIScreen.main.bounds.width * 0.40)
@@ -99,15 +85,34 @@ struct StatsView: View {
                                 }
                                 .frame(width: UIScreen.main.bounds.width * 0.40)
                             }
+
+                            GridRow {
+                                HStack {
+                                    Spacer()
+                                    Text("total dino points")
+                                        .font(.system(size: 14))
+                                        .multilineTextAlignment(.trailing)
+                                }
+                                .frame(width: UIScreen.main.bounds.width * 0.40)
+                                
+                                HStack {
+                                    Text(String(format: "%.0f", viewModel.localUser.getDinoPoints()))
+                                        .multilineTextAlignment(.leading)
+                                        .bold()
+                                    Spacer()
+                                }
+                                .frame(width: UIScreen.main.bounds.width * 0.40)
+                            }
                             
                             GridRow {
                                 HStack {
                                     Spacer()
                                     Text("average dino points")
+                                        .font(.system(size: 14))
                                         .multilineTextAlignment(.trailing)
                                 }
                                 HStack {
-                                    Text("\(viewModel.localUser.getAverageDinoPoints())")
+                                    Text(String(format: "%.0f", viewModel.localUser.getAverageDinoPoints()))
                                         .multilineTextAlignment(.leading)
                                         .bold()
                                     Spacer()

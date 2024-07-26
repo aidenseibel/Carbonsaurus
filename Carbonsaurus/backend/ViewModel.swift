@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
 
             hasLoggedToday = localUser.diaries.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
         } else {
-            localUser = User(username: "default account", averageDriving: 1, averagePhone: 195, averageAppliances: 1, averageEating: 1800, averageShower: 10)
+            localUser = User()
         }
     }
 
@@ -37,6 +37,13 @@ class ViewModel: ObservableObject {
         localUser.avatar.accessory = avatarAccessory
         localUser.avatar.background = avatarBackground
         
+        DataModel.saveLocalUserToUserDefaults(user: localUser)
+    }
+    
+    func resetLocalUser() {
+        localUser = User()
+        hasOnboarded = false
+        hasLoggedToday = false
         DataModel.saveLocalUserToUserDefaults(user: localUser)
     }
 }

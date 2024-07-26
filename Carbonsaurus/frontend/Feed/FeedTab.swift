@@ -34,12 +34,12 @@ struct FeedTab: View {
                                 }
                                 .buttonStyle(.plain)
 
-                                NavigationLink {
-                                    // lesson
-                                } label: {
-                                    LessonSubView()
-                                }
-                                .buttonStyle(.plain)
+//                                NavigationLink {
+//                                    // lesson
+//                                } label: {
+//                                    LessonSubView()
+//                                }
+//                                .buttonStyle(.plain)
                             }
 
                             Image("volcano_trees")

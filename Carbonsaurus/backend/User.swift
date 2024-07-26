@@ -18,13 +18,20 @@ class User: Identifiable, Codable, ObservableObject {
     var ownedAvatarBackgrounds: [AvatarBackground] = [.no_background]
     
     var dinoPointsBalance: Double = 0
-    var averageDriving, averagePhone, averageAppliances, averageEating, averageShower: Double
+    var averageDriving, averageEnergy, averageEating, averageShower: Double
+    
+    init() {
+        username = ""
+        averageDriving = 3.0
+        averageEnergy = 3.0
+        averageEating = 3.0
+        averageShower = 3.0
+    }
 
-    init(username: String, averageDriving: Double, averagePhone: Double, averageAppliances: Double, averageEating: Double, averageShower: Double) {
+    init(username: String, averageDriving: Double, averagePhone: Double, averageEnergy: Double, averageEating: Double, averageShower: Double) {
         self.username = username
         self.averageDriving = averageDriving            /*?? 1 // 3360*/
-        self.averagePhone = averagePhone                /*?? 195 // 189*/
-        self.averageAppliances = averageAppliances      /*??  1 // 2000*/
+        self.averageEnergy = averageEnergy      /*??  1 // 2000*/
         self.averageEating = averageEating              /*?? 1800 // 4500*/
         self.averageShower = averageShower              /*?? 10 // 2000*/
     }
@@ -97,7 +104,7 @@ class User: Identifiable, Codable, ObservableObject {
     }
 
     func getDailyAverages() -> [Double] {
-        return [averageDriving, averagePhone, averageAppliances, averageEating, averageShower]
+        return [averageDriving, averageEnergy, averageEating, averageShower]
     }
 
     func getDinoMood() -> AvatarMood {

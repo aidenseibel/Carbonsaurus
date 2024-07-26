@@ -1,5 +1,5 @@
 //
-//  DiaryEntryLarge.swift
+//  DiaryView.swift
 //  Carbonsaurus
 //
 //  Created by Aiden Seibel on 2/25/24.
@@ -7,50 +7,40 @@
 
 import SwiftUI
 
-struct DiaryEntryLarge: View {
+struct DiaryView: View {
     @EnvironmentObject var viewModel: ViewModel
 
     var diary: Diary
 
     var body: some View {
         ZStack {
-            Color.yellow.opacity(0.50)
+            Color.blue.opacity(0.30)
                 .ignoresSafeArea()
             ScrollView(showsIndicators: false) {
                 VStack {
                     HStack {
                         VStack(alignment: .leading, spacing: 20) {
                             Text("\(formatDate(date: diary.date))")
-                                .bold()
-                                .font(.system(size: 28))
+                                .font(.system(size: 16))
 
                             HStack(alignment: .bottom) {
-                                Text("\(diary.calculateCarbonFootprint(averages: viewModel.localUser.getDailyAverages()))")
+                                Text(String(format: "%.0f", diary.calculateCarbonFootprint(averages: viewModel.localUser.getDailyAverages())))
                                     .font(.system(size: 42))
                                     .bold()
                                 Text("g of carbon")
-                                    .bold()
                                     .padding(.bottom, 4)
                             }
                             
                             HStack(alignment: .bottom) {
-                                Text("\(diary.dinoPoints())")
+                                Text(String(format: "%0.f", diary.dinoPoints()))
                                     .font(.system(size: 42))
                                     .bold()
                                 Text("dino points")
-                                    .bold()
                                     .padding(.bottom, 4)
                             }
                         }
                         Spacer()
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.90)
-
-                    Image(viewModel.localUser.getAvatarImage())
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
-                        .cornerRadius(20)
 
                     Text("estimates")
                         .font(.title2)
@@ -62,8 +52,8 @@ struct DiaryEntryLarge: View {
                             HStack {
                                 Spacer()
                                 Text("hours driven")
+                                    .font(.system(size: 14))
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
 
@@ -78,32 +68,14 @@ struct DiaryEntryLarge: View {
                         GridRow {
                             HStack {
                                 Spacer()
-                                Text("screen time minutes")
+                                Text("electricity used")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
-
-                            }
-                            .frame(width: UIScreen.main.bounds.width * 0.35)
-                            HStack {
-                                Text("\(viewModel.localUser.averagePhone*diary.phone/3) (\(String(format: "%.0f", diary.getPhoneCarbon(average: viewModel.localUser.averagePhone))) g)")
-                                    .multilineTextAlignment(.leading)
-                                Spacer()
-                            }
-                            .frame(width: UIScreen.main.bounds.width * 0.40)
-                        }
-
-                        GridRow {
-                            HStack {
-                                Spacer()
-                                Text("large appliances used")
-                                    .multilineTextAlignment(.trailing)
-                                    .bold()
-
+                                    .font(.system(size: 14))
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
 
                             HStack {
-                                Text("\(viewModel.localUser.averageAppliances*diary.appliances/3) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localUser.averageAppliances))) g)")
+                                Text("\(viewModel.localUser.averageEnergy*diary.energy/3) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localUser.averageEnergy))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }
@@ -115,7 +87,7 @@ struct DiaryEntryLarge: View {
                                 Spacer()
                                 Text("calories eaten")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
+                                    .font(.system(size: 14))
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack {
@@ -131,7 +103,7 @@ struct DiaryEntryLarge: View {
                                 Spacer()
                                 Text("minutes showered")
                                     .multilineTextAlignment(.trailing)
-                                    .bold()
+                                    .font(.system(size: 14))
                             }
                             .frame(width: UIScreen.main.bounds.width * 0.35)
                             HStack {
@@ -145,7 +117,16 @@ struct DiaryEntryLarge: View {
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10))
                     .background(.white)
                     .cornerRadius(10)
+
+                    Image(viewModel.localUser.getAvatarImage())
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
+                        .cornerRadius(20)
+                    Text("on this day, your dino was ")
+                        .font(.system(size: 14))
                 }
+                .padding()
                 .padding(.bottom, 100)
             }
         }
@@ -153,5 +134,5 @@ struct DiaryEntryLarge: View {
 }
 
 #Preview {
-    DiaryEntryLarge(diary: Diary(date: Date.now, driving: 3, phone: 4, appliances: 3, eat: 3, shower: 3))
+    DiaryView(diary: Diary(date: Date.now, driving: 3, energy: 3, eat: 3, shower: 3))
 }
