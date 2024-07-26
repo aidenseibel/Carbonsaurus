@@ -29,7 +29,7 @@ struct BuyShopItemView: View {
 
                     Button(action: {
                         // returns success or not
-                        if viewModel.localUser.buyShopItem(shopItem: shopItem) {
+                        if viewModel.buyShopItem(shopItem: shopItem) {
                             presentationMode.wrappedValue.dismiss()
                         } else {
                             showNotEnoughDinoPoints = true

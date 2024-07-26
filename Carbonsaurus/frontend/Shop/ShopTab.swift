@@ -10,7 +10,10 @@ import SwiftUI
 struct ShopTab: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+
+    // to reload the view when an item is purchased
+    @ObservedObject var reloadViewHelper = ReloadViewHelper()
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -41,7 +44,7 @@ struct ShopTab: View {
                                             NavigationLink {
                                                 BuyShopItemView(shopItem: dino)
                                                     .onDisappear {
-                                                        
+                                                        reloadViewHelper.reloadView()
                                                     }
                                             } label: {
                                                 ShopItemSubView(shopItem: dino)
@@ -60,6 +63,9 @@ struct ShopTab: View {
                                         if !viewModel.localUser.ownedAvatarAccessories.contains(accessory) {
                                             NavigationLink {
                                                 BuyShopItemView(shopItem: accessory)
+                                                    .onDisappear {
+                                                        reloadViewHelper.reloadView()
+                                                    }
                                             } label: {
                                                 ShopItemSubView(shopItem: accessory)
                                             }
@@ -77,6 +83,9 @@ struct ShopTab: View {
                                         if !viewModel.localUser.ownedAvatarBackgrounds.contains(background) {
                                             NavigationLink {
                                                 BuyShopItemView(shopItem: background)
+                                                    .onDisappear {
+                                                        reloadViewHelper.reloadView()
+                                                    }
                                             } label: {
                                                 ShopItemSubView(shopItem: background)
                                             }
@@ -93,6 +102,13 @@ struct ShopTab: View {
             .navigationTitle("the dino shop")
             .navigationBarTitleDisplayMode(.large)
         }
+    }
+}
+
+// refreshes the view / dino balance when an item is purchased
+class ReloadViewHelper: ObservableObject {
+    func reloadView() {
+        objectWillChange.send()
     }
 }
 

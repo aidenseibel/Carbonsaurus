@@ -161,7 +161,7 @@ class User: Identifiable, Codable, ObservableObject {
             default:
                 return false
             }
-            
+
             return true
         }
         

@@ -46,4 +46,13 @@ class ViewModel: ObservableObject {
         hasLoggedToday = false
         DataModel.saveLocalUserToUserDefaults(user: localUser)
     }
+    
+    func buyShopItem(shopItem: AvatarItem) -> Bool {
+        if localUser.buyShopItem(shopItem: shopItem) {
+            DataModel.saveLocalUserToUserDefaults(user: localUser)
+            return true
+        } else {
+            return false
+        }
+    }
 }

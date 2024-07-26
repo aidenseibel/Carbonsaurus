@@ -50,7 +50,7 @@ struct TabBar: View {
             .frame(height: UIScreen.main.bounds.height * 0.075)
             .background(.white)
             .cornerRadius(50)
-            .padding()
+            .padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
             .shadow(radius: 10)
         }
     }
