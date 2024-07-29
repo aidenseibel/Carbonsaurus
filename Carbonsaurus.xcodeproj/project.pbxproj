@@ -46,6 +46,12 @@
 		C4197E9A2C57513D0094BFE2 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761592B8AA267001EC050 /* Diary.swift */; };
 		C4197E9B2C57513D0094BFE2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761612B8ADBBB001EC050 /* User.swift */; };
 		C4197E9C2C57513D0094BFE2 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2D2B8B83240050895B /* ViewModel.swift */; };
+		C4197E9F2C5823790094BFE2 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */; };
+		C4197EA02C5824A80094BFE2 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */; };
+		C4197EA22C58265E0094BFE2 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */; };
+		C4197EA32C5826630094BFE2 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */; };
+		C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
+		C4197EA72C582DF90094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -139,6 +145,9 @@
 		C40808C52C52096D0015F936 /* Carbonsaurus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carbonsaurus.entitlements; sourceTree = "<group>"; };
 		C4197E8F2C57499E0094BFE2 /* CarbonsaurusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarbonsaurusWidgetExtension.entitlements; sourceTree = "<group>"; };
 		C4197E902C574D590094BFE2 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
+		C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		C4197EA52C582DF40094BFE2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -323,6 +332,24 @@
 			path = Diary;
 			sourceTree = "<group>";
 		};
+		C4197E9D2C58234B0094BFE2 /* WidgetSizeViews */ = {
+			isa = PBXGroup;
+			children = (
+				C4197EA42C582DDA0094BFE2 /* WidgetComponents */,
+				C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */,
+				C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */,
+			);
+			path = WidgetSizeViews;
+			sourceTree = "<group>";
+		};
+		C4197EA42C582DDA0094BFE2 /* WidgetComponents */ = {
+			isa = PBXGroup;
+			children = (
+				C4197EA52C582DF40094BFE2 /* AvatarView.swift */,
+			);
+			path = WidgetComponents;
+			sourceTree = "<group>";
+		};
 		C492E6A12B8AA76500969486 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +376,7 @@
 		C4CFF0002B8B8CAD002AE026 /* CarbonsaurusWidget */ = {
 			isa = PBXGroup;
 			children = (
+				C4197E9D2C58234B0094BFE2 /* WidgetSizeViews */,
 				C4CFF0012B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift */,
 				C4CFF0032B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift */,
 				C4CFF0052B8B8CAD002AE026 /* CarbonsaurusWidget.swift */,
@@ -533,10 +561,12 @@
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
 				177ACA4D2C4B04B4003666BE /* BuyShopItemView.swift in Sources */,
+				C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				17F786812BF52B7E00B9FA52 /* Avatar.swift in Sources */,
 				176761572B8A8CFB001EC050 /* NewsComponent.swift in Sources */,
+				C4197EA22C58265E0094BFE2 /* SmallWidgetView.swift in Sources */,
 				170EC3ED2C45B80100EBF44D /* DiaryReminderSubView.swift in Sources */,
 				17F786792BF4077600B9FA52 /* ShopTab.swift in Sources */,
 				1767615A2B8AA267001EC050 /* Diary.swift in Sources */,
@@ -544,6 +574,7 @@
 				1750E8352C4C7CDF00BCE6CA /* ShopItemSubView.swift in Sources */,
 				176761692B8B1FFB001EC050 /* DiaryEntryLarge.swift in Sources */,
 				1767616D2B8B5679001EC050 /* Quiz.swift in Sources */,
+				C4197E9F2C5823790094BFE2 /* MediumWidgetView.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreatorView.swift in Sources */,
 				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
@@ -586,14 +617,17 @@
 				C4197E982C57513D0094BFE2 /* Notifications.swift in Sources */,
 				C4197E9A2C57513D0094BFE2 /* Diary.swift in Sources */,
 				C4197E972C57513D0094BFE2 /* DataModel.swift in Sources */,
+				C4197EA02C5824A80094BFE2 /* MediumWidgetView.swift in Sources */,
 				C4CFF0042B8B8CAD002AE026 /* CarbonsaurusWidgetLiveActivity.swift in Sources */,
 				C4197E962C57513D0094BFE2 /* Util.swift in Sources */,
+				C4197EA32C5826630094BFE2 /* SmallWidgetView.swift in Sources */,
 				C4CFF0082B8B8CAD002AE026 /* AppIntent.swift in Sources */,
 				C4CFF0062B8B8CAD002AE026 /* CarbonsaurusWidget.swift in Sources */,
 				C4197E952C57513D0094BFE2 /* Avatar.swift in Sources */,
 				C4CFF0022B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift in Sources */,
 				C4197E992C57513D0094BFE2 /* Quiz.swift in Sources */,
 				C4197E9C2C57513D0094BFE2 /* ViewModel.swift in Sources */,
+				C4197EA72C582DF90094BFE2 /* AvatarView.swift in Sources */,
 				C4197E9B2C57513D0094BFE2 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

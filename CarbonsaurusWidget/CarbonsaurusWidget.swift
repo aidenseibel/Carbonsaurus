@@ -1,13 +1,14 @@
-//
-//  CarbonsaurusWidget.swift
-//  CarbonsaurusWidget
-//
-//  Created by Yash Shah on 2/25/24.
-//
-
 import WidgetKit
 import SwiftUI
 
+// Ensure SimpleEntry conforms to TimelineEntry
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let configuration: ConfigurationAppIntent
+    let viewModel: ViewModel
+}
+
+// Ensure Provider conforms to AppIntentTimelineProvider
 struct Provider: AppIntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
         SimpleEntry(date: Date(), configuration: ConfigurationAppIntent(), viewModel: ViewModel())
@@ -20,75 +21,37 @@ struct Provider: AppIntentTimelineProvider {
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
         var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // Generate a timeline with entries for the next 24 hours
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration, viewModel: ViewModel())
-            entries.append(entry)
-        }
+        let entryDate = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
 
-        return Timeline(entries: entries, policy: .atEnd)
+        let entry = SimpleEntry(date: entryDate, configuration: configuration, viewModel: ViewModel())
+        entries.append(entry)
+
+        // Return the timeline with a policy to refresh daily
+        return Timeline(entries: entries, policy: .after(entryDate))
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationAppIntent
-    let viewModel: ViewModel
-}
-
+// Define the view for the widget
 struct CarbonsaurusWidgetEntryView: View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family
     
+    @ViewBuilder
     var body: some View {
-        if(entry.viewModel.hasOnboarded && entry.viewModel.hasLoggedToday) {
-            HStack {
-                ZStack {
-                    if entry.viewModel.localUser.avatar.background == AvatarBackground.no_background{
-                        Circle()
-                            .foregroundColor(.white)
-                    }
-                    else{
-                        Image(entry.viewModel.localUser.avatar.background.rawValue)
-                            .resizable()
-                            .scaledToFill()
-                            .clipped()
-                            .cornerRadius(UIScreen.main.bounds.width * 0.35)
-                    }
-                    Image(entry.viewModel.localUser.getAvatarImage())
-                        .resizable()
-                        .scaledToFit()
-                        .cornerRadius(50)
-                        .clipped()
-                } .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-                Spacer()
-                VStack {
-                    Text("\(Int(entry.viewModel.localUser.getDinoPoints() )) Dino Points")
-                    Text(entry.viewModel.localUser.getDinoMood().rawValue )
-                        .multilineTextAlignment(.center)
-                        .font(.system(size: 32))
-                        .bold()
-                    Text("\(Int(entry.viewModel.localUser.getCarbonFootprintThisWeek() )) kg of carbon this week")
-                }
-                Spacer()
-            }
-        } else {
-            VStack {
-                Image(getRandomPanorama())
-                    .resizable()
-                    .scaledToFill()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .clipped()
-                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                Text("time to check in!")
-            }
+        switch family {
+        case .systemSmall:
+            SmallWidgetView(viewModel: entry.viewModel)
+        case .systemMedium:
+            MediumWidgetView(viewModel: entry.viewModel)
+        default:
+            MediumWidgetView(viewModel: entry.viewModel)
         }
     }
 }
 
-
-
+// Define the widget configuration
 struct CarbonsaurusWidget: Widget {
     let kind: String = "CarbonsaurusWidget"
 
@@ -97,9 +60,11 @@ struct CarbonsaurusWidget: Widget {
             CarbonsaurusWidgetEntryView(entry: entry)
                 .containerBackground(entry.viewModel.hasOnboarded && entry.viewModel.hasLoggedToday ? entry.viewModel.localUser.avatar.color.swiftUIColor : .white, for: .widget)
         }
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
+// Extensions for ConfigurationAppIntent and AvatarColor
 extension ConfigurationAppIntent {
     fileprivate static var smiley: ConfigurationAppIntent {
         let intent = ConfigurationAppIntent()
@@ -131,6 +96,7 @@ extension AvatarColor {
     }
 }
 
+// Preview configuration
 #Preview(as: .systemMedium) {
     CarbonsaurusWidget()
 } timeline: {
