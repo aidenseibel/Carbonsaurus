@@ -144,7 +144,6 @@
 		17F786802BF52B7E00B9FA52 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C40808C52C52096D0015F936 /* Carbonsaurus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Carbonsaurus.entitlements; sourceTree = "<group>"; };
 		C4197E8F2C57499E0094BFE2 /* CarbonsaurusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarbonsaurusWidgetExtension.entitlements; sourceTree = "<group>"; };
-		C4197E902C574D590094BFE2 /* SharedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedModels.swift; sourceTree = "<group>"; };
 		C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		C4197EA52C582DF40094BFE2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
@@ -223,7 +222,6 @@
 		176761142B8A8017001EC050 = {
 			isa = PBXGroup;
 			children = (
-				C4197E902C574D590094BFE2 /* SharedModels.swift */,
 				C4197E8F2C57499E0094BFE2 /* CarbonsaurusWidgetExtension.entitlements */,
 				1767611F2B8A8017001EC050 /* Carbonsaurus */,
 				176761302B8A8018001EC050 /* CarbonsaurusTests */,
