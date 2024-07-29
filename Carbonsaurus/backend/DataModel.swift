@@ -17,7 +17,9 @@ struct DataModel {
             let data = try encoder.encode(user)
 
             // save and return true
-            UserDefaults.standard.set(data, forKey: "localUser")
+            if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+                userDefaults.setValue(data, forKey: "localUser")
+            }
 
             print("Successfully saved localUser to UserDefaults")
             return true
@@ -29,18 +31,25 @@ struct DataModel {
 
     // loads in the local user on launch.
     static func getLocalUserFromAppStorage() -> User? {
-        if let data = UserDefaults.standard.data(forKey: "localUser") {
-            do {
-                // try to decode
-                let decoder = JSONDecoder()
-                let localUser = try decoder.decode(User.self, from: data)
-
-                print("Successfully fetched localUser from UserDefaults")
-                return localUser
-            } catch {
-                print("Unable to decode localUser when getting from UserDefaults: \(error)")
+        if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+            // Safely unwrap the value for the key "localUser"
+            if let data = userDefaults.value(forKey: "localUser") as? Data {
+                do {
+                    // Try to decode
+                    let decoder = JSONDecoder()
+                    let localUser = try decoder.decode(User.self, from: data)
+                    print("Successfully fetched localUser from UserDefaults")
+                    return localUser
+                } catch {
+                    print("Unable to decode localUser when getting from UserDefaults: \(error)")
+                }
+            } else {
+                print("No data found for key 'localUser' in UserDefaults")
             }
+        } else {
+            print("UserDefaults suite is nil")
         }
         return nil
     }
+
 }
