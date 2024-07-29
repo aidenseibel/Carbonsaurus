@@ -42,35 +42,47 @@ struct CarbonsaurusWidgetEntryView: View {
     var entry: Provider.Entry
     
     var body: some View {
-        HStack {
-            ZStack {
-                if entry.viewModel.localUser.avatar.background == AvatarBackground.no_background{
-                    Circle()
-                        .foregroundColor(.white)
-                }
-                else{
-                    Image(entry.viewModel.localUser.avatar.background.rawValue)
+        if(entry.viewModel.hasOnboarded && entry.viewModel.hasLoggedToday) {
+            HStack {
+                ZStack {
+                    if entry.viewModel.localUser.avatar.background == AvatarBackground.no_background{
+                        Circle()
+                            .foregroundColor(.white)
+                    }
+                    else{
+                        Image(entry.viewModel.localUser.avatar.background.rawValue)
+                            .resizable()
+                            .scaledToFill()
+                            .clipped()
+                            .cornerRadius(UIScreen.main.bounds.width * 0.35)
+                    }
+                    Image(entry.viewModel.localUser.getAvatarImage())
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
+                        .cornerRadius(50)
                         .clipped()
-                        .cornerRadius(UIScreen.main.bounds.width * 0.35)
+                } .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                Spacer()
+                VStack {
+                    Text("\(Int(entry.viewModel.localUser.getDinoPoints() )) Dino Points")
+                    Text(entry.viewModel.localUser.getDinoMood().rawValue )
+                        .multilineTextAlignment(.center)
+                        .font(.system(size: 32))
+                        .bold()
+                    Text("\(Int(entry.viewModel.localUser.getCarbonFootprintThisWeek() )) kg of carbon this week")
                 }
-                Image(entry.viewModel.localUser.getAvatarImage())
-                    .resizable()
-                    .scaledToFit()
-                    .cornerRadius(50)
-                    .clipped()
-            } .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
-            Spacer()
-            VStack {
-                Text("\(Int(entry.viewModel.localUser.getDinoPoints() )) Dino Points")
-                Text(entry.viewModel.localUser.getDinoMood().rawValue )
-                    .multilineTextAlignment(.center)
-                    .font(.system(size: 32))
-                    .bold()
-                Text("\(Int(entry.viewModel.localUser.getCarbonFootprintThisWeek() )) kg of carbon this week")
+                Spacer()
             }
-            Spacer()
+        } else {
+            VStack {
+                Image(getRandomPanorama())
+                    .resizable()
+                    .scaledToFill()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+                    .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                Text("time to check in!")
+            }
         }
     }
 }
@@ -83,7 +95,7 @@ struct CarbonsaurusWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             CarbonsaurusWidgetEntryView(entry: entry)
-                .containerBackground(entry.viewModel.localUser.avatar.color.swiftUIColor, for: .widget)
+                .containerBackground(entry.viewModel.hasOnboarded && entry.viewModel.hasLoggedToday ? entry.viewModel.localUser.avatar.color.swiftUIColor : .white, for: .widget)
         }
     }
 }
