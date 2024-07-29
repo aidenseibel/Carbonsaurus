@@ -11,6 +11,7 @@ class User: Identifiable, Codable, ObservableObject {
     var id: UUID = UUID()
     var username: String
     var diaries: [Diary] = []
+    var dailyQuizzes: [DailyQuiz] = []
     
     var avatar: Avatar = Avatar()
     var ownedAvatarColors: [AvatarColor] = [.blue]
@@ -18,27 +19,32 @@ class User: Identifiable, Codable, ObservableObject {
     var ownedAvatarBackgrounds: [AvatarBackground] = [.no_background]
     
     var dinoPointsBalance: Double = 0
-    var averageDriving, averageEnergy, averageEating, averageShower: Double
+    var averageDriving, averageEnergy, averageEating, averageWater: Double
     
     init() {
         username = ""
         averageDriving = 3.0
         averageEnergy = 3.0
         averageEating = 3.0
-        averageShower = 3.0
+        averageWater = 3.0
     }
 
-    init(username: String, averageDriving: Double, averagePhone: Double, averageEnergy: Double, averageEating: Double, averageShower: Double) {
+    init(username: String, averageDriving: Double, averagePhone: Double, averageEnergy: Double, averageEating: Double, averageWater: Double) {
         self.username = username
         self.averageDriving = averageDriving            /*?? 1 // 3360*/
         self.averageEnergy = averageEnergy      /*??  1 // 2000*/
         self.averageEating = averageEating              /*?? 1800 // 4500*/
-        self.averageShower = averageShower              /*?? 10 // 2000*/
+        self.averageWater = averageWater              /*?? 10 // 2000*/
     }
     
     func addDiary(diary: Diary) {
         diaries.append(diary)
         dinoPointsBalance += diary.dinoPoints()
+    }
+
+    func addDailyQuiz(dailyQuiz: DailyQuiz) {
+        dailyQuizzes.append(dailyQuiz)
+        dinoPointsBalance += 50
     }
 
     func getDinoPoints() -> Double {
@@ -62,6 +68,18 @@ class User: Identifiable, Codable, ObservableObject {
 
         return diariesThisWeek
     }
+    
+    func getDailyQuizzesThisWeek() -> [DailyQuiz] {
+        var dailyQuizzesThisWeek: [DailyQuiz] = []
+
+        for dailyQuiz in dailyQuizzes {
+            if isLessThanAWeekAgo(date: dailyQuiz.date) {
+                dailyQuizzesThisWeek.append(dailyQuiz)
+            }
+        }
+
+        return dailyQuizzesThisWeek
+    }
 
     func getAverageDinoPointsThisWeek() -> Double {
         var total: Double = 0
@@ -81,6 +99,10 @@ class User: Identifiable, Codable, ObservableObject {
 
         for diary in getDiariesThisWeek() {
             total += diary.dinoPoints()
+        }
+        
+        for dailyQuiz in getDailyQuizzesThisWeek() {
+            total += 50
         }
 
         return total
@@ -104,7 +126,7 @@ class User: Identifiable, Codable, ObservableObject {
     }
 
     func getDailyAverages() -> [Double] {
-        return [averageDriving, averageEnergy, averageEating, averageShower]
+        return [averageDriving, averageEnergy, averageEating, averageWater]
     }
 
     func getDinoMood() -> AvatarMood {
@@ -161,10 +183,8 @@ class User: Identifiable, Codable, ObservableObject {
             default:
                 return false
             }
-
             return true
         }
-        
         return false
     }
 }

@@ -14,7 +14,7 @@ struct UpdateAveragesView: View {
     @State var driving: String = ""
     @State var appliances: String = ""
     @State var eat: String = ""
-    @State var shower: String = ""
+    @State var water: String = ""
 
     var body: some View {
         ZStack {
@@ -56,9 +56,9 @@ struct UpdateAveragesView: View {
                             }
 
                             VStack(alignment: .leading) {
-                                Text("How many minutes do you shower on an average day?")
+                                Text("How much water do you use on an average day?")
                                     .bold()
-                                TextField("enter minutes", text: $shower)
+                                TextField("enter minutes", text: $water)
                                     .keyboardType(.numberPad)
                                     .padding(10)
                                     .background(.white)
@@ -71,7 +71,7 @@ struct UpdateAveragesView: View {
                         if isValid(driving) { viewModel.localUser.averageDriving = parseNumber(input: driving) }
                         if isValid(appliances) { viewModel.localUser.averageEnergy = parseNumber(input: appliances) }
                         if isValid(eat) { viewModel.localUser.averageEating = parseNumber(input: eat) }
-                        if isValid(shower) { viewModel.localUser.averageShower = parseNumber(input: shower) }
+                        if isValid(water) { viewModel.localUser.averageWater = parseNumber(input: water) }
 
                         if DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser) {
                             presentationMode.wrappedValue.dismiss()

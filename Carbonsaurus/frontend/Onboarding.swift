@@ -13,10 +13,9 @@ struct Onboarding: View {
     @Namespace var questionsID
 
     @State var driving: String = ""
-    @State var phone: String = ""
-    @State var appliances: String = ""
+    @State var energy: String = ""
     @State var eat: String = ""
-    @State var shower: String = ""
+    @State var water: String = ""
 
     @State var errorInInputs: Bool = false
 
@@ -62,7 +61,7 @@ struct Onboarding: View {
                                 viewModel.localUser.averageDriving = 1
                                 viewModel.localUser.averageEnergy = 1
                                 viewModel.localUser.averageEating = 1800
-                                viewModel.localUser.averageShower = 10
+                                viewModel.localUser.averageWater = 10
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
@@ -91,19 +90,9 @@ struct Onboarding: View {
                                 }
 
                                 VStack(alignment: .leading) {
-                                    Text("What is your daily average screen time?")
+                                    Text("How much electricity do you use on an average day?")
                                         .bold()
-                                    TextField("enter hours", text: $phone)
-                                        .keyboardType(.numberPad)
-                                        .padding(10)
-                                        .background(.white)
-                                        .cornerRadius(10)
-                                }
-
-                                VStack(alignment: .leading) {
-                                    Text("How often do you use large appliances (washer, dryer, oven, etc) on any given day?")
-                                        .bold()
-                                    TextField("enter number of times", text: $appliances)
+                                    TextField("enter number of times", text: $energy)
                                         .keyboardType(.numberPad)
                                         .padding(10)
                                         .background(.white)
@@ -121,9 +110,9 @@ struct Onboarding: View {
                                 }
 
                                 VStack(alignment: .leading) {
-                                    Text("How many minutes do you shower on an average day?")
+                                    Text("How much water do you use on an average day?")
                                         .bold()
-                                    TextField("enter minutes", text: $shower)
+                                    TextField("enter minutes", text: $water)
                                         .keyboardType(.numberPad)
                                         .padding(10)
                                         .background(.white)
@@ -141,9 +130,9 @@ struct Onboarding: View {
                         Button(action: {
                             if allFieldsValid() {
                                 viewModel.localUser.averageDriving = parseNumber(input: driving)
-                                viewModel.localUser.averageEnergy = parseNumber(input: appliances)
+                                viewModel.localUser.averageEnergy = parseNumber(input: energy)
                                 viewModel.localUser.averageEating = parseNumber(input: eat)
-                                viewModel.localUser.averageShower = parseNumber(input: shower)
+                                viewModel.localUser.averageWater = parseNumber(input: water)
                                 DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
@@ -173,7 +162,7 @@ struct Onboarding: View {
     }
 
     func allFieldsValid() -> Bool {
-        return driving != "" && phone != "" && appliances != "" && eat != "" && shower != ""
+        return driving != "" && energy != "" && eat != "" && water != ""
     }
 }
 

@@ -10,15 +10,15 @@ import Foundation
 struct Diary: Identifiable, Codable, Hashable {
     var id: UUID
     var date: Date
-    var driving, energy, eat, shower: Double
+    var driving, energy, eat, water: Double
 
-    init(date: Date, driving: Double, energy: Double, eat: Double, shower: Double) {
+    init(date: Date, driving: Double, energy: Double, eat: Double, water: Double) {
         self.id = UUID()
         self.date = date
         self.driving = driving
         self.energy = energy
         self.eat = eat
-        self.shower = shower
+        self.water = water
     }
 
     func hash(into hasher: inout Hasher) {
@@ -26,7 +26,7 @@ struct Diary: Identifiable, Codable, Hashable {
     }
 
     func total() -> Double {
-        return driving + energy + eat + shower
+        return (driving + energy + eat + water) * 5 / 4
     }
 
     func dinoPoints() -> Double {
@@ -60,8 +60,8 @@ struct Diary: Identifiable, Codable, Hashable {
         // eating
         carbonFootprint += averages[2]/1800 * (eat/3) * 4500
 
-        // shower
-        carbonFootprint += averages[3]/10 * (shower/3) * 2000
+        // water
+        carbonFootprint += averages[3]/10 * (water/3) * 2000
 
         return carbonFootprint
     }
@@ -78,7 +78,7 @@ struct Diary: Identifiable, Codable, Hashable {
             return average * eat * 0.83
     }
 
-    func getShowerCarbon(average: Double) -> Double {
-        return average * shower * 3.2
+    func getWaterCarbon(average: Double) -> Double {
+        return average * water * 3.2
     }
 }

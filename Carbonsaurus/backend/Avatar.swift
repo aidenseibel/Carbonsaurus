@@ -163,11 +163,11 @@ enum AvatarBackground: String, Codable, AvatarItem {
         case .no_background:
             return 0
         case .mountains:
-            return 1000
-        case .beach:
             return 3000
-        case .space:
+        case .beach:
             return 5000
+        case .space:
+            return 7000
         }
     }
 }

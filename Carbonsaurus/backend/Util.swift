@@ -7,6 +7,13 @@
 
 import Foundation
 
+// refreshes the view for whatever reason
+class ReloadViewHelper: ObservableObject {
+    func reloadView() {
+        objectWillChange.send()
+    }
+}
+
 public func formatDate(date: Date) -> String {
     let dateFormatter = DateFormatter()
 

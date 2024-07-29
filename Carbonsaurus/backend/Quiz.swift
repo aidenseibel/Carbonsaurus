@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct Quiz {
+struct DailyQuiz: Codable {
+    var id: UUID = UUID()
+    var quiz: Quiz
+    var date: Date    
+}
+
+struct Quiz: Codable {
+    var id: UUID = UUID()
     var question: String
     var answerIndex: Int
     var choices: [String]

@@ -29,6 +29,7 @@ struct QuizView: View {
 
                     ForEach(quiz.choices, id: \.self) { choice in
                         Button {
+                            hasAnswered = true
                             checkAnswer(choice: choice)
                         } label: {
                             HStack {
@@ -77,12 +78,13 @@ struct QuizView: View {
     }
 
     func checkAnswer(choice: String) {
-        hasAnswered = true
         if choice == quiz.choices[quiz.answerIndex] {
             isCorrect = true
         } else {
             isCorrect = false
         }
+        viewModel.hasAnsweredDailyQuestion = true
+        viewModel.localUser.addDailyQuiz(dailyQuiz: DailyQuiz(quiz: quiz, date: Date()))
     }
 }
 

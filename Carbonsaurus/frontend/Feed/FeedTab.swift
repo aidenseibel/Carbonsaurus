@@ -16,7 +16,8 @@ struct FeedTab: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.orange.opacity(0.3).edgesIgnoringSafeArea(.all)
+                Color.orange.opacity(0.3).ignoresSafeArea()
+
                 ScrollView {
                     VStack(alignment: .center, spacing: 25) {
                         if isLoading {
@@ -26,27 +27,20 @@ struct FeedTab: View {
                             SkeletonNewsComponent()
                             SkeletonNewsComponent()
                         } else {
-                            VStack(alignment: .leading, spacing: 10){
+                            if !viewModel.hasAnsweredDailyQuestion{
                                 NavigationLink {
                                     QuizView(quiz: exampleQuizzes.randomElement() ?? exampleQuizzes[0])
                                 } label: {
                                     QuizSubView()
                                 }
                                 .buttonStyle(.plain)
-
-//                                NavigationLink {
-//                                    // lesson
-//                                } label: {
-//                                    LessonSubView()
-//                                }
-//                                .buttonStyle(.plain)
+                            } else {
+                                Image("volcano_trees")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: UIScreen.main.bounds.width * 0.80)
                             }
 
-                            Image("volcano_trees")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.width * 0.80)
-                            
                             VStack(alignment: .leading, spacing: 10){
                                 Text("recent climate news")
                                     .bold()

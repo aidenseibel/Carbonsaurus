@@ -12,6 +12,7 @@ class ViewModel: ObservableObject {
     @Published var hasOnboarded: Bool = false
     @Published var isTabBarShowing: Bool = true
     @Published var hasLoggedToday: Bool = false
+    @Published var hasAnsweredDailyQuestion: Bool = false
 
     init() {
         if let user = DataModel.getLocalUserFromAppStorage() {
@@ -19,6 +20,7 @@ class ViewModel: ObservableObject {
             hasOnboarded = true
 
             hasLoggedToday = localUser.diaries.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
+            hasAnsweredDailyQuestion = localUser.dailyQuizzes.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
         } else {
             localUser = User()
         }
@@ -44,6 +46,7 @@ class ViewModel: ObservableObject {
         localUser = User()
         hasOnboarded = false
         hasLoggedToday = false
+        hasAnsweredDailyQuestion = false
         DataModel.saveLocalUserToUserDefaults(user: localUser)
     }
     

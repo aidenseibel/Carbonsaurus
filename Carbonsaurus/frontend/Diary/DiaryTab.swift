@@ -24,17 +24,17 @@ struct DiaryTab: View {
                                 DiaryReminderSubView()
                             }
                             .buttonStyle(.plain)
+                        } else {
+                            Image("flowers")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: UIScreen.main.bounds.width * 0.80)
                         }
-                        
-                        Image("flowers")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.80)
 
                         VStack(alignment: .leading) {
                             Text("this week")
                                 .bold()
-                                .font(.system(size: 28))
+                                .font(.system(size: 22))
 
                             Text(String(format: "%.0f", viewModel.localUser.getDinoPointsThisWeek()) + " dino points")
                                 .font(.system(size: 14))
@@ -42,7 +42,8 @@ struct DiaryTab: View {
 
                             if viewModel.localUser.getDiariesThisWeek().count == 0 {
                                 HStack() {
-                                    Text("you haven't created any diaries this week!")
+                                    Spacer()
+                                    Text("check in for your first diary this week!")
                                         .font(.system(size: 14))
                                         .padding()
                                     Spacer()
@@ -73,7 +74,8 @@ struct DiaryTab: View {
 
                             if viewModel.localUser.diaries.count == 0 {
                                 HStack() {
-                                    Text("you haven't created any diaries")
+                                    Spacer()
+                                    Text("check in for your first diary!")
                                         .font(.system(size: 14))
                                         .padding()
                                     Spacer()

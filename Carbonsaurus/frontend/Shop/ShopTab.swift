@@ -34,6 +34,7 @@ struct ShopTab: View {
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
+                        .shadow(radius: 10)
                         
                         VStack(alignment: .leading) {
                             Text("dinos")
@@ -102,13 +103,6 @@ struct ShopTab: View {
             .navigationTitle("the dino shop")
             .navigationBarTitleDisplayMode(.large)
         }
-    }
-}
-
-// refreshes the view / dino balance when an item is purchased
-class ReloadViewHelper: ObservableObject {
-    func reloadView() {
-        objectWillChange.send()
     }
 }
 
