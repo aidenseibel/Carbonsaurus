@@ -89,6 +89,90 @@ enum AvatarAccessory: String, Codable, AvatarItem {
     var imageName: String {
         return self.rawValue
     }
+    
+    var size: Double {
+        switch self {
+        case .no_accessory:
+            return 0
+        case .banana:
+            return 0.2
+        case .bowtie:
+            return 0.2
+        case .flower:
+            return 0.2
+        case .lollipop:
+            return 0.2
+        case .spinhat:
+            return 0.3
+        case .sunglasses:
+            return 0.25
+        case .tophat:
+            return 0.3
+        }
+    }
+    
+    var xOffset: Double {
+        switch self {
+        case .no_accessory:
+            -0.17
+        case .banana:
+            -0.17
+        case .bowtie:
+            -0.17
+        case .flower:
+            -0.25
+        case .lollipop:
+            -0.25
+        case .spinhat:
+            -0.17
+        case .sunglasses:
+            -0.17
+        case .tophat:
+            -0.17
+        }
+    }
+    
+    var yOffset: Double {
+        switch self {
+        case .no_accessory:
+            0.09
+        case .banana:
+            0.09
+        case .bowtie:
+            0.09
+        case .flower:
+            0.13
+        case .lollipop:
+            0.13
+        case .spinhat:
+            0.09
+        case .sunglasses:
+            0.09
+        case .tophat:
+            0.09
+        }
+    }
+    
+    var rotation: Double {
+        switch self {
+        case .no_accessory:
+            0
+        case .banana:
+            0
+        case .bowtie:
+            0
+        case .flower:
+            320
+        case .lollipop:
+            300
+        case .spinhat:
+            0
+        case .sunglasses:
+            0
+        case .tophat:
+            0
+        }
+    }
 
     var displayName: String {
         switch self {
@@ -189,5 +273,13 @@ struct Avatar: Codable {
         self.color = .blue
         self.accessory = .no_accessory
         self.background = .no_background
+    }
+    
+    func getImageString(mood: AvatarMood) -> String {
+        return color.rawValue + "_dino_" + mood.rawValue
+    }
+    
+    func getImageStringOneHigher(mood: AvatarMood) -> String {
+        return color.rawValue + "_dino_" + mood.oneHigher().rawValue
     }
 }

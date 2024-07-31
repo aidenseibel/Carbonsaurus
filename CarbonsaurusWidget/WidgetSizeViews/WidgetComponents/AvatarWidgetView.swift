@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-struct AvatarView: View {
+struct AvatarWidgetView: View {
     var viewModel: ViewModel
     
     var body: some View {
@@ -34,5 +34,5 @@ struct AvatarView: View {
 }
 
 #Preview {
-    AvatarView(viewModel: ViewModel())
+    AvatarWidgetView(viewModel: ViewModel())
 }

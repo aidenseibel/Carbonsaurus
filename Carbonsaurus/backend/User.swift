@@ -149,24 +149,24 @@ class User: Identifiable, Codable, ObservableObject {
     func getDinoMoodDescription() -> String {
         switch getDinoMood() {
         case .sad:
-            return "it's been a hard week."
+            return "are you even trying?"
         case .worried:
             return "you're this close to killing the planet."
         case .neutral:
-            return "don't worry, we know it's difficult."
+            return "hang in there, chief."
         case .happy:
-            return "congrats on being clutch this week."
+            return "mic drop."
         case .great:
-            return "now that's what i'm talking about."
+            return "clutch af."
         }
     }
     
     func getAvatarImage() -> String {
-        return avatar.color.rawValue + "_dino_" + getDinoMood().rawValue
+        return avatar.getImageString(mood: getDinoMood())
     }
 
     func getAvatarImageOneHigher() -> String {
-        return avatar.color.rawValue + "_dino_" + getDinoMood().oneHigher().rawValue
+        return avatar.getImageStringOneHigher(mood: getDinoMood())
     }
     
     func buyShopItem(shopItem: AvatarItem) -> Bool {

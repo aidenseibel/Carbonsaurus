@@ -11,7 +11,7 @@ struct SmallWidgetView: View {
     var viewModel: ViewModel
     
     var body: some View {
-        AvatarView(viewModel: viewModel)
+        AvatarWidgetView(viewModel: viewModel)
     }
 }
 

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MediumWidgetView: View {
-    var viewModel: ViewModel;
+    var viewModel: ViewModel
     
     var body: some View {
         if(viewModel.hasOnboarded && viewModel.hasLoggedToday) {
             HStack {
-                AvatarView(viewModel: viewModel)
+                AvatarWidgetView(viewModel: viewModel)
                 Spacer()
                 VStack {
                     Text("\(Int(viewModel.localUser.getDinoPoints() )) Dino Points")

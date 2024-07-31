@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		170EC3ED2C45B80100EBF44D /* DiaryReminderSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170EC3EC2C45B80100EBF44D /* DiaryReminderSubView.swift */; };
+		171B8F472C5AA8930016FAA4 /* AvatarWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171B8F462C5AA8930016FAA4 /* AvatarWidgetView.swift */; };
+		171B8F482C5AA8B20016FAA4 /* AvatarWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171B8F462C5AA8930016FAA4 /* AvatarWidgetView.swift */; };
 		172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2D2B8B83240050895B /* ViewModel.swift */; };
 		172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */; };
 		172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE332B8B9A0E0050895B /* StatsView.swift */; };
+		174A3DFB2C5AA6C50041F19A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A3DFA2C5AA6C50041F19A /* AvatarView.swift */; };
 		1750E8352C4C7CDF00BCE6CA /* ShopItemSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1750E8342C4C7CDF00BCE6CA /* ShopItemSubView.swift */; };
 		176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761202B8A8017001EC050 /* CarbonsaurusApp.swift */; };
 		176761252B8A8018001EC050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761242B8A8018001EC050 /* Assets.xcassets */; };
@@ -50,8 +53,6 @@
 		C4197EA02C5824A80094BFE2 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */; };
 		C4197EA22C58265E0094BFE2 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */; };
 		C4197EA32C5826630094BFE2 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */; };
-		C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
-		C4197EA72C582DF90094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
 		C45A9F762C5AA4BE001D81A6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45A9F752C5AA4BE001D81A6 /* SettingsView.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
@@ -109,9 +110,11 @@
 
 /* Begin PBXFileReference section */
 		170EC3EC2C45B80100EBF44D /* DiaryReminderSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryReminderSubView.swift; sourceTree = "<group>"; };
+		171B8F462C5AA8930016FAA4 /* AvatarWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarWidgetView.swift; sourceTree = "<group>"; };
 		172DAE2D2B8B83240050895B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAvatarView.swift; sourceTree = "<group>"; };
 		172DAE332B8B9A0E0050895B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		174A3DFA2C5AA6C50041F19A /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		1750E8342C4C7CDF00BCE6CA /* ShopItemSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemSubView.swift; sourceTree = "<group>"; };
 		1767611D2B8A8017001EC050 /* Carbonsaurus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbonsaurus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176761202B8A8017001EC050 /* CarbonsaurusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusApp.swift; sourceTree = "<group>"; };
@@ -147,7 +150,6 @@
 		C4197E8F2C57499E0094BFE2 /* CarbonsaurusWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarbonsaurusWidgetExtension.entitlements; sourceTree = "<group>"; };
 		C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
-		C4197EA52C582DF40094BFE2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		C45A9F752C5AA4BE001D81A6 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 		1767614B2B8A8CB1001EC050 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				174A3DFA2C5AA6C50041F19A /* AvatarView.swift */,
 				C4CFEF952B8B6226002AE026 /* TabBar.swift */,
 			);
 			path = components;
@@ -346,7 +349,7 @@
 		C4197EA42C582DDA0094BFE2 /* WidgetComponents */ = {
 			isa = PBXGroup;
 			children = (
-				C4197EA52C582DF40094BFE2 /* AvatarView.swift */,
+				171B8F462C5AA8930016FAA4 /* AvatarWidgetView.swift */,
 			);
 			path = WidgetComponents;
 			sourceTree = "<group>";
@@ -562,7 +565,6 @@
 				1767614D2B8A8CC6001EC050 /* ProfileTab.swift in Sources */,
 				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
 				177ACA4D2C4B04B4003666BE /* BuyShopItemView.swift in Sources */,
-				C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */,
 				C45A9F762C5AA4BE001D81A6 /* SettingsView.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
@@ -576,11 +578,13 @@
 				1750E8352C4C7CDF00BCE6CA /* ShopItemSubView.swift in Sources */,
 				176761692B8B1FFB001EC050 /* DiaryView.swift in Sources */,
 				1767616D2B8B5679001EC050 /* Quiz.swift in Sources */,
+				171B8F482C5AA8B20016FAA4 /* AvatarWidgetView.swift in Sources */,
 				C4197E9F2C5823790094BFE2 /* MediumWidgetView.swift in Sources */,
 				1767615C2B8AA2AA001EC050 /* DiaryCreatorView.swift in Sources */,
 				172DAE302B8B8D9B0050895B /* ChangeAvatarView.swift in Sources */,
 				1767616F2B8B5736001EC050 /* QuizView.swift in Sources */,
 				C492E6B92B8AF70800969486 /* SkeletonNewsComponent.swift in Sources */,
+				174A3DFB2C5AA6C50041F19A /* AvatarView.swift in Sources */,
 				17B568FE2C41BB65003F7B43 /* LessonSubView.swift in Sources */,
 				172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */,
 				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
@@ -629,8 +633,8 @@
 				C4CFF0022B8B8CAD002AE026 /* CarbonsaurusWidgetBundle.swift in Sources */,
 				C4197E992C57513D0094BFE2 /* Quiz.swift in Sources */,
 				C4197E9C2C57513D0094BFE2 /* ViewModel.swift in Sources */,
-				C4197EA72C582DF90094BFE2 /* AvatarView.swift in Sources */,
 				C4197E9B2C57513D0094BFE2 /* User.swift in Sources */,
+				171B8F472C5AA8930016FAA4 /* AvatarWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,7 +788,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
-				DEVELOPMENT_TEAM = 5JV988A46C;
+				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Carbonsaurus/Info.plist;
@@ -802,7 +806,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus;
+				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -820,7 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Carbonsaurus/Preview Content\"";
-				DEVELOPMENT_TEAM = 5JV988A46C;
+				DEVELOPMENT_TEAM = C72D493DTH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Carbonsaurus/Info.plist;
@@ -838,7 +842,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus;
+				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -926,7 +930,7 @@
 				CODE_SIGN_ENTITLEMENTS = CarbonsaurusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5JV988A46C;
+				DEVELOPMENT_TEAM = C72D493DTH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
@@ -937,7 +941,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus.CarbonsaurusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -954,7 +958,7 @@
 				CODE_SIGN_ENTITLEMENTS = CarbonsaurusWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5JV988A46C;
+				DEVELOPMENT_TEAM = C72D493DTH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarbonsaurusWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CarbonsaurusWidget;
@@ -965,7 +969,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rowdydinos1.Carbonsaurus.CarbonsaurusWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus.CarbonsaurusWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

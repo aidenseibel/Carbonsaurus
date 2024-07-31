@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ProfileTab: View {
     @EnvironmentObject var viewModel: ViewModel
-    @State private var timer: Timer?
-    @State var toggleDino: Bool = false
+    @ObservedObject var reloadViewHelper = ReloadViewHelper()
+
     @State var openChangeAvatar: Bool = false
 
     var body: some View {
@@ -20,32 +20,11 @@ struct ProfileTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .center, spacing: 30) {
-                        ZStack {
-                            if viewModel.localUser.avatar.background == .no_background{
-                                Circle()
-                                    .frame(width: UIScreen.main.bounds.width * 0.70)
-                                    .foregroundColor(.white)
+                        AvatarView(avatar: viewModel.localUser.avatar, mood: viewModel.localUser.getDinoMood(), width: UIScreen.main.bounds.width * 0.70)
+                            .onTapGesture {
+                                openChangeAvatar = true
                             }
-                            else{
-                                Image(viewModel.localUser.avatar.background.rawValue)
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width * 0.70, height: UIScreen.main.bounds.width * 0.70)
-                                    .scaledToFill()
-                                    .clipped()
-                                    .cornerRadius(UIScreen.main.bounds.width * 0.35)
-                            }
-                            Image(toggleDino ? viewModel.localUser.getAvatarImage() : viewModel.localUser.getAvatarImageOneHigher())
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
-                                .cornerRadius(50)
-                                .clipped()
-                                .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
-                        }
-                        .onTapGesture {
-                            openChangeAvatar = true
-                        }
-                        
+
                         HStack {
                             Spacer()
                             Image("red_purple_flowers")
@@ -69,7 +48,6 @@ struct ProfileTab: View {
                                 .frame(width: 70, height: 70)
                                 .scaleEffect(x: -1, y: 1)
                             Spacer()
-                            
                         }
                         
                         Text("\(viewModel.localUser.getDinoMoodDescription())")
@@ -100,17 +78,10 @@ struct ProfileTab: View {
             )
             .sheet(isPresented: $openChangeAvatar, onDismiss: {
                 openChangeAvatar = false
+                reloadViewHelper.reloadView()
             }, content: {
                 ChangeAvatarView(selectedAvatarColor: viewModel.localUser.avatar.color, selectedAvatarAccessory: viewModel.localUser.avatar.accessory, selectedAvatarBackground: viewModel.localUser.avatar.background)
             })
-        }
-        .onAppear {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.7, repeats: true) { _ in
-                toggleDino.toggle()
-            }
-        }
-        .onDisappear {
-            timer?.invalidate()
         }
     }
 }
