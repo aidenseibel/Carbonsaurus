@@ -52,6 +52,7 @@
 		C4197EA32C5826630094BFE2 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */; };
 		C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
 		C4197EA72C582DF90094BFE2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4197EA52C582DF40094BFE2 /* AvatarView.swift */; };
+		C45A9F762C5AA4BE001D81A6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45A9F752C5AA4BE001D81A6 /* SettingsView.swift */; };
 		C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A22B8AA77F00969486 /* FeedService.swift */; };
 		C492E6A52B8AD74400969486 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492E6A42B8AD74400969486 /* Util.swift */; };
 		C492E6B72B8AF69D00969486 /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = C492E6B62B8AF69D00969486 /* Shimmer */; };
@@ -147,6 +148,7 @@
 		C4197E9E2C5823790094BFE2 /* MediumWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		C4197EA12C58265E0094BFE2 /* SmallWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
 		C4197EA52C582DF40094BFE2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		C45A9F752C5AA4BE001D81A6 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C492E6A22B8AA77F00969486 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		C492E6A42B8AD74400969486 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		C492E6B82B8AF70800969486 /* SkeletonNewsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonNewsComponent.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 		170EC3EF2C45C19100EBF44D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C45A9F752C5AA4BE001D81A6 /* SettingsView.swift */,
 				1767614C2B8A8CC6001EC050 /* ProfileTab.swift */,
 				172DAE2F2B8B8D9B0050895B /* ChangeAvatarView.swift */,
 				17F786762BF3EBEE00B9FA52 /* UpdateAveragesView.swift */,
@@ -560,6 +563,7 @@
 				17F786752BF3E74600B9FA52 /* Notifications.swift in Sources */,
 				177ACA4D2C4B04B4003666BE /* BuyShopItemView.swift in Sources */,
 				C4197EA62C582DF40094BFE2 /* AvatarView.swift in Sources */,
+				C45A9F762C5AA4BE001D81A6 /* SettingsView.swift in Sources */,
 				1767614F2B8A8CD0001EC050 /* DiaryTab.swift in Sources */,
 				1767616B2B8B5518001EC050 /* QuizSubView.swift in Sources */,
 				17F786812BF52B7E00B9FA52 /* Avatar.swift in Sources */,
