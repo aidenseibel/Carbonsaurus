@@ -44,7 +44,7 @@ struct FeedTab: View {
                             VStack(alignment: .leading, spacing: 10){
                                 Text("recent climate news")
                                     .bold()
-                                    .font(.system(size: 28))
+                                    .font(.system(size: 22))
 
                                 ForEach(articles, id: \.self) { article in
                                     Link(destination: URL(string: article.url)!, label: {

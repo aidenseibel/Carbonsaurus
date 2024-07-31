@@ -38,6 +38,8 @@ struct ShopTab: View {
                         
                         VStack(alignment: .leading) {
                             Text("dinos")
+                                .bold()
+                                .font(.system(size: 22))
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach(allAvatarColors, id: \.self){ dino in
@@ -58,6 +60,8 @@ struct ShopTab: View {
 
                         VStack(alignment: .leading) {
                             Text("accessories")
+                                .bold()
+                                .font(.system(size: 22))
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach(allAvatarAccessories, id: \.self){ accessory in
@@ -78,6 +82,8 @@ struct ShopTab: View {
 
                         VStack(alignment: .leading) {
                             Text("backgrounds")
+                                .bold()
+                                .font(.system(size: 22))
                             ScrollView(.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach(allAvatarBackgrounds, id: \.self){ background in
