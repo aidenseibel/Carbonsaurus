@@ -14,6 +14,8 @@ struct ChangeAvatarView: View {
     @State var selectedAvatarColor: AvatarColor
     @State var selectedAvatarAccessory: AvatarAccessory
     @State var selectedAvatarBackground: AvatarBackground
+    
+    var avatarWidth: Double = UIScreen.main.bounds.width * 0.60
 
     var body: some View {
         ZStack {
@@ -41,22 +43,30 @@ struct ChangeAvatarView: View {
                     ZStack {
                         if selectedAvatarBackground == .no_background{
                             Circle()
-                                .frame(width: UIScreen.main.bounds.width * 0.60)
+                                .frame(width: avatarWidth)
                                 .foregroundColor(.white)
                         } else {
                             Image(selectedAvatarBackground.rawValue)
                                 .resizable()
-                                .frame(width: UIScreen.main.bounds.width * 0.60, height: UIScreen.main.bounds.width * 0.60)
+                                .frame(width: avatarWidth, height: avatarWidth)
                                 .scaledToFill()
                                 .clipped()
-                                .cornerRadius(UIScreen.main.bounds.width * 0.30)
+                                .cornerRadius(avatarWidth * 0.50)
                         }
                         Image("\(selectedAvatarColor)_dino_happy")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.50, height: UIScreen.main.bounds.width * 0.5)
+                            .frame(width: avatarWidth * 0.75, height: avatarWidth * 0.75)
                             .cornerRadius(50)
                             .clipped()
+
+                        Image(selectedAvatarAccessory.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: avatarWidth * (accessoryOffsets[selectedAvatarAccessory]?[selectedAvatarColor]?.size ?? 0), height: avatarWidth * (accessoryOffsets[selectedAvatarAccessory]?[selectedAvatarColor]?.size ?? 0))
+                            .rotationEffect(Angle(degrees: (accessoryOffsets[selectedAvatarAccessory]?[selectedAvatarColor]?.rotation ?? 0)))
+                            .offset(x: avatarWidth * (accessoryOffsets[selectedAvatarAccessory]?[selectedAvatarColor]?.xOffset ?? 0), y: avatarWidth * (accessoryOffsets[selectedAvatarAccessory]?[selectedAvatarColor]?.yOffset ?? 0))
+
                     }
 
                     VStack(alignment: .leading, spacing: 5){

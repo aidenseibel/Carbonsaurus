@@ -46,9 +46,9 @@ struct AvatarView: View {
                 Image(avatar.accessory.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: width * avatar.accessory.size, height: width * avatar.accessory.size)
-                    .rotationEffect(Angle(degrees: avatar.accessory.rotation))
-                    .offset(x: width * avatar.accessory.xOffset, y: width * avatar.accessory.yOffset)
+                    .frame(width: width * (accessoryOffsets[avatar.accessory]?[avatar.color]?.size ?? 0), height: width * (accessoryOffsets[avatar.accessory]?[avatar.color]?.size ?? 0))
+                    .rotationEffect(Angle(degrees: (accessoryOffsets[avatar.accessory]?[avatar.color]?.rotation ?? 0)))
+                    .offset(x: width * (accessoryOffsets[avatar.accessory]?[avatar.color]?.xOffset ?? 0), y: width * (accessoryOffsets[avatar.accessory]?[avatar.color]?.yOffset ?? 0))
             }
             .rotationEffect(toggleDino ? Angle(degrees: 10.0) : Angle(degrees: -10.0))
             
@@ -65,5 +65,5 @@ struct AvatarView: View {
 }
 
 #Preview {
-    AvatarView(avatar: Avatar(), mood: AvatarMood.great, width: UIScreen.main.bounds.width)
+    AvatarView(avatar: Avatar(color: .pink, mood: .happy, accessory: .tophat, background: .no_background), mood: AvatarMood.great, width: UIScreen.main.bounds.width)
 }

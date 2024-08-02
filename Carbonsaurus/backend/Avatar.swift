@@ -89,90 +89,6 @@ enum AvatarAccessory: String, Codable, AvatarItem {
     var imageName: String {
         return self.rawValue
     }
-    
-    var size: Double {
-        switch self {
-        case .no_accessory:
-            return 0
-        case .banana:
-            return 0.2
-        case .bowtie:
-            return 0.2
-        case .flower:
-            return 0.2
-        case .lollipop:
-            return 0.2
-        case .spinhat:
-            return 0.3
-        case .sunglasses:
-            return 0.25
-        case .tophat:
-            return 0.3
-        }
-    }
-    
-    var xOffset: Double {
-        switch self {
-        case .no_accessory:
-            -0.17
-        case .banana:
-            -0.17
-        case .bowtie:
-            -0.17
-        case .flower:
-            -0.25
-        case .lollipop:
-            -0.25
-        case .spinhat:
-            -0.17
-        case .sunglasses:
-            -0.17
-        case .tophat:
-            -0.17
-        }
-    }
-    
-    var yOffset: Double {
-        switch self {
-        case .no_accessory:
-            0.09
-        case .banana:
-            0.09
-        case .bowtie:
-            0.09
-        case .flower:
-            0.13
-        case .lollipop:
-            0.13
-        case .spinhat:
-            0.09
-        case .sunglasses:
-            0.09
-        case .tophat:
-            0.09
-        }
-    }
-    
-    var rotation: Double {
-        switch self {
-        case .no_accessory:
-            0
-        case .banana:
-            0
-        case .bowtie:
-            0
-        case .flower:
-            320
-        case .lollipop:
-            300
-        case .spinhat:
-            0
-        case .sunglasses:
-            0
-        case .tophat:
-            0
-        }
-    }
 
     var displayName: String {
         switch self {
@@ -283,3 +199,69 @@ struct Avatar: Codable {
         return color.rawValue + "_dino_" + mood.oneHigher().rawValue
     }
 }
+
+struct AccessoryOffset {
+    var xOffset: Double
+    var yOffset: Double
+    var size: Double
+    var rotation: Double
+}
+
+
+var accessoryOffsets: [AvatarAccessory : [AvatarColor : AccessoryOffset]] = [
+    AvatarAccessory.banana : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.17, yOffset: 0.09, size: 0.25, rotation: 350),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.17, yOffset: 0.01, size: 0.25, rotation: 320),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.17, yOffset: 0.09, size: 0.25, rotation: 350),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.15, yOffset: 0.0, size: 0.25, rotation: 340),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.17, yOffset: 0.13, size: 0.25, rotation: 300),
+    ],
+
+    AvatarAccessory.bowtie : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.15, yOffset: 0.04, size: 0.25, rotation: 350),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.12, yOffset: -0.01, size: 0.22, rotation: 350),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.16, yOffset: 0.07, size: 0.20, rotation: 350),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.08, yOffset: -0.01, size: 0.20, rotation: 10),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.16, yOffset: 0.08, size: 0.17, rotation: 330),
+    ],
+
+    AvatarAccessory.flower : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.20, yOffset: 0.1, size: 0.25, rotation: 300),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.20, yOffset: 0.05, size: 0.20, rotation: 300),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.20, yOffset: 0.15, size: 0.25, rotation: 300),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.10, yOffset: 0.03, size: 0.20, rotation: 350),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.20, yOffset: 0.15, size: 0.15, rotation: 300),
+    ],
+
+    AvatarAccessory.lollipop : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.20, yOffset: 0.1, size: 0.25, rotation: 300),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.17, yOffset: 0.02, size: 0.20, rotation: 300),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.21, yOffset: 0.12, size: 0.25, rotation: 300),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.18, yOffset: 0.02, size: 0.20, rotation: 340),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.16, yOffset: 0.14, size: 0.15, rotation: 290),
+    ],
+
+    AvatarAccessory.spinhat : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.18, yOffset: -0.235, size: 0.25, rotation: 330),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.17, yOffset: -0.23, size: 0.4, rotation: 350),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.18, yOffset: -0.15, size: 0.4, rotation: 0),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.01, yOffset: -0.23, size: 0.45, rotation: 20),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.23, yOffset: -0.02, size: 0.2, rotation: 0),
+    ],
+
+    AvatarAccessory.sunglasses : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.14, yOffset: -0.2, size: 0.2, rotation: 350),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.18, yOffset: -0.14, size: 0.3, rotation: 350),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.20, yOffset: -0.04, size: 0.3, rotation: 10),
+        AvatarColor.orange : AccessoryOffset(xOffset: -0.10, yOffset: -0.15, size: 0.35, rotation: 20),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.24, yOffset: 0.02, size: 0.18, rotation: 20),
+    ],
+
+    AvatarAccessory.tophat : [
+        AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.20, yOffset: -0.26, size: 0.25, rotation: 330),
+        AvatarColor.green : AccessoryOffset(xOffset: -0.08, yOffset: -0.23, size: 0.30, rotation: 20),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.18, yOffset: -0.15, size: 0.30, rotation: 0),
+        AvatarColor.orange : AccessoryOffset(xOffset: 0.04, yOffset: -0.23, size: 0.30, rotation: 20),
+        AvatarColor.pink : AccessoryOffset(xOffset: -0.23, yOffset: -0.02, size: 0.15, rotation: 0),
+    ],
+]
