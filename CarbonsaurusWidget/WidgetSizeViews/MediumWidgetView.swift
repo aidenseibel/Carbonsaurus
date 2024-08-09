@@ -33,7 +33,6 @@ struct MediumWidgetView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .clipped()
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                Text("time to check in!")
             }
         }
     }

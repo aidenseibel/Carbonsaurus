@@ -15,7 +15,7 @@ struct QuizSubView: View {
                     .font(.system(size: 18))
                     .bold()
                     .padding(.bottom, 5)
-                Text("test your knowledge, earn 50 dino points")
+                Text("test your knowledge, earn 500 dino points")
                     .font(.system(size: 14))
             }.padding(10)
             Spacer()

@@ -102,7 +102,7 @@ class User: Identifiable, Codable, ObservableObject {
         }
         
         for dailyQuiz in getDailyQuizzesThisWeek() {
-            total += 50
+            total += 500
         }
 
         return total

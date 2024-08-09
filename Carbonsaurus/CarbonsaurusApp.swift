@@ -14,20 +14,8 @@ struct CarbonsaurusApp: App {
     @State private var selectedTab: Tab = .profile
     @StateObject var viewModel = ViewModel()
     @Environment(\.scenePhase) private var scenePhase
-
-    init() {
-        UITabBar.appearance().isHidden = true
-
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
-            if granted {
-                print("Notifications permission granted")
-                scheduleDailyNotification()
-            } else if let error = error {
-                print(error.localizedDescription)
-            }
-        }
-    }
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             if !viewModel.hasOnboarded {

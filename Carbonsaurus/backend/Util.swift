@@ -14,6 +14,17 @@ class ReloadViewHelper: ObservableObject {
     }
 }
 
+public func formatDateLong(date: Date) -> String {
+    let dateFormatter = DateFormatter()
+
+    dateFormatter.dateFormat = "EEEE, MMMM d"
+
+    let dateString: String = dateFormatter.string(from: date)
+
+    return dateString.lowercased()
+}
+
+
 public func formatDate(date: Date) -> String {
     let dateFormatter = DateFormatter()
 
@@ -40,10 +51,10 @@ public func timeAgoString(from date: Date) -> String {
         return "\(years) year\(years == 1 ? "" : "s") ago"
     } else if let months = components.month, months > 0 {
         return "\(months) month\(months == 1 ? "" : "s") ago"
-    } else if let days = components.day, days > 0 {
+    } else if let days = components.day, days > 1 {
         return "\(days) day\(days == 1 ? "" : "s") ago"
-    } else if let hours = components.hour, hours > 0 {
-        return "\(hours) hour\(hours == 1 ? "" : "s") ago"
+    } else if let days = components.day, let hours = components.hour, hours > 0 {
+        return "\(hours + days * 24) hour\(hours == 1 ? "" : "s") ago"
     } else if let minutes = components.minute, minutes > 0 {
         return "\(minutes) minute\(minutes == 1 ? "" : "s") ago"
     } else if let seconds = components.second, seconds > 0 {
@@ -69,4 +80,20 @@ public func parseNumber(input: String) -> Double {
 public func getRandomPanorama() -> String{
     let panoramas: [String] = ["meadow", "desert", "lake"]
     return panoramas.randomElement()!
+}
+
+func randomDateBetween(beginTime: Date, endTime: Date) -> Date? {
+    let timeIntervalStart = beginTime.timeIntervalSince1970
+    let timeIntervalEnd = endTime.timeIntervalSince1970
+
+    // Ensure the beginTime is not later than endTime
+    guard timeIntervalStart <= timeIntervalEnd else {
+        return nil
+    }
+
+    // Generate a random time interval between the start and end
+    let randomTimeInterval = TimeInterval.random(in: timeIntervalStart...timeIntervalEnd)
+
+    // Create a new date with the random time interval
+    return Date(timeIntervalSince1970: randomTimeInterval)
 }

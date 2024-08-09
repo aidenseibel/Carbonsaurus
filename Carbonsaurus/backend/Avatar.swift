@@ -220,7 +220,7 @@ var accessoryOffsets: [AvatarAccessory : [AvatarColor : AccessoryOffset]] = [
     AvatarAccessory.bowtie : [
         AvatarColor.lightGreen : AccessoryOffset(xOffset: -0.15, yOffset: 0.04, size: 0.25, rotation: 350),
         AvatarColor.green : AccessoryOffset(xOffset: -0.12, yOffset: -0.01, size: 0.22, rotation: 350),
-        AvatarColor.blue : AccessoryOffset(xOffset: -0.16, yOffset: 0.07, size: 0.20, rotation: 350),
+        AvatarColor.blue : AccessoryOffset(xOffset: -0.16, yOffset: 0.08, size: 0.20, rotation: 350),
         AvatarColor.orange : AccessoryOffset(xOffset: -0.08, yOffset: -0.01, size: 0.20, rotation: 10),
         AvatarColor.pink : AccessoryOffset(xOffset: -0.16, yOffset: 0.08, size: 0.17, rotation: 330),
     ],

@@ -43,10 +43,16 @@ public class ViewModel: ObservableObject {
     }
     
     func resetLocalUser() {
+        if let appDomain = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: appDomain)
+            UserDefaults.standard.synchronize()
+        }
+
         localUser = User()
         hasOnboarded = false
         hasLoggedToday = false
         hasAnsweredDailyQuestion = false
+
         DataModel.saveLocalUserToUserDefaults(user: localUser)
     }
     
