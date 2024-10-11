@@ -4,5 +4,7 @@
 <dict>
 	<key>NSUserNotificationsUsageDescription</key>
 	<string>We will remind you to do your diary every day in the evening!</string>
+	<key>NewsKey</key>
+	<string>f1f3468c3181496c84dcbec0af0a1ee8</string>
 </dict>
 </plist>

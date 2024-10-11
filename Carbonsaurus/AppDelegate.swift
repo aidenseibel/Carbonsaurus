@@ -17,7 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
             if granted {
                 if UserDefaults.standard.bool(forKey: "notificationsEnabled") {
                     print("Notifications authorized and enabled, scheduling...")
-                    self.scheduleNotifications()
+//                    self.scheduleNotifications()
                 }
             } else if let error = error {
                 print(error.localizedDescription)

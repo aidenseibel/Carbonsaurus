@@ -71,10 +71,17 @@ extension Source: Equatable {}
 
 class FeedService {
     static let shared = FeedService()
-    private let apiKey = "f1f3468c3181496c84dcbec0af0a1ee8"
     let numberOfDaysToRequest = 10
+    
+    func fetchAPIEndpoint() -> String {
+        if let apiEndpoint = Bundle.main.object(forInfoDictionaryKey: "NewsKey") as? String {
+            return apiEndpoint
+        }
+        return "No API endpoint found"
+    }
 
     func fetchTopStories(completion: @escaping ([Article]?) -> Void) {
+        let apiKey = fetchAPIEndpoint()
         guard let url = URL(string: "https://newsapi.org/v2/everything?q=climate change OR global warming OR emission OR environment&from=\(getFormattedURLDate(date: Calendar.current.date(byAdding: .day, value: -numberOfDaysToRequest, to: Date())!))&to=\(getFormattedURLDate(date: Date()))&pageSize=10&excludeDomains=yahoo.com&sortBy=popularity&apiKey=\(apiKey)") else {
             print("Invalid URL")
             completion(nil)
