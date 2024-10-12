@@ -44,7 +44,7 @@ class User: Identifiable, Codable, ObservableObject {
 
     func addDailyQuiz(dailyQuiz: DailyQuiz) {
         dailyQuizzes.append(dailyQuiz)
-        dinoPointsBalance += 50
+        dinoPointsBalance += 500
     }
 
     func getDinoPoints() -> Double {

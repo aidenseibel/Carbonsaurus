@@ -68,7 +68,6 @@ struct ProfileTab: View {
                 }
             }
             .navigationTitle("my dino")
-            .ignoresSafeArea(.all)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
                 NavigationLink(destination: {

@@ -122,7 +122,7 @@ struct DiaryCreatorView: View {
                 }
                 .padding()
             }
-            .navigationTitle("tuesday, july 16th")
+            .navigationTitle(formatDateLong(date: Date()))
             .navigationBarTitleDisplayMode(.large)
         }
     }

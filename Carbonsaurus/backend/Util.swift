@@ -17,7 +17,7 @@ class ReloadViewHelper: ObservableObject {
 public func formatDateLong(date: Date) -> String {
     let dateFormatter = DateFormatter()
 
-    dateFormatter.dateFormat = "EEEE, MMMM d"
+    dateFormatter.dateFormat = "EEEE, MMMM d" // saturday, october 12
 
     let dateString: String = dateFormatter.string(from: date)
 

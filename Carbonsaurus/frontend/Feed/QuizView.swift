@@ -52,9 +52,6 @@ struct QuizView: View {
 
                     if hasAnswered {
                         Button {
-                            if isCorrect {
-                                viewModel.localUser.dinoPointsBalance += 50
-                            }
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             HStack {
