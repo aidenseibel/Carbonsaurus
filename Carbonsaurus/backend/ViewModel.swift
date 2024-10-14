@@ -15,7 +15,7 @@ public class ViewModel: ObservableObject {
     @Published var hasAnsweredDailyQuestion: Bool = false
 
     init() {
-        if let user = DataModel.getLocalUserFromAppStorage() {
+        if let user = DataModel.getLocalUser() {
             localUser = user
             hasOnboarded = true
 
@@ -31,7 +31,7 @@ public class ViewModel: ObservableObject {
         hasLoggedToday = true
         print("Added diary to localUser. Saving to UserDefaults...")
 
-        DataModel.saveLocalUserToUserDefaults(user: localUser)
+        DataModel.saveLocalUser(user: localUser)
     }
     
     func updateLocalUserAvatar(avatarColor: AvatarColor, avatarAccessory: AvatarAccessory, avatarBackground: AvatarBackground) {
@@ -39,29 +39,44 @@ public class ViewModel: ObservableObject {
         localUser.avatar.accessory = avatarAccessory
         localUser.avatar.background = avatarBackground
         
-        DataModel.saveLocalUserToUserDefaults(user: localUser)
+        DataModel.saveLocalUser(user: localUser)
     }
     
     func resetLocalUser() {
-        if let appDomain = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: appDomain)
-            UserDefaults.standard.synchronize()
-        }
-
-        localUser = User()
+        DataModel.clearNotifications()
+        
         hasOnboarded = false
         hasLoggedToday = false
         hasAnsweredDailyQuestion = false
+        
+        localUser = User()
 
-        DataModel.saveLocalUserToUserDefaults(user: localUser)
+        DataModel.saveLocalUser(user: localUser)
     }
     
     func buyShopItem(shopItem: AvatarItem) -> Bool {
         if localUser.buyShopItem(shopItem: shopItem) {
-            DataModel.saveLocalUserToUserDefaults(user: localUser)
+            DataModel.saveLocalUser(user: localUser)
             return true
         } else {
             return false
+        }
+    }
+    
+    func setNotificationsEnabled(enabled: Bool) {
+        localUser.notificationsEnabled = enabled
+        DataModel.saveLocalUser(user: localUser)
+        
+        // note that this does authorization checks and clears all pending notifications
+        DataModel.scheduleNotifications(enabled: enabled, notificationTime: localUser.notificationTime)
+    }
+    
+    func setNotificationTime(time: Date) {
+        localUser.notificationTime = time
+        DataModel.saveLocalUser(user: localUser)
+        
+        if localUser.notificationsEnabled {
+            DataModel.scheduleNotifications(enabled: true, notificationTime: localUser.notificationTime)
         }
     }
 }

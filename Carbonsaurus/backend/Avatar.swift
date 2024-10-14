@@ -19,11 +19,11 @@ enum AvatarColor: String, Codable, AvatarItem {
     case blue
     case orange
     case pink
-    
+
     var imageName: String {
         return self.rawValue + "_dino_happy"
     }
-    
+
     var displayName: String {
         switch self {
         case .blue:

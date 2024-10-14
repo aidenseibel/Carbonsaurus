@@ -73,7 +73,7 @@ struct UpdateAveragesView: View {
                         if isValid(eat) { viewModel.localUser.averageEating = parseNumber(input: eat) }
                         if isValid(water) { viewModel.localUser.averageWater = parseNumber(input: water) }
 
-                        if DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser) {
+                        if DataModel.saveLocalUser(user: viewModel.localUser) {
                             presentationMode.wrappedValue.dismiss()
                         }
                     }, label: {

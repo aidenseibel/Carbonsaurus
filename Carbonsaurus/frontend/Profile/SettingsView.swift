@@ -14,10 +14,10 @@ struct SettingsView: View {
 
     @State private var showResetProfileAlert = false
     @State private var showNotificationsStatusAlert = false
-    @State private var notificationsEnabled = false
-    @State private var randomNotificationsEnabled = false
-    @State private var notificationBeginTime = Date()
-    @State private var notificationEndTime = Date()
+    @State private var notificationsEnabled: Bool = false
+    @State private var notificationTime: Date = Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!
+    
+    let feedbackURL: String = "https://docs.google.com/forms/d/e/1FAIpQLSfplFd6iwdxJsuwOfcqwMxBIns6dIeCQavuvyBVPNxuRKFuQA/viewform?usp=sf_link"
 
     var body: some View {
         ZStack {
@@ -33,7 +33,7 @@ struct SettingsView: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Toggle("enable notifications", isOn: $notificationsEnabled)  // Toggle switch
                             .onChange(of: notificationsEnabled) {
-                                setNotificationsEnabled()
+                                viewModel.setNotificationsEnabled(enabled: notificationsEnabled)
                             }
                             .alert(isPresented: $showNotificationsStatusAlert) {
                                 Alert(title: Text("Notifications Not Authorized"),
@@ -52,38 +52,17 @@ struct SettingsView: View {
                         }
                     }
 
-                    //MARK: RANDOM TIME
+                    // MARK: NOTIFICATION TIME
                     VStack(alignment: .leading, spacing: 10) {
                         if notificationsEnabled {  // Show time picker only if notifications are enabled
-                            Toggle("random time", isOn: $randomNotificationsEnabled)
-                                .onChange(of: randomNotificationsEnabled) {
-                                    setRandomNotificationsEnabled()
-                                }
-
-                            if randomNotificationsEnabled {
-                                Text("you will be notified at a random time within the selected range to check in.")
-                                    .font(.system(size: 12))
-                            }
-                            
                             VStack(alignment: .leading, spacing: 20) {
                                 DatePicker(
-                                    (randomNotificationsEnabled ? "start time" : "notification time"),
-                                    selection: $notificationBeginTime,
+                                    "notification time",
+                                    selection: $notificationTime,
                                     displayedComponents: .hourAndMinute
                                 )
-                                .onChange(of: notificationBeginTime) {
-                                    setNotificationBeginTime()
-                                }
-                                
-                                if randomNotificationsEnabled {
-                                    DatePicker(
-                                        "end time",
-                                        selection: $notificationEndTime,
-                                        displayedComponents: .hourAndMinute
-                                    )
-                                    .onChange(of: notificationEndTime) {
-                                        setNotificationEndTime()
-                                    }
+                                .onChange(of: notificationTime) {
+                                    viewModel.setNotificationTime(time: notificationTime)
                                 }
                             }
                             .padding()
@@ -93,13 +72,22 @@ struct SettingsView: View {
                     }
 
                     Divider()
-
+                    
                     
                     // MARK: PROFILE
-                    
                     Text("profile")
                         .font(.title2)
                         .bold()
+                    
+                    // update user averages
+                    NavigationLink {
+                        UpdateAveragesView()
+                    } label: {
+                        Text("update my averages")
+                    }
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(10)
 
                     // Reset profile button section
                     Button {
@@ -115,12 +103,42 @@ struct SettingsView: View {
                             title: Text("Confirm Reset"),
                             message: Text("Are you sure you want to reset your profile?"),
                             primaryButton: .destructive(Text("Reset")) {
-                                presentationMode.wrappedValue.dismiss()
                                 viewModel.resetLocalUser()
                             },
                             secondaryButton: .cancel()
                         )
                     }
+                    
+                    Divider()
+                    
+                    Text("other")
+                        .font(.title2)
+                        .bold()
+                    
+                    // feedback link
+                    Link(destination: URL(string: feedbackURL) ?? URL(string: "about:blank")!, label: {
+                        Text("provide feedback")
+                    })
+                    .buttonStyle(.plain)
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(10)
+                    
+                    // about the app
+                    NavigationLink {
+                        AboutCarbonsaurusView()
+                    } label: {
+                        Text("about the app")
+                    }
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(10)
+
+                    
+                    Text("Last updated October 2024")
+                        .padding(.bottom, 50)
+                        .font(.system(size: 12))
+                        .multilineTextAlignment(.center)
                 }
                 .padding()
             }
@@ -128,104 +146,17 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .onAppear{
-            notificationsEnabled = getNotificationsEnabled()
-            randomNotificationsEnabled = getRandomNotificationsEnabled()
-            notificationBeginTime = getNotificationsBeginTime()
-            notificationEndTime = getNotificationsEndTime()
+            notificationsEnabled = viewModel.localUser.notificationsEnabled
+            notificationTime = viewModel.localUser.notificationTime
         }
     }
     
     //MARK: FUNCTIONS
-    
     // converts Date to DateComponents
     func getDateComponents(date: Date) -> DateComponents {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date)
         return components
-    }
-
-    func checkNotificationAuthorized(completion: @escaping (Bool) -> Void) {
-        print("checking notification status...")
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            DispatchQueue.main.async {
-                switch settings.authorizationStatus {
-                case .authorized, .provisional:
-                    print("authorized")
-                    completion(true)
-                case .denied, .notDetermined, .ephemeral:
-                    print("not authorized")
-                    completion(false)
-                @unknown default:
-                    print("not authorized")
-                    completion(false)
-                }
-            }
-        }
-    }
-
-    func getNotificationsEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "notificationsEnabled")
-    }
-    
-    func getRandomNotificationsEnabled() -> Bool {
-        return UserDefaults.standard.bool(forKey: "randomNotificationsEnabled")
-    }
-    
-    func getNotificationsBeginTime() -> Date {
-        if let date =  UserDefaults.standard.object(forKey: "notificationsBeginTime") as? Date {
-            return date
-        } else {
-            return Calendar.current.date(bySettingHour: 18, minute: 30, second: 0, of: Date())!
-        }
-    }
-    
-    func getNotificationsEndTime() -> Date {
-        if let date =  UserDefaults.standard.object(forKey: "notificationsEndTime") as? Date {
-            return date
-        } else {
-            return Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!
-        }
-    }
-
-    
-    //MARK: SETTERS
-    func setNotificationsEnabled() {
-        if notificationsEnabled {
-            checkNotificationAuthorized { isAuthorized in
-                if !isAuthorized {
-                    showNotificationsStatusAlert = true
-                    notificationsEnabled = false
-                } else {
-                    UserDefaults.standard.setValue(notificationsEnabled, forKey: "notificationsEnabled")
-                    print("enabled notifications")
-                }
-            }
-        } else {
-            UserDefaults.standard.setValue(notificationsEnabled, forKey: "notificationsEnabled")
-            print("disabled notifications")
-        }
-    }
-    
-    func setRandomNotificationsEnabled() {
-        UserDefaults.standard.setValue(randomNotificationsEnabled, forKey: "randomNotificationsEnabled")
-    }
-    
-    func setNotificationBeginTime() {
-        UserDefaults.standard.setValue(notificationBeginTime, forKey: "notificationsBeginTime")
-        
-        // to ensure that the beginning time cannot be after the end time
-        setNotificationEndTime()
-    }
-    
-    func setNotificationEndTime() {
-        // Check if the end time is earlier than the begin time
-        if notificationEndTime <= notificationBeginTime {
-            // Reset end time to the same as begin time
-            notificationEndTime = notificationBeginTime
-            // Optionally, you could show an alert to inform the user
-            // Here you can add your own alert logic if needed
-        }
-        UserDefaults.standard.setValue(notificationEndTime, forKey: "notificationsEndTime")
     }
 }
 

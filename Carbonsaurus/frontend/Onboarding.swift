@@ -37,7 +37,7 @@ struct Onboarding: View {
                         Text("A few things before we start")
                             .font(.system(size: 48))
                             .bold()
-                        Text("We need to collect a few metrics from you so we can get your carbon footpeint accurate.")
+                        Text("We need to collect a few metrics from you so we can get an accurate carbon footprint.")
                             .bold()
                         Text("You can change these at any time, so don't worry!")
                             .bold()
@@ -62,7 +62,7 @@ struct Onboarding: View {
                                 viewModel.localUser.averageEnergy = 1
                                 viewModel.localUser.averageEating = 1800
                                 viewModel.localUser.averageWater = 10
-                                DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
+                                DataModel.saveLocalUser(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
                             }
@@ -133,7 +133,7 @@ struct Onboarding: View {
                                 viewModel.localUser.averageEnergy = parseNumber(input: energy)
                                 viewModel.localUser.averageEating = parseNumber(input: eat)
                                 viewModel.localUser.averageWater = parseNumber(input: water)
-                                DataModel.saveLocalUserToUserDefaults(user: viewModel.localUser)
+                                DataModel.saveLocalUser(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
                                 presentationMode.wrappedValue.dismiss()
                             } else {

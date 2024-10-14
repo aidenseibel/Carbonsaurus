@@ -21,6 +21,9 @@ class User: Identifiable, Codable, ObservableObject {
     var dinoPointsBalance: Double = 0
     var averageDriving, averageEnergy, averageEating, averageWater: Double
     
+    var notificationsEnabled: Bool = false
+    var notificationTime: Date = Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!
+    
     init() {
         username = ""
         averageDriving = 3.0
@@ -147,17 +150,23 @@ class User: Identifiable, Codable, ObservableObject {
     }
 
     func getDinoMoodDescription() -> String {
+        let sadResponses: [String] = ["are you even trying?", "it's so over", "oh no bro...", "well... it's only a planet, right?"]
+        let worriedResponses: [String] = ["you're this close...", "idk chief...", "that's a fine line you're walking...", "womp womp (but seriously)"]
+        let neutralResponses: [String] = ["hang in there [cat image].", "almost there!", "don't choke this", "._."]
+        let happyResponses: [String] = ["mic drop.", "we are so back", "you got this!", "let's goooo"]
+        let greatResponses: [String] = ["clutch", "yippee! yippee! yippee!", "poggers", "*chef's kiss*"]
+        
         switch getDinoMood() {
         case .sad:
-            return "are you even trying?"
+            return sadResponses.randomElement()!
         case .worried:
-            return "you're this close to killing the planet."
+            return worriedResponses.randomElement()!
         case .neutral:
-            return "hang in there, chief."
+            return neutralResponses.randomElement()!
         case .happy:
-            return "mic drop."
+            return happyResponses.randomElement()!
         case .great:
-            return "clutch af."
+            return greatResponses.randomElement()!
         }
     }
     
@@ -175,16 +184,16 @@ class User: Identifiable, Codable, ObservableObject {
             
             switch shopItem{
             case is AvatarColor:
-                ownedAvatarColors.append(shopItem as! AvatarColor)
+                ownedAvatarColors.append(shopItem as! AvatarColor) // force casting is safe
             case is AvatarAccessory:
-                ownedAvatarAccessories.append(shopItem as! AvatarAccessory)
+                ownedAvatarAccessories.append(shopItem as! AvatarAccessory) // force casting is safe
             case is AvatarBackground:
-                ownedAvatarBackgrounds.append(shopItem as! AvatarBackground)
+                ownedAvatarBackgrounds.append(shopItem as! AvatarBackground) // force casting is safe
             default:
                 return false
             }
             return true
         }
         return false
-    }
+    }    
 }
