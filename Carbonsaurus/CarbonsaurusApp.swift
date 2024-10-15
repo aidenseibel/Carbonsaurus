@@ -21,6 +21,9 @@ struct CarbonsaurusApp: App {
             if !viewModel.hasOnboarded {
                 Onboarding()
                     .environmentObject(viewModel)
+            } else if !viewModel.hasCompletedTutorial {
+                Tutorial()
+                    .environmentObject(viewModel)
             } else {
                 ZStack {
                     VStack {

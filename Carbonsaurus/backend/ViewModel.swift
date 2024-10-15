@@ -10,6 +10,7 @@ import Foundation
 public class ViewModel: ObservableObject {
     @Published var localUser: User
     @Published var hasOnboarded: Bool = false
+    @Published var hasCompletedTutorial: Bool = false
     @Published var isTabBarShowing: Bool = true
     @Published var hasLoggedToday: Bool = false
     @Published var hasAnsweredDailyQuestion: Bool = false
@@ -18,6 +19,7 @@ public class ViewModel: ObservableObject {
         if let user = DataModel.getLocalUser() {
             localUser = user
             hasOnboarded = true
+            hasCompletedTutorial = true
 
             hasLoggedToday = localUser.diaries.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
             hasAnsweredDailyQuestion = localUser.dailyQuizzes.filter { Calendar.current.isDate($0.date, inSameDayAs: Date.now) }.count > 0
@@ -46,6 +48,7 @@ public class ViewModel: ObservableObject {
         DataModel.clearNotifications()
         
         hasOnboarded = false
+        hasCompletedTutorial = false
         hasLoggedToday = false
         hasAnsweredDailyQuestion = false
         

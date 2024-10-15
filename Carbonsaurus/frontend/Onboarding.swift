@@ -61,7 +61,6 @@ struct Onboarding: View {
                                 viewModel.localUser.averageWater = 10
                                 DataModel.saveLocalUser(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
-                                presentationMode.wrappedValue.dismiss()
                             }
                             .foregroundColor(.pink.opacity(0.55))
                                 .buttonStyle(.plain)
@@ -131,7 +130,6 @@ struct Onboarding: View {
                                 viewModel.localUser.averageWater = parseNumber(input: water)
                                 DataModel.saveLocalUser(user: viewModel.localUser)
                                 viewModel.hasOnboarded = true
-                                presentationMode.wrappedValue.dismiss()
                             } else {
                                 errorInInputs = true
                             }

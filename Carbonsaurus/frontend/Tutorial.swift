@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct Tutorial: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    @EnvironmentObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     let screenWidth: Double = UIScreen.main.bounds.width
 
@@ -32,7 +31,7 @@ struct Tutorial: View {
                         Text("Make sure you fill out your diary, or your dinosaur might become sad!")
                         
                         Button(action: {
-                            
+                            viewModel.hasCompletedTutorial = true
                         }, label: {
                             HStack {
                                 Spacer()
