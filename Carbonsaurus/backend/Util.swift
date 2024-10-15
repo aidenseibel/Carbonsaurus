@@ -78,7 +78,7 @@ public func parseNumber(input: String) -> Double {
 }
 
 public func getRandomPanorama() -> String{
-    let panoramas: [String] = ["meadow", "desert", "lake"]
+    let panoramas: [String] = ["meadow", "desert", "lake", "mountain"]
     return panoramas.randomElement()!
 }
 
