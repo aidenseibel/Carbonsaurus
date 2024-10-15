@@ -65,5 +65,5 @@ struct AvatarView: View {
 }
 
 #Preview {
-    AvatarView(avatar: Avatar(color: .pink, mood: .happy, accessory: .tophat, background: .no_background), mood: AvatarMood.great, width: UIScreen.main.bounds.width)
+    AvatarView(avatar: Avatar(color: .pink, accessory: .tophat, background: .no_background), mood: AvatarMood.great, width: UIScreen.main.bounds.width)
 }

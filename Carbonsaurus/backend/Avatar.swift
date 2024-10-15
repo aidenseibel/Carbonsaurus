@@ -179,7 +179,7 @@ struct Avatar: Codable {
     var accessory: AvatarAccessory
     var background: AvatarBackground
     
-    init(color: AvatarColor, mood: AvatarMood, accessory: AvatarAccessory, background: AvatarBackground) {
+    init(color: AvatarColor, accessory: AvatarAccessory, background: AvatarBackground) {
         self.color = color
         self.accessory = accessory
         self.background = background

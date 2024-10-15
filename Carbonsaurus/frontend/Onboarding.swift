@@ -35,12 +35,10 @@ struct Onboarding: View {
                             .cornerRadius(10)
                             .padding(.bottom, 30)
                         Text("A few things before we start")
-                            .font(.system(size: 48))
+                            .font(.system(size: 36))
                             .bold()
                         Text("We need to collect a few metrics from you so we can get an accurate carbon footprint.")
-                            .bold()
                         Text("You can change these at any time, so don't worry!")
-                            .bold()
                             .padding(.bottom, 50)
 
                         HStack {
@@ -55,7 +53,6 @@ struct Onboarding: View {
                                 .bold()
                                 .background(.white)
                                 .cornerRadius(10)
-                                .padding(.bottom, 100)
 
                             Button("skip for now") {
                                 viewModel.localUser.averageDriving = 1
@@ -72,9 +69,8 @@ struct Onboarding: View {
                                 .bold()
                                 .background(.white)
                                 .cornerRadius(10)
-                                .padding(.bottom, 100)
-
                         }
+                        .padding(.bottom, 200)
 
                         Group {
                             VStack(alignment: .leading, spacing: 50) {
@@ -112,7 +108,7 @@ struct Onboarding: View {
                                 VStack(alignment: .leading) {
                                     Text("How much water do you use on an average day?")
                                         .bold()
-                                    TextField("enter minutes", text: $water)
+                                    TextField("enter gallons", text: $water)
                                         .keyboardType(.numberPad)
                                         .padding(10)
                                         .background(.white)
@@ -151,10 +147,9 @@ struct Onboarding: View {
                             .background(.white)
                             .cornerRadius(10)
                         })
-                        .frame(width: UIScreen.main.bounds.width * 0.90)
 
                     }
-                    .frame(width: UIScreen.main.bounds.width * 0.90)
+                    .padding()
                     .padding(.top, UIScreen.main.bounds.width * 0.40)
                 }
             }

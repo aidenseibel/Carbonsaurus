@@ -77,7 +77,7 @@ struct DiaryView: View {
                             .frame(width: UIScreen.main.bounds.width * 0.35)
 
                             HStack {
-                                Text("\(String(format: "%.0f", viewModel.localUser.averageEnergy*diary.energy/3)) (\(String(format: "%.0f", diary.getAppliancesCarbon(average: viewModel.localUser.averageEnergy))) g)")
+                                Text("\(String(format: "%.0f", viewModel.localUser.averageEnergy*diary.energy/3)) (\(String(format: "%.0f", diary.getEnergyCarbon(average: viewModel.localUser.averageEnergy))) g)")
                                     .multilineTextAlignment(.leading)
                                 Spacer()
                             }

@@ -52,16 +52,16 @@ struct Diary: Identifiable, Codable, Hashable {
         var carbonFootprint: Double = 0
 
         // driving
-        carbonFootprint += averages[0]/1 * (driving/3) * 3360
+        carbonFootprint += getDrivingCarbon(average: averages[0])
 
         // appliances
-        carbonFootprint += averages[1]/1 * (energy/3) * 2000
+        carbonFootprint += getEnergyCarbon(average: averages[1])
 
         // eating
-        carbonFootprint += averages[2]/1800 * (eat/3) * 4500
+        carbonFootprint += getEatCarbon(average: averages[2])
 
         // water
-        carbonFootprint += averages[3]/10 * (water/3) * 2000
+        carbonFootprint += getWaterCarbon(average: averages[3])
 
         return carbonFootprint
     }
@@ -70,12 +70,12 @@ struct Diary: Identifiable, Codable, Hashable {
         return average * driving * 1120.0
     }
 
-    func getAppliancesCarbon(average: Double) -> Double {
+    func getEnergyCarbon(average: Double) -> Double {
         return average * energy * 660
     }
 
     func getEatCarbon(average: Double) -> Double {
-            return average * eat * 0.83
+        return average * eat * 0.83
     }
 
     func getWaterCarbon(average: Double) -> Double {

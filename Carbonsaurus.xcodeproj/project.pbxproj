@@ -16,6 +16,7 @@
 		172DAE342B8B9A0E0050895B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172DAE332B8B9A0E0050895B /* StatsView.swift */; };
 		174A3DFB2C5AA6C50041F19A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A3DFA2C5AA6C50041F19A /* AvatarView.swift */; };
 		1750E8352C4C7CDF00BCE6CA /* ShopItemSubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1750E8342C4C7CDF00BCE6CA /* ShopItemSubView.swift */; };
+		1756D91C2CBEB4B100687A47 /* Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1756D91B2CBEB4B100687A47 /* Tutorial.swift */; };
 		176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176761202B8A8017001EC050 /* CarbonsaurusApp.swift */; };
 		176761252B8A8018001EC050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761242B8A8018001EC050 /* Assets.xcassets */; };
 		176761282B8A8018001EC050 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 176761272B8A8018001EC050 /* Preview Assets.xcassets */; };
@@ -117,6 +118,7 @@
 		172DAE332B8B9A0E0050895B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		174A3DFA2C5AA6C50041F19A /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		1750E8342C4C7CDF00BCE6CA /* ShopItemSubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemSubView.swift; sourceTree = "<group>"; };
+		1756D91B2CBEB4B100687A47 /* Tutorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial.swift; sourceTree = "<group>"; };
 		1767611D2B8A8017001EC050 /* Carbonsaurus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carbonsaurus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		176761202B8A8017001EC050 /* CarbonsaurusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarbonsaurusApp.swift; sourceTree = "<group>"; };
 		176761242B8A8018001EC050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				176761672B8B1FDA001EC050 /* Diary */,
 				C492E6A12B8AA76500969486 /* Feed */,
 				176761652B8B15AF001EC050 /* Onboarding.swift */,
+				1756D91B2CBEB4B100687A47 /* Tutorial.swift */,
 			);
 			path = frontend;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				172DAE2E2B8B83240050895B /* ViewModel.swift in Sources */,
 				176761662B8B15AF001EC050 /* Onboarding.swift in Sources */,
 				C492E6A52B8AD74400969486 /* Util.swift in Sources */,
+				1756D91C2CBEB4B100687A47 /* Tutorial.swift in Sources */,
 				176761212B8A8017001EC050 /* CarbonsaurusApp.swift in Sources */,
 				176761622B8ADBBB001EC050 /* User.swift in Sources */,
 				C492E6A32B8AA77F00969486 /* FeedService.swift in Sources */,
@@ -810,9 +814,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -846,9 +854,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ajs2003.Carbonsaurus;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
