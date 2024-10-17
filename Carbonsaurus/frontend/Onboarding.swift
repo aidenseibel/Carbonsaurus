@@ -85,7 +85,8 @@ struct Onboarding: View {
                                 }
 
                                 VStack(alignment: .leading) {
-                                    Text("How much electricity do you use on an average day?")
+                                    Text("How many times do you use an electricity-heavy appliance per day? (e.g washer, dryer, oven, etc)")
+                                        .multilineTextAlignment(.leading)
                                         .bold()
                                     TextField("enter number of times", text: $energy)
                                         .keyboardType(.numberPad)
