@@ -15,13 +15,17 @@ struct MediumWidgetView: View {
             HStack {
                 AvatarWidgetView(viewModel: viewModel)
                 Spacer()
-                VStack {
-                    Text("\(Int(viewModel.localUser.getDinoPoints() )) Dino Points")
+                VStack (spacing: 5) {
+                    Text("your dino is")
+                        .font(.system(size: 14))
                     Text(viewModel.localUser.getDinoMood().rawValue )
-                        .multilineTextAlignment(.center)
                         .font(.system(size: 32))
                         .bold()
-                    Text("\(Int(viewModel.localUser.getCarbonFootprintThisWeek() )) kg of carbon this week")
+                        .padding(.bottom, 5)
+                    Text("\(Int(viewModel.localUser.getDinoPointsThisWeek())) dino points")
+                        .font(.system(size: 12))
+                    Text(String(format: "%.2f", viewModel.localUser.getCarbonFootprintThisWeek() / 1000) + "kg carbon")
+                        .font(.system(size: 12))
                 }
                 Spacer()
             }

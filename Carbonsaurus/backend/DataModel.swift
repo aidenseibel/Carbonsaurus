@@ -18,7 +18,7 @@ struct DataModel {
             let data = try encoder.encode(user)
 
             // save and return true
-            if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+            if let userDefaults = UserDefaults(suiteName: "group.Carbonsaurus") {
                 userDefaults.setValue(data, forKey: "localUser")
             }
 
@@ -33,7 +33,7 @@ struct DataModel {
     
     // loads in the local user on launch.
     static func getLocalUser() -> User? {
-        if let userDefaults = UserDefaults(suiteName: "group.com.carbonsaurus.app.identifier") {
+        if let userDefaults = UserDefaults(suiteName: "group.Carbonsaurus") {
             // Safely unwrap the value for the key "localUser"
             if let data = userDefaults.value(forKey: "localUser") as? Data {
                 do {
