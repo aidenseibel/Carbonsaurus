@@ -20,6 +20,7 @@ class User: Identifiable, Codable, ObservableObject {
     
     var averageDriving, averageEnergy, averageEating, averageWater: Double
     
+    var dinoPointsBalance: Double = 0 // ** DEPRECATED ** DO NOT USE (will be removed in future update)
     var notificationsEnabled: Bool = false
     var notificationTime: Date = Calendar.current.date(bySettingHour: 19, minute: 30, second: 0, of: Date())!
     
