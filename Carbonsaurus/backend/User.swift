@@ -18,7 +18,6 @@ class User: Identifiable, Codable, ObservableObject {
     var ownedAvatarAccessories: [AvatarAccessory] = [.no_accessory]
     var ownedAvatarBackgrounds: [AvatarBackground] = [.no_background]
     
-    var dinoPointsBalance: Double = 0
     var averageDriving, averageEnergy, averageEating, averageWater: Double
     
     var notificationsEnabled: Bool = false
@@ -42,12 +41,10 @@ class User: Identifiable, Codable, ObservableObject {
     
     func addDiary(diary: Diary) {
         diaries.append(diary)
-        dinoPointsBalance += diary.dinoPoints()
     }
 
     func addDailyQuiz(dailyQuiz: DailyQuiz) {
         dailyQuizzes.append(dailyQuiz)
-        dinoPointsBalance += 500
     }
 
     func getDinoPoints() -> Double {
@@ -125,7 +122,7 @@ class User: Identifiable, Codable, ObservableObject {
         if diaries.isEmpty {
             return 0
         }
-        return getDinoPoints() / Double(diaries.count) + dinoPointsBalance
+        return getDinoPoints() / Double(diaries.count)
     }
 
     func getDailyAverages() -> [Double] {
@@ -179,9 +176,7 @@ class User: Identifiable, Codable, ObservableObject {
     }
     
     func buyShopItem(shopItem: AvatarItem) -> Bool {
-        if dinoPointsBalance >= shopItem.dinoPoints {
-            dinoPointsBalance -= shopItem.dinoPoints
-            
+        if calculateDinoPointsBalance() >= shopItem.dinoPoints {
             switch shopItem{
             case is AvatarColor:
                 ownedAvatarColors.append(shopItem as! AvatarColor) // force casting is safe
@@ -195,5 +190,31 @@ class User: Identifiable, Codable, ObservableObject {
             return true
         }
         return false
-    }    
+    }
+    
+    func calculateDinoPointsBalance() -> Double {
+        var balance: Double = 0
+        
+        for diary in diaries {
+            balance += diary.dinoPoints()
+        }
+        
+        for dailyQuiz in dailyQuizzes {
+            balance += 500
+        }
+        
+        for color in ownedAvatarColors {
+            balance -= color.dinoPoints
+        }
+        
+        for accessory in ownedAvatarAccessories {
+            balance -= accessory.dinoPoints
+        }
+        
+        for background in ownedAvatarBackgrounds {
+            balance -= background.dinoPoints
+        }
+        
+        return balance
+    }
 }

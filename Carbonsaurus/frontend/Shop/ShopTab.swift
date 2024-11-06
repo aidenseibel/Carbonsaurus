@@ -25,7 +25,7 @@ struct ShopTab: View {
                             VStack(alignment: .leading) {
                                 Text("your balance:")
                                     .font(.system(size: 14))
-                                Text(String(format: "%.0f", viewModel.localUser.dinoPointsBalance) + " dino points")
+                                Text(String(format: "%.0f", viewModel.localUser.calculateDinoPointsBalance()) + " dino points")
                                     .font(.title2)
                                     .bold()
                             }

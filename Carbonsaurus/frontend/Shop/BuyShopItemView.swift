@@ -11,7 +11,7 @@ struct BuyShopItemView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var showNotEnoughDinoPoints: Bool = false
+    @State var showNotEnoughDinoPointsAlert: Bool = false
     
     var shopItem: AvatarItem
     
@@ -32,7 +32,7 @@ struct BuyShopItemView: View {
                         if viewModel.buyShopItem(shopItem: shopItem) {
                             presentationMode.wrappedValue.dismiss()
                         } else {
-                            showNotEnoughDinoPoints = true
+                            showNotEnoughDinoPointsAlert = true
                         }
                     }, label: {
                         Text("buy for " + String(format: "%.0f", shopItem.dinoPoints) + " dino points")
@@ -40,12 +40,13 @@ struct BuyShopItemView: View {
                             .background(.white)
                             .cornerRadius(10)
                     })
-                    
-                    if showNotEnoughDinoPoints {
-                        Text("you do not have enough dino points!")
-                    }
                 }
                 .padding()
+            }
+        }
+        .alert("You do not have enough dino points!", isPresented: $showNotEnoughDinoPointsAlert) {
+            Button("OK", role: .cancel) {
+                showNotEnoughDinoPointsAlert = false
             }
         }
     }
