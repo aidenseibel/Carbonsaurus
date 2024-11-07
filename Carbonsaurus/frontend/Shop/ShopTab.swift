@@ -13,6 +13,8 @@ struct ShopTab: View {
 
     // to reload the view when an item is purchased
     @ObservedObject var reloadViewHelper = ReloadViewHelper()
+    
+    @State var showHowToGetDinoPointsSheet: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -21,20 +23,34 @@ struct ShopTab: View {
                     .ignoresSafeArea()
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading, spacing: 30) {
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("your balance:")
+                        VStack(alignment: .leading) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("your balance:")
+                                        .font(.system(size: 14))
+                                    Text(String(format: "%.0f", viewModel.localUser.calculateDinoPointsBalance()) + " dino points")
+                                        .font(.title2)
+                                        .bold()
+                                }
+                                Spacer()
+                            }
+                            .padding()
+                            .background(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                            
+                            Button {
+                                showHowToGetDinoPointsSheet = true
+                            } label: {
+                                Text("how do I get dino points?")
                                     .font(.system(size: 14))
-                                Text(String(format: "%.0f", viewModel.localUser.calculateDinoPointsBalance()) + " dino points")
-                                    .font(.title2)
                                     .bold()
                             }
-                            Spacer()
+                            .padding()
+                            .background(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
                         }
-                        .padding()
-                        .background(.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
                         
                         VStack(alignment: .leading) {
                             Text("dinos")
@@ -108,6 +124,9 @@ struct ShopTab: View {
             }
             .navigationTitle("the dino shop")
             .navigationBarTitleDisplayMode(.large)
+            .sheet(isPresented: $showHowToGetDinoPointsSheet, content: {
+                HowToGetDinoPointsView()
+            })
         }
     }
 }

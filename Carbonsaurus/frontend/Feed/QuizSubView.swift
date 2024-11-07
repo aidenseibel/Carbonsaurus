@@ -12,12 +12,13 @@ struct QuizSubView: View {
         HStack {
             VStack (alignment: .leading) {
                 Text("answer the daily quiz question!")
-                    .font(.system(size: 18))
+                    .font(.system(size: 16))
                     .bold()
                     .padding(.bottom, 5)
                 Text("test your knowledge, earn 500 dino points")
-                    .font(.system(size: 14))
+                    .font(.system(size: 12))
             }.padding(10)
+            
             Spacer()
             Image("pink_dino_transparent")
                 .resizable()
