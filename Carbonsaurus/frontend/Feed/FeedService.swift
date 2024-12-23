@@ -105,7 +105,12 @@ class FeedService {
                 let decoder = JSONDecoder()
                 decoder.dateDecodingStrategy = .iso8601
                 let response = try decoder.decode(FeedResponse.self, from: data)
-                let articles = response.articles
+                var articles: [Article] = []
+                for a in response.articles{
+                    if a.source.name != "[Removed]"{
+                        articles.append(a)
+                    }
+                }
                 completion(articles)
             } catch let error {
                 print("Error decoding JSON: \(error)")
